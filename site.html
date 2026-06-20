@@ -6,115 +6,118 @@
 <title>현장 대시보드</title>
 <style>
   :root{
-    --bg:#f6f3ec; --paper:#fffdf8; --ink:#1c1a17; --sub:#6b6358;
-    --line:#d9d2c5; --brass:#9c6b25; --brass-soft:#f0e6d4;
-    --green:#2e7d32; --orange:#e08a00; --red:#c62828; --blue:#1f5f8b;
+    --primary:#0066cc; --primary-on-dark:#2997ff;
+    --ink:#1d1d1f; --muted80:#333; --muted48:#7a7a7a;
+    --canvas:#fff; --parchment:#f5f5f7; --pearl:#fafafc;
+    --hairline:#e0e0e0; --divider:#f0f0f0;
+    --tile-dark:#272729;
+    --green:#1d8a34; --orange:#c25e00; --red:#c4271c;
+    --shadow:rgba(0,0,0,.22) 3px 5px 30px 0;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:"Spectral",Georgia,serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
-  .mono{font-family:"IBM Plex Mono","SFMono-Regular",Consolas,monospace}
-  .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
-  a{color:var(--brass)}
+  body{font-family:"SF Pro Text",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+    background:var(--parchment);color:var(--ink);-webkit-font-smoothing:antialiased;
+    font-size:17px;line-height:1.47;letter-spacing:-.374px}
+  .disp{font-family:"SF Pro Display",system-ui,-apple-system,sans-serif}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+  a{color:var(--primary);text-decoration:none}
 
-  .top{font-size:12px;padding:14px 0;color:var(--sub)}
-  header{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:6px;background:var(--paper)}
-  h1{font-size:32px;font-weight:700;letter-spacing:-.6px;padding-top:10px}
-  .sub{color:var(--sub);font-size:13px;margin-top:6px}
-  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
-  .tag{font-size:10px;padding:4px 9px;border-radius:2px;font-weight:700;letter-spacing:.5px}
-  .t-line{background:var(--brass-soft);color:var(--brass)}
-  .t-green{background:#e6f0e6;color:var(--green)}
-  .t-orange{background:#fbeed6;color:var(--orange)}
-  .t-red{background:#f6e0e0;color:var(--red)}
+  .gnav{background:#000;color:#fff;height:44px;display:flex;align-items:center}
+  .gnav .wrap{display:flex;align-items:center;gap:20px;width:100%;font-size:12px;letter-spacing:-.12px}
+  .gnav a{color:#f5f5f7}
 
-  /* 심사 한줄 판단 */
-  .verdict{background:var(--ink);color:#f3ede0;padding:18px 22px;margin:20px 0 28px;border-radius:2px}
-  .verdict .lbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#bda;opacity:.7}
-  .verdict .txt{font-size:15px;margin-top:6px;line-height:1.6}
-  .verdict b{color:#e8c98a}
+  header{background:var(--canvas);padding:56px 0 40px}
+  h1{font-family:"SF Pro Display",system-ui,sans-serif;font-size:48px;font-weight:600;line-height:1.08;letter-spacing:-.6px}
+  .sub{font-size:17px;color:var(--muted48);letter-spacing:-.374px;margin-top:12px;line-height:1.5}
+  .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+  .tag{font-size:12px;letter-spacing:-.12px;padding:6px 14px;border-radius:9999px;background:var(--pearl);color:var(--muted80);border:1px solid var(--divider)}
+  .tag.g{color:var(--green);border-color:#cfe8d4}.tag.o{color:var(--orange);border-color:#f0ddc4}.tag.r{color:var(--red);border-color:#f0cdc9}.tag.b{color:var(--primary);border-color:#cfe0f2}
 
-  .module{margin-bottom:34px}
-  .m-head{display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--ink);padding-bottom:6px;margin-bottom:16px}
-  .m-no{font-size:11px;font-weight:700;color:var(--paper);background:var(--brass);width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
-  .m-title{font-size:17px;font-weight:700;letter-spacing:-.2px}
+  /* 심사 한줄 판단 = dark hero tile */
+  .verdict{background:var(--tile-dark);color:#fff;border-radius:18px;padding:40px;margin:32px 0}
+  .verdict .lbl{font-size:14px;font-weight:600;letter-spacing:-.224px;color:var(--primary-on-dark)}
+  .verdict .txt{font-family:"SF Pro Display",system-ui,sans-serif;font-size:24px;font-weight:400;line-height:1.4;letter-spacing:-.2px;margin-top:14px;color:#f5f5f7}
+  .verdict b{color:#fff;font-weight:600}
 
-  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-  .stat{background:var(--paper);border:1px solid var(--line);border-radius:2px;padding:14px 16px}
-  .stat .k{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--sub)}
-  .stat .v{font-size:24px;font-weight:700;letter-spacing:-.5px;margin-top:4px}
-  .stat .v small{font-size:12px;font-weight:400;color:var(--sub)}
-  .stat .note{font-size:11px;color:var(--sub);margin-top:6px;line-height:1.45}
+  .module{margin:0 0 24px;background:var(--canvas);border:1px solid var(--hairline);border-radius:18px;padding:32px}
+  .m-head{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+  .m-no{font-size:14px;font-weight:600;color:#fff;background:var(--primary);width:28px;height:28px;border-radius:9999px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+  .m-title{font-family:"SF Pro Display",system-ui,sans-serif;font-size:24px;font-weight:600;letter-spacing:-.3px}
 
-  table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);font-size:13px}
-  th,td{padding:9px 12px;text-align:right;border-bottom:1px solid var(--line)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .stat{background:var(--parchment);border-radius:11px;padding:20px}
+  .stat .k{font-size:12px;letter-spacing:-.12px;color:var(--muted48)}
+  .stat .v{font-family:"SF Pro Display",system-ui,sans-serif;font-size:34px;font-weight:600;letter-spacing:-.5px;margin-top:4px;line-height:1.1}
+  .stat .v small{font-size:15px;font-weight:400;color:var(--muted48);letter-spacing:-.224px}
+  .stat .v.txt{font-size:24px}
+  .stat .note{font-size:14px;color:var(--muted48);letter-spacing:-.224px;margin-top:8px;line-height:1.4}
+
+  table{width:100%;border-collapse:collapse;font-size:14px;letter-spacing:-.224px;margin-top:8px}
+  th,td{padding:12px;text-align:right;border-bottom:1px solid var(--divider)}
   th:first-child,td:first-child{text-align:left}
-  thead th{background:var(--brass-soft);font-size:11px;letter-spacing:.5px;color:var(--brass);font-weight:700}
-  tbody tr:last-child td{border-bottom:none}
-  tfoot td{font-weight:700;background:#faf6ee;border-top:2px solid var(--ink)}
+  thead th{font-size:12px;letter-spacing:-.12px;color:var(--muted48);font-weight:600}
+  tbody tr:last-child td{border-bottom:1px solid var(--hairline)}
+  tfoot td{font-weight:600;color:var(--ink)}
+  td b{font-weight:600}
 
-  .kvrow{background:var(--paper);border:1px solid var(--line);border-radius:2px}
-  .kvrow .row{display:flex;justify-content:space-between;padding:10px 16px;border-bottom:1px solid var(--line);font-size:13px;gap:16px}
-  .kvrow .row:last-child{border-bottom:none}
-  .kvrow .k{color:var(--sub);flex-shrink:0}
-  .kvrow .v{text-align:right;font-weight:600}
+  .kvrow .row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--divider);gap:16px}
+  .kvrow .row:last-child{border-bottom:none;padding-bottom:0}
+  .kvrow .row:first-child{padding-top:0}
+  .kvrow .k{color:var(--muted48);flex-shrink:0;font-size:15px}
+  .kvrow .v{text-align:right;font-weight:600;font-size:15px}
 
-  .devview{background:var(--brass-soft);border-left:3px solid var(--brass);padding:11px 15px;font-size:12.5px;color:#5a4423;margin-top:12px;border-radius:0 2px 2px 0}
-  .devview b{color:var(--brass)}
+  .devview{background:var(--parchment);border-radius:11px;padding:16px 20px;font-size:14px;letter-spacing:-.224px;color:var(--muted80);margin-top:20px;line-height:1.5}
+  .devview b{color:var(--primary);font-weight:600}
 
-  /* 옵션 단계 바 */
-  .opt-tier{display:grid;grid-template-columns:130px 1fr 90px;gap:12px;align-items:center;padding:10px 0;border-bottom:1px dashed var(--line)}
+  .opt-tier{display:grid;grid-template-columns:140px 1fr 100px;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid var(--divider)}
   .opt-tier:last-child{border-bottom:none}
-  .opt-tier .nm{font-size:13px;font-weight:700}
-  .opt-tier .desc{font-size:11px;color:var(--sub)}
-  .opt-bar{height:8px;background:var(--brass-soft);border-radius:4px;overflow:hidden}
-  .opt-bar i{display:block;height:100%;background:var(--brass)}
-  .opt-val{text-align:right;font-weight:700}
-  .opt-val small{font-size:11px;color:var(--sub);font-weight:400}
+  .opt-tier .nm{font-size:15px;font-weight:600}
+  .opt-tier .desc{font-size:13px;color:var(--muted48);letter-spacing:-.18px;margin-bottom:8px}
+  .opt-bar{height:8px;background:var(--divider);border-radius:9999px;overflow:hidden}
+  .opt-bar i{display:block;height:100%;background:var(--primary);border-radius:9999px}
+  .opt-val{text-align:right;font-family:"SF Pro Display",system-ui,sans-serif;font-weight:600;font-size:17px}
+  .opt-val small{font-size:13px;color:var(--muted48);font-weight:400}
 
-  footer{margin:40px 0 32px;padding-top:16px;border-top:1px solid var(--line);font-size:11px;color:var(--sub);line-height:1.7}
-  .loading{text-align:center;padding:80px;color:var(--sub);font-style:italic}
+  footer{background:var(--parchment);padding:48px 0 64px}
+  footer .wrap{font-size:12px;letter-spacing:-.12px;color:var(--muted48);line-height:1.8}
+  .back{font-size:12px;letter-spacing:-.12px;color:var(--muted48);padding:16px 0;display:block}
+  .loading{text-align:center;padding:100px 24px;color:var(--muted48)}
+  @media(max-width:640px){h1{font-size:34px}.verdict .txt{font-size:21px}.grid2,.grid3{grid-template-columns:1fr}.opt-tier{grid-template-columns:1fr;gap:8px}}
 </style>
 </head>
 <body>
+<nav class="gnav"><div class="wrap"><a href="index.html">← 분석 DB</a><span id="navloc"></span></div></nav>
 <div id="app" class="loading">로딩 중…</div>
 
 <script>
-const fmt = n => n==null?'-':n.toLocaleString('ko-KR');
-const qs = new URLSearchParams(location.search);
-const id = qs.get('id');
-
-function tags(b){
-  let t=[];
-  t.push(b.regulated?'<span class="tag t-red">규제지역</span>':'<span class="tag t-line">비규제</span>');
-  t.push(b.resaleRestriction?'<span class="tag t-orange">전매제한</span>':'<span class="tag t-line">전매제한 없음</span>');
-  t.push(b.priceCap?'<span class="tag t-orange">분양가상한제</span>':'<span class="tag t-line">상한제 미적용</span>');
-  t.push('<span class="tag t-line">'+b.landType+'</span>');
-  return t.join('');
-}
-const gradeColor={A:'t-green',B:'t-green',C:'t-orange',D:'t-red'};
+const fmt=n=>n==null?'-':n.toLocaleString('ko-KR');
+const id=new URLSearchParams(location.search).get('id');
+const gradeC={A:'g',B:'g',C:'o',D:'r'};
+function tags(b){let t=[];
+  t.push(b.regulated?'<span class="tag r">규제지역</span>':'<span class="tag b">비규제</span>');
+  t.push(b.resaleRestriction?'<span class="tag o">전매제한</span>':'<span class="tag">전매제한 없음</span>');
+  t.push(b.priceCap?'<span class="tag o">분양가상한제</span>':'<span class="tag">상한제 미적용</span>');
+  t.push('<span class="tag">'+b.landType+'</span>');return t.join('');}
 
 function render(d){
-  const b=d.building, p=d.pricing, l=d.loan, o=d.options, dp=d.downPayment;
-  const verdict = `국민평형 84㎡ <b>${p.kookmin84Ratio}%</b>로 환금성은 양호하나, 계약금 <b>${dp.grade}등급</b>(1차 현금장벽 ${dp.initialCashRatio}%)과 비규제·전매제한 없음이 겹쳐 <b>허수계약 리스크</b>가 있다. 표면 계약률보다 5% 완납 계약률·1차 중도금 실행률로 검증할 것. 필수옵션 ${o.essentialRatio}%·풀옵션 ${o.fullRatio}%로 승인분양가 밖 옵션매출(추정 ${fmt(o.estDeveloperOptionRevenueEok)}억) 보충 구조.`;
+  const b=d.building,p=d.pricing,l=d.loan,o=d.options,dp=d.downPayment;
+  document.getElementById('navloc').textContent=d.location.sido+' '+d.location.sigungu;
+  const verdict=`국민평형 84㎡ <b>${p.kookmin84Ratio}%</b>로 환금성은 양호하나, 계약금 <b>${dp.grade}등급</b>(1차 현금장벽 ${dp.initialCashRatio}%)과 비규제·전매제한 없음이 겹쳐 <b>허수계약 리스크</b>가 있다. 표면 계약률보다 5% 완납 계약률·1차 중도금 실행률로 검증할 것. 필수옵션 ${o.essentialRatio}%·풀옵션 ${o.fullRatio}%로 승인분양가 밖 옵션매출(추정 ${fmt(o.estDeveloperOptionRevenueEok)}억) 보충 구조.`;
+  const app=document.getElementById('app');app.className='';
+  app.innerHTML=`
+  <header><div class="wrap">
+    <h1>${d.name}</h1>
+    <div class="sub">${d.location.address}<br>${d.approvalNo} · 입주 ${b.moveIn}</div>
+    <div class="tags">${tags(b)}</div>
+  </div></header>
 
-  document.getElementById('app').className='';
-  document.getElementById('app').innerHTML = `
   <div class="wrap">
-    <div class="top mono"><a href="index.html">← 전국 인덱스</a> &nbsp;/&nbsp; ${d.location.sido} ${d.location.sigungu}</div>
-    <header>
-      <h1>${d.name}</h1>
-      <div class="sub">${d.location.address}<br>${d.approvalNo} · 입주 ${b.moveIn}</div>
-      <div class="tags">${tags(b)}</div>
-    </header>
-
     <div class="verdict">
       <div class="lbl">심사 한줄 판단</div>
       <div class="txt">${verdict}</div>
     </div>
 
-    <!-- ① 입지·건축개요 -->
     <div class="module">
       <div class="m-head"><span class="m-no">1</span><span class="m-title">입지 · 건축개요</span></div>
       <div class="kvrow">
@@ -128,84 +131,56 @@ function render(d){
       </div>
     </div>
 
-    <!-- ② 단지개요 -->
     <div class="module">
       <div class="m-head"><span class="m-no">2</span><span class="m-title">단지개요 · 분양가</span></div>
-      <div class="grid3" style="margin-bottom:14px">
-        <div class="stat"><div class="k">총 공급세대</div><div class="v mono">${fmt(b.totalUnits)}</div><div class="note">특별 ${fmt(b.specialUnits)} · 일반 ${fmt(b.generalUnits)}</div></div>
-        <div class="stat"><div class="k">전체 평균 평당가 (면적가중)</div><div class="v mono">${fmt(p.avgPyeongPrice)}<small> 만원</small></div><div class="note">총매출 ${fmt(p.totalRevenueEok)}억</div></div>
-        <div class="stat"><div class="k">국민평형 84㎡ 비중</div><div class="v mono">${p.kookmin84Ratio}<small> %</small></div><div class="note">환금성 지표</div></div>
+      <div class="grid3" style="margin-bottom:20px">
+        <div class="stat"><div class="k">총 공급세대</div><div class="v">${fmt(b.totalUnits)}</div><div class="note">특별 ${fmt(b.specialUnits)} · 일반 ${fmt(b.generalUnits)}</div></div>
+        <div class="stat"><div class="k">전체 평균 평당가 (면적가중)</div><div class="v">${fmt(p.avgPyeongPrice)}<small> 만원</small></div><div class="note">총매출 ${fmt(p.totalRevenueEok)}억</div></div>
+        <div class="stat"><div class="k">국민평형 84㎡ 비중</div><div class="v">${p.kookmin84Ratio}<small> %</small></div><div class="note">환금성 지표</div></div>
       </div>
       <table>
         <thead><tr><th>타입</th><th>전용㎡</th><th>공급㎡</th><th>세대수</th><th>비중</th><th>세대평균</th><th>평당가</th><th>매출(억)</th></tr></thead>
-        <tbody>
-          ${d.unitMix.map(u=>`<tr>
-            <td><b>${u.type}</b></td><td class="mono">${u.exclusive}</td><td class="mono">${u.supply}</td>
-            <td class="mono">${fmt(u.units)}</td><td class="mono">${u.ratio}%</td>
-            <td class="mono">${fmt(u.avgPrice)}만</td><td class="mono">${fmt(u.pyeongPrice)}만</td><td class="mono">${u.revenueEok}</td>
-          </tr>`).join('')}
-        </tbody>
-        <tfoot><tr><td>합계</td><td></td><td></td><td class="mono">${fmt(b.totalUnits)}</td><td></td><td></td><td class="mono">${fmt(p.avgPyeongPrice)}만</td><td class="mono">${fmt(p.totalRevenueEok)}</td></tr></tfoot>
+        <tbody>${d.unitMix.map(u=>`<tr><td><b>${u.type}</b></td><td>${u.exclusive}</td><td>${u.supply}</td><td>${fmt(u.units)}</td><td>${u.ratio}%</td><td>${fmt(u.avgPrice)}만</td><td>${fmt(u.pyeongPrice)}만</td><td>${u.revenueEok}</td></tr>`).join('')}</tbody>
+        <tfoot><tr><td>합계</td><td></td><td></td><td>${fmt(b.totalUnits)}</td><td></td><td></td><td>${fmt(p.avgPyeongPrice)}만</td><td>${fmt(p.totalRevenueEok)}</td></tr></tfoot>
       </table>
       <div class="devview">${p.note}</div>
     </div>
 
-    <!-- ③ 시행사 P&L -->
     <div class="module">
       <div class="m-head"><span class="m-no">3</span><span class="m-title">수입·비용 영향 (시행사 P&amp;L)</span></div>
       <div class="grid2">
-        <div class="stat">
-          <div class="k">발코니 확장</div>
-          <div class="v">${d.balcony.all}</div>
-          <div class="note">전타입 ${d.balcony.all}. 수분양자 혜택이나 시행사 매출에 녹인 원가요소.</div>
-        </div>
-        <div class="stat">
-          <div class="k">중도금 대출 (${l.type})</div>
-          <div class="v mono">${l.ratio}<small> %</small> · 혜택 ${fmt(l.benefitManwon84A)}<small>만</small></div>
-          <div class="note">${l.detail} ${l.benefitBasis}</div>
-        </div>
+        <div class="stat"><div class="k">발코니 확장</div><div class="v txt">${d.balcony.all}</div><div class="note">전타입 ${d.balcony.all}. 수분양자 혜택이나 시행사 매출에 녹인 원가요소.</div></div>
+        <div class="stat"><div class="k">중도금 대출 (${l.type})</div><div class="v">${l.ratio}<small> % · 혜택 ${fmt(l.benefitManwon84A)}만</small></div><div class="note">${l.detail} ${l.benefitBasis}</div></div>
       </div>
       <div class="devview"><b>대주 관점:</b> ${l.developerView} 발코니: ${d.balcony.developerView}</div>
     </div>
 
-    <!-- ④ 유상옵션 -->
     <div class="module">
       <div class="m-head"><span class="m-no">4</span><span class="m-title">유상옵션 (마이너스옵션)</span></div>
-      <div class="stat" style="margin-bottom:14px">
-        ${o.tiers.map(t=>`
-          <div class="opt-tier">
-            <div><div class="nm">${t.tier}</div></div>
-            <div><div class="desc" style="margin-bottom:5px">${t.desc}</div><div class="opt-bar"><i style="width:${Math.min(t.ratio/15*100,100)}%"></i></div></div>
-            <div class="opt-val mono">${fmt(t.manwon84A)}만<br><small>${t.ratio}%</small></div>
-          </div>`).join('')}
+      <div style="margin-bottom:20px">
+        ${o.tiers.map(t=>`<div class="opt-tier">
+          <div class="nm">${t.tier}</div>
+          <div><div class="desc">${t.desc}</div><div class="opt-bar"><i style="width:${Math.min(t.ratio/15*100,100)}%"></i></div></div>
+          <div class="opt-val">${fmt(t.manwon84A)}만<br><small>${t.ratio}%</small></div>
+        </div>`).join('')}
       </div>
       <div class="grid3">
-        <div class="stat"><div class="k">필수옵션 (84A)</div><div class="v mono">${fmt(o.essentialManwon)}<small>만 / ${o.essentialRatio}%</small></div></div>
-        <div class="stat"><div class="k">풀옵션 (84A)</div><div class="v mono">${fmt(o.fullManwon)}<small>만 / ${o.fullRatio}%</small></div></div>
-        <div class="stat"><div class="k">시행사 옵션매출 (추정)</div><div class="v mono">${fmt(o.estDeveloperOptionRevenueEok)}<small> 억</small></div></div>
+        <div class="stat"><div class="k">필수옵션 (84A)</div><div class="v">${fmt(o.essentialManwon)}<small>만 / ${o.essentialRatio}%</small></div></div>
+        <div class="stat"><div class="k">풀옵션 (84A)</div><div class="v">${fmt(o.fullManwon)}<small>만 / ${o.fullRatio}%</small></div></div>
+        <div class="stat"><div class="k">시행사 옵션매출 (추정)</div><div class="v">${fmt(o.estDeveloperOptionRevenueEok)}<small> 억</small></div></div>
       </div>
       <div class="devview">${o.developerView}</div>
     </div>
 
-    <!-- ⑤ 판촉·계약금 -->
     <div class="module">
       <div class="m-head"><span class="m-no">5</span><span class="m-title">판촉·마케팅 (계약금 구조)</span></div>
       <div class="grid2">
-        <div class="stat">
-          <div class="k">계약금 등급</div>
-          <div class="v"><span class="tag ${gradeColor[dp.grade]}" style="font-size:18px;padding:4px 14px">${dp.grade}</span></div>
-          <div class="note">${dp.structure}</div>
-        </div>
-        <div class="stat">
-          <div class="k">1차 현금장벽</div>
-          <div class="v mono">${fmt(dp.initialCashManwon)}<small>만 (${dp.initialCashRatio}%)</small></div>
-          <div class="note">분양가 대비 초기 현금부담</div>
-        </div>
+        <div class="stat"><div class="k">계약금 등급</div><div class="v"><span class="tag ${gradeC[dp.grade]}" style="font-size:20px;padding:6px 18px">${dp.grade}</span></div><div class="note">${dp.structure}</div></div>
+        <div class="stat"><div class="k">1차 현금장벽</div><div class="v">${fmt(dp.initialCashManwon)}<small>만 (${dp.initialCashRatio}%)</small></div><div class="note">분양가 대비 초기 현금부담</div></div>
       </div>
       <div class="devview"><b>허수계약 점검:</b> ${dp.gradeNote}</div>
     </div>
 
-    <!-- ⑥ 사업주체 -->
     <div class="module">
       <div class="m-head"><span class="m-no">6</span><span class="m-title">사업주체 · 보증</span></div>
       <div class="kvrow">
@@ -216,21 +191,17 @@ function render(d){
       </div>
       <div class="devview">${d.parties.trustNote}</div>
     </div>
+  </div>
 
-    <footer>
-      자료: 입주자모집공고(${d.noticeDate}) 기반 정량 분석. 평당가는 전 세대 면적가중. 옵션·중도금 수치는 84A 주력타입 기준.<br>
-      본 분석은 PF 심사 참고용이며 청약·투자 권유가 아닙니다.
-    </footer>
-  </div>`;
-  document.title = d.name + ' · 분석 DB';
+  <footer><div class="wrap">
+    자료: 입주자모집공고(${d.noticeDate}) 기반 정량 분석. 평당가는 전 세대 면적가중. 옵션·중도금 수치는 84A 주력타입 기준.<br>
+    본 분석은 PF 심사 참고용이며 청약·투자 권유가 아닙니다.
+  </div></footer>`;
+  document.title=d.name+' · 분석 DB';
 }
-
-if(!id){
-  document.getElementById('app').innerHTML='<div class="loading">현장 ID가 없습니다. <a href="index.html">인덱스로</a></div>';
-}else{
-  fetch('data/sites/'+id+'.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(render)
-  .catch(()=>{document.getElementById('app').innerHTML='<div class="loading">데이터를 불러올 수 없습니다 (id: '+id+'). 로컬에서 열면 CORS로 차단됩니다 — GitHub Pages/로컬 서버에서 확인하세요. <a href="index.html">인덱스로</a></div>'});
-}
+if(!id){document.getElementById('app').innerHTML='<div class="loading">현장 ID가 없습니다. <a href="index.html">인덱스로</a></div>';}
+else{fetch('data/sites/'+id+'.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(render)
+.catch(()=>{document.getElementById('app').innerHTML='<div class="loading">데이터를 불러올 수 없습니다 (id: '+id+'). GitHub Pages/로컬 서버에서 확인하세요. <a href="index.html">인덱스로</a></div>'});}
 </script>
 </body>
 </html>
