@@ -1,0 +1,284 @@
+{
+  "id": "bukosan-xi-deforet",
+  "name": "북오산자이 드포레",
+  "approvalNo": "오산시 주택과-19304호(2026.06.11)",
+  "noticeDate": "2026-06-12",
+  "location": {
+    "sido": "경기도",
+    "sigungu": "오산시",
+    "address": "경기도 오산시 내삼미동 288번지 일원",
+    "district": "오산(내삼미2구역) 도시관리계획 지구단위계획구역 공동주택용지(A2블럭)",
+    "showroom": "경기도 오산시 내삼미동 272-2"
+  },
+  "building": {
+    "scale": "지하 2층 ~ 지상 29층, 11개동",
+    "totalUnits": 1517,
+    "specialUnits": 720,
+    "generalUnits": 797,
+    "moveIn": "2029-10",
+    "heating": "개별난방(도시가스)",
+    "parking": "지하 2개층 2,269대 (근생 지상 9대 별도, 총 2,278대)",
+    "seismic": "내진 MMI Ⅶ (0.207g)",
+    "schoolElem": "(가칭)내삼미1초 2029.3 개교예정 — 신설학교 지연 시 입주 영향 가능",
+    "regulated": false,
+    "resaleRestriction": true,
+    "reWinRestriction": false,
+    "obligationResidence": false,
+    "priceCap": false,
+    "landType": "민간택지"
+  },
+  "unitMix": [
+    {
+      "type": "59A",
+      "exclusive": 59.9928,
+      "supply": 79.4711,
+      "pyeong": 24.04,
+      "units": 149,
+      "ratio": 9.8,
+      "special": 79,
+      "general": 70,
+      "avgPrice": 49446,
+      "pyeongPrice": 2057,
+      "revenueEok": 736.7
+    },
+    {
+      "type": "59B",
+      "exclusive": 59.9984,
+      "supply": 79.387,
+      "pyeong": 24.01,
+      "units": 84,
+      "ratio": 5.5,
+      "special": 44,
+      "general": 40,
+      "avgPrice": 50935,
+      "pyeongPrice": 2121,
+      "revenueEok": 427.9
+    },
+    {
+      "type": "74A",
+      "exclusive": 74.959,
+      "supply": 97.1014,
+      "pyeong": 29.37,
+      "units": 196,
+      "ratio": 12.9,
+      "special": 105,
+      "general": 91,
+      "avgPrice": 59442,
+      "pyeongPrice": 2024,
+      "revenueEok": 1165.1
+    },
+    {
+      "type": "74B",
+      "exclusive": 74.981,
+      "supply": 97.0533,
+      "pyeong": 29.36,
+      "units": 28,
+      "ratio": 1.8,
+      "special": 12,
+      "general": 16,
+      "avgPrice": 60491,
+      "pyeongPrice": 2060,
+      "revenueEok": 169.4
+    },
+    {
+      "type": "74C",
+      "exclusive": 74.9604,
+      "supply": 97.6033,
+      "pyeong": 29.52,
+      "units": 83,
+      "ratio": 5.5,
+      "special": 44,
+      "general": 39,
+      "avgPrice": 60143,
+      "pyeongPrice": 2037,
+      "revenueEok": 499.2
+    },
+    {
+      "type": "84A",
+      "exclusive": 84.9121,
+      "supply": 109.594,
+      "pyeong": 33.15,
+      "units": 560,
+      "ratio": 36.9,
+      "special": 306,
+      "general": 254,
+      "avgPrice": 66039,
+      "pyeongPrice": 1992,
+      "revenueEok": 3698.2
+    },
+    {
+      "type": "84B",
+      "exclusive": 84.9102,
+      "supply": 109.4914,
+      "pyeong": 33.12,
+      "units": 112,
+      "ratio": 7.4,
+      "special": 60,
+      "general": 52,
+      "avgPrice": 67153,
+      "pyeongPrice": 2028,
+      "revenueEok": 752.1
+    },
+    {
+      "type": "84C",
+      "exclusive": 84.9695,
+      "supply": 110.3467,
+      "pyeong": 33.38,
+      "units": 84,
+      "ratio": 5.5,
+      "special": 44,
+      "general": 40,
+      "avgPrice": 65891,
+      "pyeongPrice": 1974,
+      "revenueEok": 553.5
+    },
+    {
+      "type": "99A",
+      "exclusive": 99.3455,
+      "supply": 127.7937,
+      "pyeong": 38.66,
+      "units": 163,
+      "ratio": 10.7,
+      "special": 20,
+      "general": 143,
+      "avgPrice": 74462,
+      "pyeongPrice": 1926,
+      "revenueEok": 1213.7
+    },
+    {
+      "type": "99B",
+      "exclusive": 99.3436,
+      "supply": 127.6849,
+      "pyeong": 38.62,
+      "units": 55,
+      "ratio": 3.6,
+      "special": 6,
+      "general": 49,
+      "avgPrice": 75667,
+      "pyeongPrice": 1959,
+      "revenueEok": 416.2
+    },
+    {
+      "type": "124P",
+      "exclusive": 124.4008,
+      "supply": 163.3796,
+      "pyeong": 49.42,
+      "units": 2,
+      "ratio": 0.1,
+      "special": 0,
+      "general": 2,
+      "avgPrice": 148640,
+      "pyeongPrice": 3008,
+      "revenueEok": 29.7
+    },
+    {
+      "type": "125P",
+      "exclusive": 125.2247,
+      "supply": 164.7747,
+      "pyeong": 49.84,
+      "units": 1,
+      "ratio": 0.1,
+      "special": 0,
+      "general": 1,
+      "avgPrice": 149430,
+      "pyeongPrice": 2998,
+      "revenueEok": 14.9
+    }
+  ],
+  "pricing": {
+    "avgPyeongPrice": 2004,
+    "totalRevenueEok": 9677,
+    "method": "전 세대 분양가 합산 ÷ 총 공급평수 (면적가중)",
+    "kookmin84Ratio": 85.4,
+    "note": "국민평형(59~84) 비중 85.4%(1,296세대), 84계열만 49.8%(756세대)로 환금성 양호. 평당가가 소형이 더 비싼 역전 구조(59B 2,121만 > 84A 1,992만 > 99A 1,926만) — 소형 고가·대형 박리 전략. 펜트하우스(124/125P)는 평당 3,000만대 별도 가격대.",
+    "verdict": "국민평형(59~84) <b>85.4%</b>로 환금성은 양호하나 평당가가 <b>소형이 더 비싼 역전 구조</b>(59B 2,121만 &gt; 84A 1,992만)로, 소형 고가·대형 박리 전략이다. 계약금 <b>C등급</b>(1차 정액 1,000만·84A의 1.51%)에 전매제한 6개월이 있어 허수억제력은 김해보다 다소 강하나 여전히 진입장벽이 낮다. 발코니 <b>전타입 유상</b>(84A 1,280만)·중도금 <b>이자후불제(유이자)</b>로 시행사는 무이자 대납부담이 없는 대신, 계약자 실부담은 분양가+발코니+입주시 이자정산으로 늘어난다. 옵션은 발코니 확장과 연쇄 강제되는 구조."
+  },
+  "balcony": {
+    "all": "유상",
+    "byType": {
+      "59A": "1,170만",
+      "59B": "1,450만",
+      "74A": "1,230만",
+      "74B": "1,530만",
+      "74C": "1,400만",
+      "84A": "1,280만",
+      "84B": "1,660만",
+      "84C": "1,330만",
+      "99A": "1,500만",
+      "99B": "1,900만",
+      "124P": "3,000만",
+      "125P": "3,000만"
+    },
+    "developerView": "전 타입 유상 확장(84A 1,280만, 평당 38.6만 / 59A는 평당 48.7만으로 소형이 더 비쌈). 김해(전타입 무상)와 정반대 — 발코니 확장비를 분양가 밖 추가 매출로 확보. 일괄확장 전제라 사실상 필수비용."
+  },
+  "loan": {
+    "ratio": 60,
+    "type": "유이자",
+    "detail": "총 공급대금의 60% 범위 중도금 대출 알선, '중도금 대출 이자후불제' 조건(이자 입주 시 정산). 대출기관 추후 공지. 계약금 10%(1·2차) 완납 후 실행.",
+    "benefitManwon84A": 0,
+    "benefitBasis": "이자후불제(유이자) — 무이자 혜택 없음. 중도금 이자는 계약자 부담(입주 시 정산), 시행사 금융비용 전가 구조.",
+    "drawdownLimit": "비규제 — 세대당 2건. 취급기관 미선정 상태, 오산 외 원거리 기관 선정 가능성 명시.",
+    "developerView": "이자후불제라 시행사 입장에선 무이자 대납 부담이 없음(김해 무이자 대비 유리). 계약자에겐 입주 시점 이자 일시 정산 부담 — 분양가 외 실부담 증가요인."
+  },
+  "downPayment": {
+    "grade": "C",
+    "structure": "10% 분할 (1차 계약시 정액 1,000만 + 2차 계약 후 30일내 잔여)",
+    "initialCashManwon": 1000,
+    "initialCashRatio": 1.51,
+    "gradeNote": "1차 정액 1,000만(C등급). 84A 분양가의 1.51%로 진입장벽 낮음. 다만 김해(0.95%)보다는 높고 전매제한 6개월이 존재 — 허수계약 억제력은 김해보다 다소 강함. 표면 계약률보다 '10% 완납 계약률'과 '1차 중도금 실행률'로 검증 권장."
+  },
+  "options": {
+    "essentialManwon": 1372,
+    "essentialRatio": 2.1,
+    "fullManwon": 5036,
+    "fullRatio": 7.6,
+    "systemAircon84A": 788,
+    "tiers": [
+      {
+        "tier": "사실상필수",
+        "desc": "시스템에어컨 4대(거실+침실1·2·3). 발코니 확장 시에만 선택 가능 → 확장 강제와 연동",
+        "manwon84A": 788,
+        "ratio": 1.2
+      },
+      {
+        "tier": "필수+준필수",
+        "desc": "시스템에어컨4대+식기세척기+3구인덕션+현관중문+욕실복합환풍기",
+        "manwon84A": 1372,
+        "ratio": 2.1
+      },
+      {
+        "tier": "풀옵션",
+        "desc": "주방·인테리어 Style Up+시스템에어컨4대+공기청정기3대+가전3종(냉장고·광파오븐·식기세척기)+개별유상(중문·수전·붙박이장2·환풍기·인덕션)",
+        "manwon84A": 5036,
+        "ratio": 7.6
+      }
+    ],
+    "estDeveloperOptionRevenueEok": 0,
+    "developerView": "유상옵션 비율(풀옵션 7.6%)은 김해(13.5%)보다 낮으나, 발코니 유상(별도)을 합치면 분양가 외 부담은 유사 수준. 시스템에어컨·공기청정기·가전이 모두 '발코니 확장 시에만 선택 가능'으로 묶여 확장→옵션 연쇄 강제 구조. 시공 자회사(자이에스앤디)·GS건설이 옵션 매출 직접 수취."
+  },
+  "schedule": {
+    "noticeDate": "2026-06-12",
+    "special": "2026-06-22",
+    "general1": "2026-06-23",
+    "general2": "2026-06-24",
+    "winnerAnnounce": "2026-06-30",
+    "docSubmit": "2026-07-03 ~ 2026-07-08",
+    "contract": "2026-07-13 ~ 2026-07-15"
+  },
+  "parties": {
+    "developer": "주식회사 오앤티비홀딩스 (시행위탁자 겸 수익자)",
+    "trust": "한국투자부동산신탁 주식회사 (관리형토지신탁, 시행수탁자)",
+    "constructor": "지에스건설 주식회사 (자이)",
+    "trustNote": "관리형토지신탁 — 시행수탁자(한국투자부동산신탁)는 신탁재산 한도 내에서만 매도인 책임. 실질 사업주체는 시행위탁자 오앤티비홀딩스, 하자책임은 오앤티비홀딩스·GS건설."
+  },
+  "guarantee": {
+    "agency": "주택도시보증공사(HUG)",
+    "amountEok": 6773.6,
+    "certNo": "제 01282026-101-0005200 호"
+  },
+  "certifications": {
+    "communityGrade": "공동주택 성능등급 인증",
+    "greenBuilding": "녹색건축 예비인증 (종합 ★★★☆)",
+    "energy": "건축물 에너지효율등급 예비인증"
+  }
+}
