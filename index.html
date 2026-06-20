@@ -14,6 +14,7 @@
     --shadow:rgba(0,0,0,.22) 3px 5px 30px 0;
   }
   *{box-sizing:border-box;margin:0;padding:0}
+  html,body{overflow-x:hidden;max-width:100%}
   body{font-family:"SF Pro Text",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
     background:var(--parchment);color:var(--ink);-webkit-font-smoothing:antialiased;
     font-size:17px;line-height:1.47;letter-spacing:-.374px}
@@ -74,7 +75,24 @@
   footer .wrap{font-size:12px;letter-spacing:-.12px;color:var(--muted48);line-height:1.8}
   code{font-family:"SF Mono",ui-monospace,monospace;font-size:11px;background:var(--canvas);padding:1px 5px;border-radius:5px;border:1px solid var(--divider)}
 
-  @media(max-width:640px){h1{font-size:34px}.lead{font-size:21px}}
+  @media(max-width:640px){
+    .wrap{padding:0 16px}
+    h1{font-size:32px;letter-spacing:-.4px}
+    .lead{font-size:19px}
+    header{padding:40px 0 32px}
+    section{padding:32px 0}
+    .sido-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+    .sido-card{padding:18px}
+    .sido-card .big{font-size:32px}
+    .site-list{grid-template-columns:1fr;gap:16px}
+    .site-card{padding:22px}
+    .sc-name{font-size:24px}
+    .kv .v{font-size:24px}
+    .controls{gap:8px}
+    .search{flex:1 1 100%;max-width:none;order:5}
+    .count{order:6;margin-left:0}
+    select{flex:1;min-width:0}
+  }
 </style>
 </head>
 <body>
