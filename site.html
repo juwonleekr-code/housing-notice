@@ -111,6 +111,7 @@
 
 <script>
 const fmt=n=>n==null?'-':n.toLocaleString('ko-KR');
+const eok=man=>man==null?'-':(man/10000).toLocaleString('ko-KR',{minimumFractionDigits:2,maximumFractionDigits:2});
 const id=new URLSearchParams(location.search).get('id');
 const gradeC={A:'g',B:'g',C:'o',D:'r'};
 function tags(b){let t=[];
@@ -158,8 +159,8 @@ function render(d){
         <div class="stat"><div class="k">국민평형 84㎡ 비중</div><div class="v">${p.kookmin84Ratio}<small> %</small></div><div class="note">환금성 지표</div></div>
       </div>
       <div class="tbl-scroll"><table>
-        <thead><tr><th>타입</th><th>전용㎡</th><th>공급㎡</th><th>세대수</th><th>비중</th><th>세대평균</th><th>평당가</th><th>매출(억)</th></tr></thead>
-        <tbody>${d.unitMix.map(u=>`<tr><td><b>${u.type}</b></td><td>${u.exclusive}</td><td>${u.supply}</td><td>${fmt(u.units)}</td><td>${u.ratio}%</td><td>${fmt(u.avgPrice)}만</td><td>${fmt(u.pyeongPrice)}만</td><td>${u.revenueEok}</td></tr>`).join('')}</tbody>
+        <thead><tr><th>타입</th><th>전용㎡</th><th>공급㎡</th><th>세대수</th><th>비중</th><th>세대평균(억)</th><th>평당가</th><th>매출(억)</th></tr></thead>
+        <tbody>${d.unitMix.map(u=>`<tr><td><b>${u.type}</b></td><td>${u.exclusive}</td><td>${u.supply}</td><td>${fmt(u.units)}</td><td>${u.ratio}%</td><td>${eok(u.avgPrice)}억</td><td>${fmt(u.pyeongPrice)}만</td><td>${u.revenueEok}</td></tr>`).join('')}</tbody>
         <tfoot><tr><td>합계</td><td></td><td></td><td>${fmt(b.totalUnits)}</td><td></td><td></td><td>${fmt(p.avgPyeongPrice)}만</td><td>${fmt(p.totalRevenueEok)}</td></tr></tfoot>
       </table></div>
       <div class="devview">${p.note}</div>
