@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-20",
+  "updated": "2026-06-21",
   "sites": [
     {
       "id": "kimhae-sinmun-central",
@@ -23,6 +23,29 @@
       "regulated": false,
       "resaleRestriction": false,
       "totalRevenueEok": 7557
+    },
+    {
+      "id": "bukosan-xi-deforet",
+      "name": "북오산자이 드포레",
+      "sido": "경기도",
+      "sigungu": "오산시",
+      "district": "내삼미2구역 A2블럭",
+      "units": 1517,
+      "moveIn": "2029-10",
+      "avgPyeong": 2004,
+      "kookmin84Ratio": 85.4,
+      "balcony": "전타입 유상",
+      "loanType": "유이자",
+      "loanRatio": 60,
+      "downPaymentGrade": "C",
+      "essentialOptionRatio": 2.1,
+      "fullOptionRatio": 7.6,
+      "developer": "오앤티비홀딩스",
+      "trust": "한국투자부동산신탁",
+      "constructor": "GS건설(자이)",
+      "regulated": false,
+      "resaleRestriction": true,
+      "totalRevenueEok": 9677
     }
   ]
 }
