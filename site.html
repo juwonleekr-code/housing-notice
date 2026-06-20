@@ -123,7 +123,7 @@ function tags(b){let t=[];
 function render(d){
   const b=d.building,p=d.pricing,l=d.loan,o=d.options,dp=d.downPayment;
   document.getElementById('navloc').textContent=d.location.sido+' '+d.location.sigungu;
-  const verdict=`국민평형 84㎡ <b>${p.kookmin84Ratio}%</b>로 환금성은 양호하나, 계약금 <b>${dp.grade}등급</b>(1차 현금장벽 ${dp.initialCashRatio}%)과 비규제·전매제한 없음이 겹쳐 <b>허수계약 리스크</b>가 있다. 표면 계약률보다 5% 완납 계약률·1차 중도금 실행률로 검증할 것. 필수옵션 ${o.essentialRatio}%·풀옵션 ${o.fullRatio}%로 승인분양가 밖 옵션매출(추정 ${fmt(o.estDeveloperOptionRevenueEok)}억) 보충 구조.`;
+  const verdict=p.verdict||`국민평형 <b>${p.kookmin84Ratio}%</b>로 환금성은 양호하나, 계약금 <b>${dp.grade}등급</b>(1차 현금장벽 ${dp.initialCashRatio}%)과 ${b.resaleRestriction?'전매제한':'비규제·전매제한 없음'}이 결합해 계약의 질을 검증할 필요가 있다. 표면 계약률보다 완납 계약률·1차 중도금 실행률로 확인할 것. 필수옵션 ${o.essentialRatio}%·풀옵션 ${o.fullRatio}%${o.estDeveloperOptionRevenueEok?` (옵션매출 추정 ${fmt(o.estDeveloperOptionRevenueEok)}억)`:''}.`;
   const app=document.getElementById('app');app.className='';
   app.innerHTML=`
   <header><div class="wrap">
