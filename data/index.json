@@ -46,6 +46,29 @@
       "regulated": false,
       "resaleRestriction": true,
       "totalRevenueEok": 9677
+    },
+    {
+      "id": "kimhae-sinmun-lasiel",
+      "name": "신문 대상 웰라움 라시엘",
+      "sido": "경상남도",
+      "sigungu": "김해시",
+      "district": "장유 신문4지구",
+      "units": 375,
+      "moveIn": "2029-01",
+      "avgPyeong": 1470,
+      "kookmin84Ratio": 98.4,
+      "balcony": "전타입 유상",
+      "loanType": "무이자",
+      "loanRatio": 60,
+      "downPaymentGrade": "C",
+      "essentialOptionRatio": 1.9,
+      "fullOptionRatio": 13.0,
+      "developer": "트로이즈김해",
+      "trust": "신영부동산신탁",
+      "constructor": "대상건설(웰라움)",
+      "regulated": false,
+      "resaleRestriction": false,
+      "totalRevenueEok": 1862
     }
   ]
 }
