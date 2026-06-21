@@ -69,6 +69,29 @@
       "regulated": false,
       "resaleRestriction": false,
       "totalRevenueEok": 1862
+    },
+    {
+      "id": "hoban-chumdan3-a7bl",
+      "name": "호반써밋 첨단3지구 (A7BL)",
+      "sido": "광주광역시",
+      "sigungu": "북구",
+      "district": "첨단3지구 A7블록",
+      "units": 356,
+      "moveIn": "2028-09",
+      "avgPyeong": 1536,
+      "kookmin84Ratio": 100.0,
+      "balcony": "전타입 유상",
+      "loanType": "유이자",
+      "loanRatio": 60,
+      "downPaymentGrade": "C",
+      "essentialOptionRatio": 1.0,
+      "fullOptionRatio": 11.2,
+      "developer": "첨단678PFV",
+      "trust": "한국자산신탁",
+      "constructor": "호반건설(호반써밋)",
+      "regulated": false,
+      "resaleRestriction": true,
+      "totalRevenueEok": 1913
     }
   ]
 }
