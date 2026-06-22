@@ -1,0 +1,157 @@
+{
+  "id": "incheon-geomam-xirene",
+  "name": "검암역자이르네",
+  "approvalNo": "인천광역시 서구청 주택과-7914호(2026.05.14)",
+  "noticeDate": "2026-05-15",
+  "location": {
+    "sido": "인천광역시",
+    "sigungu": "서구",
+    "address": "인천광역시 서구 경서동 4-8번지 일원 (검암역세권 B-2블록)",
+    "district": "인천검암역세권 공공주택지구 내 공동주택용지(B-2BL)",
+    "showroom": "인천광역시 서구 경서동 998번지 (검암역자이르네 견본주택)"
+  },
+  "building": {
+    "scale": "지하 3층 ~ 지상 25층, 5개동",
+    "totalUnits": 601,
+    "specialUnits": 384,
+    "generalUnits": 217,
+    "moveIn": "2028-12",
+    "heating": "지역난방 (청라에너지)",
+    "parking": "총 911대 (아파트 지하 906대 + 근생 지상 5대), 전기차 급속19·완속8·과금형65",
+    "seismic": "내진 I등급 (MMI Ⅶ, 0.204g)",
+    "schoolElem": "인천간재울초등학교 (통학구역, 변경 가능)",
+    "regulated": false,
+    "resaleRestriction": true,
+    "reWinRestriction": true,
+    "obligationResidence": false,
+    "priceCap": true,
+    "landType": "공공택지(수도권 공공주택지구, 대규모택지)"
+  },
+  "unitMix": [
+    {
+      "type": "84A",
+      "exclusive": 84.6120,
+      "supply": 110.2136,
+      "pyeong": 33.34,
+      "units": 234,
+      "ratio": 38.9,
+      "special": 151,
+      "general": 83,
+      "avgPrice": 59410,
+      "pyeongPrice": 1782,
+      "revenueEok": 1374.8
+    },
+    {
+      "type": "84B",
+      "exclusive": 84.6297,
+      "supply": 109.4728,
+      "pyeong": 33.12,
+      "units": 246,
+      "ratio": 40.9,
+      "special": 157,
+      "general": 89,
+      "avgPrice": 58750,
+      "pyeongPrice": 1774,
+      "revenueEok": 1421.1
+    },
+    {
+      "type": "84C",
+      "exclusive": 84.6060,
+      "supply": 110.2936,
+      "pyeong": 33.36,
+      "units": 121,
+      "ratio": 20.1,
+      "special": 76,
+      "general": 45,
+      "avgPrice": 58200,
+      "pyeongPrice": 1744,
+      "revenueEok": 714.4
+    }
+  ],
+  "pricing": {
+    "avgPyeongPrice": 1756,
+    "totalRevenueEok": 3510,
+    "method": "전 세대 분양가 합산 ÷ 총 공급평수 (층별 세대수 가중)",
+    "kookmin84Ratio": 100.0,
+    "note": "전 세대 전용 84㎡ 단일면적(A/B/C) 구성으로 환금성 최상. 분양가상한제 적용. 평당가 84A 1,782만 ~ 84C 1,744만으로 타입 간 편차 작음(층별 차등 존재). 대표 평당가는 주력층(10층 이상) 기준."
+  },
+  "balcony": {
+    "all": "유상",
+    "byType": {
+      "84A": "5,860,000원",
+      "84B": "4,280,000원",
+      "84C": "4,100,000원"
+    },
+    "developerView": "전타입 유상 확장 — 분양가 외 별도 수익원. 단위세대를 확장형 전제로 설계·전시하여 비확장 시 공간 협소·활용도 저하를 명시, 사실상 확장 유도. 84A 586만(평당 약 17.6만)."
+  },
+  "loan": {
+    "ratio": 60,
+    "type": "이자후불제(유이자)",
+    "detail": "총 공급대금의 60% 범위 내 사업주체 알선, 중도금 이자후불제 조건. 입주지정일 전일까지 발생 이자는 사업주체 대납 후 입주 시 계약자가 전액 상환.",
+    "benefitManwon84A": 0,
+    "benefitBasis": "이자후불제(유이자) — 무이자 혜택 없음. 대납이자는 입주 시 계약자 전액 상환 의무.",
+    "drawdownLimit": "비규제 — 자금조달계획서 신고대상(6억 이상). 대출기관 미선정, 추후 공지.",
+    "developerView": "무이자가 아닌 이자후불제. 사업주체 금융비용 부담 최소화 — 계약자가 최종 이자 부담."
+  },
+  "downPayment": {
+    "grade": "B",
+    "structure": "계약금 10% = 1차 5%(계약시) + 2차 5%(계약 후 30일 이내), 정률제",
+    "initialCashManwon": 2971,
+    "initialCashRatio": 5.0,
+    "gradeNote": "정률제. 1차 현금장벽이 분양가의 5%(84A 약 2,971만)로 통상 수준. 비규제·전매제한 3년·거주의무 없음과 결합. 표면 계약금 10%이나 계약시 현금은 1차 5%만. 정액우대(예: 500만) 없음."
+  },
+  "options": {
+    "essentialManwon": 1841,
+    "essentialRatio": 3.1,
+    "fullManwon": 3673,
+    "fullRatio": 6.2,
+    "systemAircon84A": 440,
+    "tiers": [
+      {
+        "tier": "사실상필수",
+        "desc": "시스템에어컨 2대(미선택 시 냉매배관 2개소만 기본 → 사실상 강제)",
+        "manwon84A": 440,
+        "ratio": 0.7
+      },
+      {
+        "tier": "필수+준필수",
+        "desc": "시스템에어컨2대+환기형공기청정+주방StyleUp+부부욕실+인테리어",
+        "manwon84A": 1841,
+        "ratio": 3.1
+      },
+      {
+        "tier": "풀옵션",
+        "desc": "위 + 조명·수납·현관중문 StyleUp + 가전(B.I 냉장고/김치냉장고/식기세척기/오븐/인덕션) 등",
+        "manwon84A": 3673,
+        "ratio": 6.2
+      }
+    ],
+    "estDeveloperOptionRevenueEok": 111,
+    "developerView": "분양가상한제로 분양가가 묶인 만큼 발코니 확장·StyleUp·가전을 유상옵션으로 돌려 승인분양가 밖에서 수익 보충. 시스템에어컨은 기본 냉매배관만 제공해 사실상 선택 강제. 마이너스옵션(84A 3,670만 공제) 동시 제공으로 옵션 선택폭 양방향 설계."
+  },
+  "schedule": {
+    "noticeDate": "2026-05-15",
+    "special": "2026-05-26",
+    "general1": "2026-05-27",
+    "general2": "2026-05-28",
+    "winnerAnnounce": "2026-06-04",
+    "docSubmit": "2026-06-08 ~ 2026-06-14",
+    "contract": "2026-06-15 ~ 2026-06-18"
+  },
+  "parties": {
+    "developer": "(주)창해건설",
+    "trust": "신영부동산신탁 주식회사 (관리형토지신탁)",
+    "constructor": "자이에스앤디(주)",
+    "trustNote": "관리형토지신탁 — 수탁자(신영부동산신탁)는 신탁재산 범위 내에서만 매도인 책임. 실질 사업주체는 위탁자 창해건설. 하자보수는 시공사 자이에스앤디 부담."
+  },
+  "guarantee": {
+    "agency": "주택도시보증공사(HUG)",
+    "amountEok": 2457.23,
+    "certNo": "제 01222026-101-0000900 호"
+  },
+  "certifications": {
+    "communityGrade": "공동주택 성능등급 인증",
+    "greenBuilding": "녹색건축 예비인증",
+    "energy": "건축물 에너지효율등급 예비인증"
+  }
+}
