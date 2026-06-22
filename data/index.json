@@ -92,6 +92,29 @@
       "regulated": false,
       "resaleRestriction": true,
       "totalRevenueEok": 1913
+    },
+    {
+      "id": "incheon-geomam-xirene",
+      "name": "검암역자이르네",
+      "sido": "인천광역시",
+      "sigungu": "서구",
+      "district": "검암역세권 공공주택지구 B-2블록",
+      "units": 601,
+      "moveIn": "2028-12",
+      "avgPyeong": 1756,
+      "kookmin84Ratio": 100.0,
+      "balcony": "전타입 유상",
+      "loanType": "이자후불제(유이자)",
+      "loanRatio": 60,
+      "downPaymentGrade": "B",
+      "essentialOptionRatio": 3.1,
+      "fullOptionRatio": 6.2,
+      "developer": "창해건설",
+      "trust": "신영부동산신탁",
+      "constructor": "자이에스앤디",
+      "regulated": false,
+      "resaleRestriction": true,
+      "totalRevenueEok": 3510
     }
   ]
 }
