@@ -220,7 +220,7 @@ function render(d){
   document.title=d.name+' · 분석 DB';
 }
 if(!id){document.getElementById('app').innerHTML='<div class="loading">현장 ID가 없습니다. <a href="index.html">인덱스로</a></div>';}
-else{fetch('data/sites/'+id+'.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(render)
+else{fetch('data/sites/'+id+'.json?v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw 0;return r.json()}).then(render)
 .catch(()=>{document.getElementById('app').innerHTML='<div class="loading">데이터를 불러올 수 없습니다 (id: '+id+'). GitHub Pages/로컬 서버에서 확인하세요. <a href="index.html">인덱스로</a></div>'});}
 </script>
 </body>
