@@ -131,13 +131,6 @@
   </section>
 </div>
 
-<footer>
-  <div class="wrap">
-    화면 코드는 고정 — 새 현장은 <code>data/sites/{id}.json</code> 추가 후 <code>data/index.json</code>의 sites 배열에 요약 1건 추가하면 자동 반영됩니다.<br>
-    평당가 = 전 세대 분양가 합산 ÷ 총 공급평수(면적가중). 발코니·중도금은 수분양자 혜택 기준 표기이며 시행사 입장에선 매출차감·금융비용 요소입니다.
-  </div>
-</footer>
-
 <script>
 const fmt = n => n==null?'-':n.toLocaleString('ko-KR');
 let ALL=[];
@@ -174,7 +167,7 @@ function renderList(){
       <div class="chips">${regChip(s)} ${loanChip(s)} ${dpChip(s.downPaymentGrade)} <span class="chip">풀옵션 ${s.fullOptionRatio}%</span></div>
     </a>`).join(''):'<div class="empty">조건에 맞는 현장이 없습니다.</div>';
 }
-fetch('data/index.json').then(r=>r.json()).then(d=>{
+fetch('data/index.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(d=>{
   ALL=d.sites;
   meta.textContent='최종 갱신 '+d.updated+' · 등록 현장 '+ALL.length+'개';
   [...new Set(ALL.map(s=>s.sido))].forEach(v=>{const o=document.createElement('option');o.value=o.textContent=v;fSido.appendChild(o)});
