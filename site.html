@@ -63,15 +63,23 @@ header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.88);backdr
 
 /* Table */
 .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--divider);border-radius:var(--rc)}
-table{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:600px;table-layout:fixed}
+table colgroup col:nth-child(1){width:68px}
+table colgroup col:nth-child(2){width:68px}
+table colgroup col:nth-child(3){width:68px}
+table colgroup col:nth-child(4){width:62px}
+table colgroup col:nth-child(5){width:52px}
+table colgroup col:nth-child(6){width:82px}
+table colgroup col:nth-child(7){width:82px}
+table colgroup col:nth-child(8){width:76px}
 thead tr{background:var(--section)}
-th{padding:12px 14px;text-align:right;font-weight:600;color:var(--sub);font-size:12px;letter-spacing:.01em;border-bottom:1px solid var(--divider);white-space:nowrap}
+th{padding:10px 10px;text-align:right;font-weight:600;color:var(--sub);font-size:11px;letter-spacing:.01em;border-bottom:1px solid var(--divider);white-space:nowrap;overflow:hidden}
 th:first-child{text-align:left}
-td{padding:11px 14px;text-align:right;border-bottom:1px solid var(--divider);font-size:14px}
+td{padding:10px 10px;text-align:right;border-bottom:1px solid var(--divider);font-size:13px;white-space:nowrap;overflow:hidden}
 td:first-child{text-align:left;font-weight:600}
 tbody tr:last-child td{border-bottom:none}
 tbody tr:hover{background:rgba(0,0,0,.016)}
-.tfoot td{background:var(--section);font-weight:700;font-size:14px;border-top:2px solid var(--divider)}
+.tfoot td{background:var(--section);font-weight:700;font-size:13px;border-top:2px solid var(--divider);white-space:nowrap}
 .tfoot td:first-child{color:var(--sub)}
 .num{font-variant-numeric:tabular-nums}
 .hl{color:var(--blue);font-weight:700}
@@ -155,8 +163,11 @@ footer{border-top:1px solid var(--divider);padding:32px 0;font-size:12px;color:v
     <div class="sec-title"><span class="sec-num">02</span> 공급면적 · 분양가</div>
     <div class="tbl-wrap">
       <table>
+        <colgroup>
+          <col><col><col><col><col><col><col><col>
+        </colgroup>
         <thead>
-          <tr><th>타입</th><th>전용㎡</th><th>공급㎡</th><th>세대수</th><th>비중</th><th>세대평균</th><th>평당가</th><th>매출액</th></tr>
+          <tr><th>타입</th><th>전용㎡</th><th>공급㎡</th><th>세대수</th><th>비중</th><th>세대평균(억)</th><th>평당가(만)</th><th>매출(억)</th></tr>
         </thead>
         <tbody id="unitTbody"></tbody>
         <tfoot>
@@ -191,6 +202,8 @@ footer{border-top:1px solid var(--divider);padding:32px 0;font-size:12px;color:v
   <div class="wrap">
     <div class="sec-title"><span class="sec-num">05</span> 판촉 · 계약금 구조</div>
     <div class="contract-pills" id="contractPills"></div>
+    <div class="kv-grid" id="dpDetail" style="margin-bottom:16px"></div>
+    <div class="sec-title" style="font-size:15px;margin-top:8px;margin-bottom:14px;color:var(--sub)">청약 일정</div>
     <div class="kv-grid" id="promoGrid"></div>
   </div>
 </section>
@@ -221,80 +234,90 @@ const fmt=(n,d=0)=>n==null?'—':Number(n).toLocaleString('ko-KR',{maximumFracti
 const pct=n=>n==null?'—':n+'%';
 const badge=(cls,t)=>`<span class="badge ${cls}">${t}</span>`;
 
-/* ── 스키마 정규화 ── 구형(kimhae 스타일)과 신형 모두 지원 */
+/* ── 스키마 정규화 ── 구형(kimhae)·신형 모두 지원 */
 function normalize(d){
   const bld=d.building||{}, loc=d.location||{}, p=d.parties||{};
   const pricing=d.pricing||{}, loan=d.loan||{}, dp=d.downPayment||{};
   const guar=d.guarantee||{};
 
-  // top-level 필드 보완
   d._units    = d.units    || bld.totalUnits;
-  d._moveIn   = d.moveIn   || bld.moveIn   || (d.schedule&&d.schedule.moveInDate);
+  d._moveIn   = d.moveIn   || bld.moveIn || (d.schedule&&(d.schedule.moveInDate||d.schedule.movein));
   d._regulated= d.regulated!=null ? d.regulated : bld.regulated;
   d._resale   = d.resaleRestriction!=null ? d.resaleRestriction : bld.resaleRestriction;
   d._loanType = d.loanType || loan.type;
-  d._loanRatio= d.loanRatio|| loan.ratio;
+  d._loanRatio= d.loanRatio!= null ? d.loanRatio : loan.ratio;
+  d._loanDetail= loan.detail || '';
+  d._loanBenefit= loan.benefitManwon84A ? `84A 기준 중도금 이자절감 약 ${fmt(loan.benefitManwon84A)}만원 추정` : '';
   d._dpGrade  = d.downPaymentGrade || dp.grade;
-  d._dpRatio  = d.downPaymentRatio || dp.initialCashRatio;
+  d._dpRatio  = d.downPaymentRatio != null ? d.downPaymentRatio
+                : (dp.initialCashRatio!=null ? Math.round(dp.initialCashRatio) : null);
+  d._dpStruct = dp.structure || d.downPaymentStructure || '';
+  d._dpNote   = dp.gradeNote || '';
   d._avgPP    = d.avgPyeong || pricing.avgPyeongPrice;
   d._gdv      = (d.pl&&d.pl.totalRevenue) || pricing.totalRevenueEok;
   d._hug      = (d.pl&&d.pl.hugGuarantee) || guar.amountEok;
+  d._hugCert  = guar.certNo || '';
   d._k84r     = (d.pl&&d.pl.kookmin84Ratio) || pricing.kookmin84Ratio || d.kookmin84Ratio;
   d._fullOpt  = (d.pl&&d.pl.fullOptionRatio!=null) ? d.pl.fullOptionRatio
-                : (d.options&&d.options.fullRatio);
-  d._plNote   = (d.pl&&d.pl.notes) || pricing.note || (d.options&&d.options.developerView) || '';
+                : (d.options&&d.options.fullRatio!=null?d.options.fullRatio:null);
+  d._plNote   = (d.pl&&d.pl.notes) || pricing.note || '';
 
-  // 위치 보완
-  loc._block  = loc.block || loc.district;
+  // 위치
+  loc._block = loc.block || loc.district;
 
-  // 건축개요 보완
-  bld._type   = bld.type || (bld.scale ? bld.scale.split(',')[0].trim() : null);
-  const bldMatch= bld.scale && bld.scale.match(/(\d+)개동/);
-  bld._bldCnt = bld.buildings || (bldMatch ? bldMatch[1]+'동' : null);
-  const flrMatch= bld.scale && bld.scale.match(/지상\s*(\d+)층/);
-  bld._maxFlr = bld.maxFloor || (flrMatch ? flrMatch[1] : null);
+  // 건축개요
+  bld._type  = bld.type || (bld.scale ? bld.scale.split(',')[0].trim() : null);
+  const bldMatch = bld.scale && bld.scale.match(/(\d+)개동/);
+  bld._bldCnt= bld.buildings != null ? bld.buildings
+               : (bldMatch ? bldMatch[1] : null);
+  const flrMatch = bld.scale && bld.scale.match(/지상\s*(\d+)층/);
+  bld._maxFlr= bld.maxFloor != null ? bld.maxFloor
+               : (flrMatch ? Number(flrMatch[1]) : null);
 
-  // 유닛 타입 정규화
-  const rawUnits = d.unitTypes || d.unitMix || [];
-  d._unitTypes = rawUnits.map(u=>({
-    type:       u.type,
-    exclusiveM2:u.exclusiveM2 || u.exclusive,
-    supplyM2:   u.supplyM2   || u.supply,
-    units:      u.units,
-    unitAvgPrice:u.unitAvgPrice|| u.avgPrice,
+  // 유닛 타입
+  const rawU = d.unitTypes || d.unitMix || [];
+  d._unitTypes = rawU.map(u=>({
+    type:        u.type,
+    exclusiveM2: u.exclusiveM2 != null ? u.exclusiveM2 : u.exclusive,
+    supplyM2:    u.supplyM2    != null ? u.supplyM2    : u.supply,
+    units:       u.units,
+    unitAvgPrice:u.unitAvgPrice!= null ? u.unitAvgPrice: u.avgPrice,
     pyeongPrice: u.pyeongPrice,
   }));
 
-  // 유상옵션 정규화
+  // 유상옵션
   if(Array.isArray(d.options)){
     d._opts = d.options;
   } else if(d.options && Array.isArray(d.options.tiers)){
     d._opts = d.options.tiers.map(t=>({
       category: t.tier,
-      name: t.desc,
-      price: t.manwon84A,
-      note: '84A 기준',
+      name:     t.desc,
+      price:    t.manwon84A,
+      note:     '84A 기준',
     }));
-  } else { d._opts = []; }
+  } else { d._opts=[]; }
 
-  // 사업주체 정규화
-  d._developer  = d.developer  || p.developer;
-  d._constructor= d.constructor|| p.constructor;
-  d._trustee    = d.trustee    || p.trust;
+  // 사업주체 — d.constructor는 JS 내장속성과 충돌하므로 hasOwnProperty로 접근
+  d._developer  = d.developer   || p.developer;
+  d._constructor= (Object.prototype.hasOwnProperty.call(d,'constructor') ? d['constructor'] : null)
+                  || p.constructor
+                  || (d.contractors&&d.contractors[0]&&d.contractors[0].name);
+  d._trustee    = d.trustee || (typeof p.trust==='string' ? p.trust : (p.trust&&p.trust.name));
+  d._trustNote  = typeof p.trust==='string' ? (p.trustNote||'') : (p.trust&&p.trust.note||'');
   d._salesAgent = d.salesAgent;
-  d._hugGuar    = d.hugGuarantor||(guar.amountEok?`HUG ${fmt(guar.amountEok)}억 (${guar.certNo||''})`:null);
+  d._hugGuar    = d.hugGuarantor || (guar.amountEok ? `HUG ${fmt(guar.amountEok)}억` : null);
 
-  // 일정 정규화
-  const sc = d.schedule||{};
+  // 일정
+  const sc=d.schedule||{};
   d._schedDates=[
-    {k:'입주자모집공고',v:sc.noticeDate||d.noticeDate},
-    {k:'특별공급',      v:sc.special||sc.specialDate},
-    {k:'1순위 청약',    v:sc.general1||sc.applicationDate},
-    {k:'2순위 청약',    v:sc.general2},
-    {k:'당첨자발표',    v:sc.winnerAnnounce||sc.winnerAnnouncementDate},
-    {k:'서류제출',      v:sc.docSubmit},
-    {k:'계약체결',      v:sc.contract||sc.contractDate},
-    {k:'입주예정',      v:d._moveIn},
+    {k:'입주자모집공고', v: sc.noticeDate||d.noticeDate},
+    {k:'특별공급',       v: sc.special||sc.specialDate},
+    {k:'1순위 청약',     v: sc.general1||sc.applicationDate},
+    {k:'2순위 청약',     v: sc.general2},
+    {k:'당첨자발표',     v: sc.winnerAnnounce||sc.winnerAnnouncementDate},
+    {k:'서류제출',       v: sc.docSubmit},
+    {k:'계약체결',       v: sc.contract||sc.contractDate},
+    {k:'입주예정',       v: d._moveIn},
   ].filter(i=>i.v);
 
   return d;
@@ -358,15 +381,18 @@ function renderUnitTable(d){
   document.getElementById('unitTbody').innerHTML=units.map(u=>{
     const sp=(tu?(u.units/tu*100).toFixed(1):'—')+'%';
     const isK=u.type.startsWith('84');
+    // 세대평균: 만원→억원 (소수 2자리)
+    const avgEok=(u.unitAvgPrice/10000).toFixed(2);
+    const revEok=Math.round(u.unitAvgPrice*u.units/100000000);
     return `<tr class="${isK?'kookmin-row':''}">
       <td>${u.type}</td>
       <td class="num">${fmt(u.exclusiveM2,2)}</td>
       <td class="num">${fmt(u.supplyM2,2)}</td>
       <td class="num">${fmt(u.units)}</td>
       <td>${sp}</td>
-      <td class="num">${fmt(u.unitAvgPrice)} 만</td>
-      <td class="num hl">${fmt(u.pyeongPrice)} 만</td>
-      <td class="num">${fmt(Math.round(u.unitAvgPrice*u.units/100000000))} 억</td>
+      <td class="num">${avgEok}억</td>
+      <td class="num hl">${fmt(u.pyeongPrice)}만</td>
+      <td class="num">${fmt(revEok)}억</td>
     </tr>`;
   }).join('');
   document.getElementById('tUnits').textContent=fmt(tu)+' 세대';
@@ -376,16 +402,16 @@ function renderUnitTable(d){
 
 function renderPL(d){
   const items=[
-    {label:'분양수입 (GDV)',val:d._gdv,unit:'억',cls:'blue'},
-    {label:'가중 평당분양가',val:d._avgPP,unit:'만/평',cls:'blue'},
-    {label:'HUG 보증한도',val:d._hug?fmt(d._hug):null,unit:'억'},
-    {label:'국민평형 비중',val:pct(d._k84r),unit:''},
-    {label:'중도금 방식',val:(d._loanType||'—')+(d._loanRatio?' '+d._loanRatio+'%':''),unit:''},
-    {label:'풀옵션 비중',val:d._fullOpt!=null?pct(d._fullOpt):'—',unit:''},
+    {label:'분양수입 (GDV)',  val:d._gdv !=null?fmt(d._gdv) :'—', unit:'억',cls:'blue'},
+    {label:'가중 평당분양가', val:d._avgPP!=null?fmt(d._avgPP):'—', unit:'만/평',cls:'blue'},
+    {label:'HUG 보증한도',   val:d._hug !=null?fmt(d._hug) :'—', unit:'억'},
+    {label:'국민평형 비중',   val:pct(d._k84r), unit:''},
+    {label:'중도금 방식',     val:(d._loanType||'—')+(d._loanRatio!=null?' '+d._loanRatio+'%':''), unit:''},
+    {label:'풀옵션 비중',     val:d._fullOpt!=null?pct(d._fullOpt):'—', unit:''},
   ];
   document.getElementById('plGrid').innerHTML=items.map(i=>
     `<div class="info-card"><div class="ic-label">${i.label}</div>
-    <div class="ic-val ${i.cls||''}">${i.val!=null?i.val:'—'}<span class="ic-unit">${i.unit}</span></div></div>`
+    <div class="ic-val ${i.cls||''}">${i.val}<span class="ic-unit">${i.unit}</span></div></div>`
   ).join('');
   if(d._plNote)document.getElementById('plNote').textContent=d._plNote;
 }
@@ -405,6 +431,8 @@ function renderContract(d){
   const sc=d.schedule||{};
   const steps=sc.contractSteps||sc.paymentSteps||[];
   const pills=document.getElementById('contractPills');
+
+  // 납부비율 Pills
   if(steps.length){
     pills.innerHTML=steps.map((s,i)=>`<div class="contract-pill">
       <span style="color:var(--sub);font-size:12px">${i+1}</span>
@@ -412,16 +440,30 @@ function renderContract(d){
     </div>`).join('');
   } else {
     const it=[];
-    const dpRatio=d.downPaymentRatio||(d.downPayment&&d.downPayment.initialCashRatio)||5;
-    it.push({label:'계약금',p:dpRatio});
-    if(d._loanRatio)it.push({label:'중도금('+d._loanType+')',p:d._loanRatio});
-    const b=100-dpRatio-(d._loanRatio||0);
-    if(b>0)it.push({label:'잔금',p:b});
+    const dpR = d._dpRatio ?? 5;
+    it.push({label:'계약금', p:dpR});
+    if(d._loanRatio!=null) it.push({label:`중도금(${d._loanType||''})`, p:d._loanRatio});
+    const bal=100-dpR-(d._loanRatio||0);
+    if(bal>0) it.push({label:'잔금', p:bal});
     pills.innerHTML=it.map((s,i)=>`<div class="contract-pill">
       <span style="color:var(--sub);font-size:12px">${i+1}</span>
       <span>${s.label}</span><span class="pct">${s.p}%</span>
     </div>`).join('');
   }
+
+  // 계약금 상세 박스
+  const dpBox=document.getElementById('dpDetail');
+  const dpRows=[];
+  if(d._dpGrade)  dpRows.push({k:'계약금 등급', v:d._dpGrade+'등급'});
+  if(d._dpStruct) dpRows.push({k:'납부구조',    v:d._dpStruct});
+  if(d._dpNote)   dpRows.push({k:'PF 관점',     v:d._dpNote});
+  if(d._loanDetail) dpRows.push({k:'중도금 상세', v:d._loanDetail});
+  if(d._loanBenefit) dpRows.push({k:'이자절감 추정', v:d._loanBenefit});
+  dpBox.innerHTML=dpRows.length
+    ? dpRows.map(r=>`<div class="kv-row"><div class="kv-k">${r.k}</div><div class="kv-v">${r.v}</div></div>`).join('')
+    : '';
+
+  // 청약 일정
   document.getElementById('promoGrid').innerHTML=d._schedDates.map(i=>
     `<div class="kv-row"><div class="kv-k">${i.k}</div><div class="kv-v">${i.v}</div></div>`
   ).join('');
