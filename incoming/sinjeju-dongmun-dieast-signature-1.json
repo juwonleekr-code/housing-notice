@@ -1,0 +1,268 @@
+{
+  "id": "sinjeju-dongmun-dieast-signature-1",
+  "name": "신제주 동문디이스트 시그니처원Ⅰ",
+  "brand": "동문디이스트",
+  "approvalNo": "제주특별자치도 제주시청 주택과 34898호(2026.06.19.)",
+  "noticeDate": "2026-06-23",
+  "regulated": false,
+  "priceCap": false,
+  "landType": "민간택지",
+  "transferRestriction": false,
+  "reselectionRestriction": false,
+  "residencyObligation": false,
+  "location": {
+    "sido": "제주특별자치도",
+    "sigungu": "제주시",
+    "address": "제주특별자치도 제주시 연동 274-12번지외 4필지"
+  },
+  "building": {
+    "scale": "지하5층~지상15층 1개동 182세대",
+    "floors": { "underground": 5, "above": 15 },
+    "buildings": 1,
+    "units": 182,
+    "moveIn": "2027-03"
+  },
+  "unitMix": [
+    {
+      "type": "61",
+      "exclusive": 61.3324,
+      "supply": 79.7229,
+      "units": 1,
+      "special": 0,
+      "general": 1,
+      "pyeong": 24.11,
+      "avgPrice": 72000.0,
+      "pyeongPrice": 2986,
+      "revenueEok": 7.2
+    },
+    {
+      "type": "63",
+      "exclusive": 63.4466,
+      "supply": 82.2917,
+      "units": 13,
+      "special": 0,
+      "general": 13,
+      "pyeong": 24.89,
+      "avgPrice": 80838.46,
+      "pyeongPrice": 3248,
+      "revenueEok": 105.09
+    },
+    {
+      "type": "75",
+      "exclusive": 75.6023,
+      "supply": 97.3592,
+      "units": 13,
+      "special": 0,
+      "general": 13,
+      "pyeong": 29.45,
+      "avgPrice": 96376.92,
+      "pyeongPrice": 3272,
+      "revenueEok": 125.29
+    },
+    {
+      "type": "76",
+      "exclusive": 76.0381,
+      "supply": 98.09,
+      "units": 13,
+      "special": 0,
+      "general": 13,
+      "pyeong": 29.67,
+      "avgPrice": 98092.31,
+      "pyeongPrice": 3307,
+      "revenueEok": 127.52
+    },
+    {
+      "type": "84A",
+      "exclusive": 84.8915,
+      "supply": 109.8635,
+      "units": 87,
+      "special": 0,
+      "general": 87,
+      "pyeong": 33.23,
+      "avgPrice": 108895.4,
+      "pyeongPrice": 3277,
+      "revenueEok": 947.39
+    },
+    {
+      "type": "84B",
+      "exclusive": 84.9317,
+      "supply": 108.8749,
+      "units": 13,
+      "special": 0,
+      "general": 13,
+      "pyeong": 32.94,
+      "avgPrice": 111200.0,
+      "pyeongPrice": 3376,
+      "revenueEok": 144.56
+    },
+    {
+      "type": "108",
+      "exclusive": 108.9054,
+      "supply": 139.6737,
+      "units": 13,
+      "special": 0,
+      "general": 13,
+      "pyeong": 42.25,
+      "avgPrice": 150272.58,
+      "pyeongPrice": 3556,
+      "revenueEok": 195.35
+    },
+    {
+      "type": "113",
+      "exclusive": 113.151,
+      "supply": 145.6898,
+      "units": 14,
+      "special": 0,
+      "general": 14,
+      "pyeong": 44.07,
+      "avgPrice": 153487.43,
+      "pyeongPrice": 3483,
+      "revenueEok": 214.88
+    },
+    {
+      "type": "115",
+      "exclusive": 115.0757,
+      "supply": 146.5385,
+      "units": 13,
+      "special": 0,
+      "general": 13,
+      "pyeong": 44.33,
+      "avgPrice": 153210.35,
+      "pyeongPrice": 3456,
+      "revenueEok": 199.17
+    },
+    {
+      "type": "156",
+      "exclusive": 156.0508,
+      "supply": 200.9285,
+      "units": 2,
+      "special": 0,
+      "general": 2,
+      "pyeong": 60.78,
+      "avgPrice": 239168.5,
+      "pyeongPrice": 3935,
+      "revenueEok": 47.83
+    }
+  ],
+  "pricing": {
+    "avgPyeongPrice": 3357,
+    "totalRevenueEok": 2114.28,
+    "kookmin84Ratio": 76.92
+  },
+  "downPayment": {
+    "ratio": 10,
+    "loanType": "이자후불제",
+    "loanRatio": 60
+  },
+  "loan": {
+    "dates": [
+      "2026-09-23",
+      "2026-11-23",
+      "2027-01-23"
+    ]
+  },
+  "remainder": { "ratio": 30 },
+  "balcony": {
+    "61": 4939,
+    "63": 2904,
+    "75": 4092,
+    "76": 5302,
+    "84A": 7260,
+    "84B": 6061,
+    "108": 6611,
+    "113": 7183,
+    "115": 4807,
+    "156": 13222
+  },
+  "guarantee": {
+    "certNo": "제01292026-104-0001400호",
+    "amountEok": 1480.01
+  },
+  "parties": {
+    "developer": "주식회사 비앤비도시개발",
+    "trust": "코리아신탁 주식회사",
+    "constructor": "동문건설 주식회사"
+  },
+  "schedule": {
+    "general1": "2026-07-03",
+    "general2": "2026-07-06",
+    "winnerAnnounce": "2026-07-10",
+    "docSubmit": "2026-07-15",
+    "contract": "2026-07-21"
+  },
+  "floorPricing": {
+    "61": [
+      { "floorRange": "2층", "units": 1, "price": 72000 }
+    ],
+    "63": [
+      { "floorRange": "2층", "units": 1, "price": 75300 },
+      { "floorRange": "3층", "units": 1, "price": 77700 },
+      { "floorRange": "4~5층", "units": 2, "price": 77700 },
+      { "floorRange": "6~8층", "units": 3, "price": 80100 },
+      { "floorRange": "9~11층", "units": 3, "price": 82500 },
+      { "floorRange": "12~14층", "units": 3, "price": 84900 }
+    ],
+    "75": [
+      { "floorRange": "2층", "units": 1, "price": 89800 },
+      { "floorRange": "3층", "units": 1, "price": 92600 },
+      { "floorRange": "4~5층", "units": 2, "price": 92600 },
+      { "floorRange": "6~8층", "units": 3, "price": 95500 },
+      { "floorRange": "9~11층", "units": 3, "price": 98400 },
+      { "floorRange": "12~14층", "units": 3, "price": 101200 }
+    ],
+    "76": [
+      { "floorRange": "2층", "units": 1, "price": 91400 },
+      { "floorRange": "3층", "units": 1, "price": 94300 },
+      { "floorRange": "4~5층", "units": 2, "price": 94300 },
+      { "floorRange": "6~8층", "units": 3, "price": 97200 },
+      { "floorRange": "9~11층", "units": 3, "price": 100100 },
+      { "floorRange": "12~14층", "units": 3, "price": 103000 }
+    ],
+    "84A": [
+      { "floorRange": "2층(1~4호라인)", "units": 2, "price": 99200 },
+      { "floorRange": "2층(10~12호라인)", "units": 2, "price": 101300 },
+      { "floorRange": "3~5층(1~4호라인)", "units": 11, "price": 102400 },
+      { "floorRange": "3~5층(10~12호라인)", "units": 8, "price": 104500 },
+      { "floorRange": "6~8층", "units": 21, "price": 107800 },
+      { "floorRange": "9~11층", "units": 21, "price": 111000 },
+      { "floorRange": "12~14층", "units": 21, "price": 114200 },
+      { "floorRange": "15층", "units": 1, "price": 117500 }
+    ],
+    "84B": [
+      { "floorRange": "3층", "units": 1, "price": 105700 },
+      { "floorRange": "4~5층", "units": 2, "price": 105700 },
+      { "floorRange": "6~8층", "units": 3, "price": 108900 },
+      { "floorRange": "9~11층", "units": 3, "price": 112200 },
+      { "floorRange": "12~14층", "units": 3, "price": 115500 },
+      { "floorRange": "15층", "units": 1, "price": 118700 }
+    ],
+    "108": [
+      { "floorRange": "2층", "units": 1, "price": 139999 },
+      { "floorRange": "3층", "units": 1, "price": 144430 },
+      { "floorRange": "4~5층", "units": 2, "price": 144430 },
+      { "floorRange": "6~8층", "units": 3, "price": 148861 },
+      { "floorRange": "9~11층", "units": 3, "price": 153397 },
+      { "floorRange": "12~14층", "units": 3, "price": 157828 }
+    ],
+    "113": [
+      { "floorRange": "2층", "units": 1, "price": 137467 },
+      { "floorRange": "3층", "units": 1, "price": 141898 },
+      { "floorRange": "4~5층", "units": 2, "price": 141898 },
+      { "floorRange": "6~8층", "units": 3, "price": 153081 },
+      { "floorRange": "9~11층", "units": 3, "price": 157617 },
+      { "floorRange": "12~14층", "units": 3, "price": 162259 },
+      { "floorRange": "15층", "units": 1, "price": 166796 }
+    ],
+    "115": [
+      { "floorRange": "2층", "units": 1, "price": 142742 },
+      { "floorRange": "3층", "units": 1, "price": 147278 },
+      { "floorRange": "4~5층", "units": 2, "price": 147278 },
+      { "floorRange": "6~8층", "units": 3, "price": 151815 },
+      { "floorRange": "9~11층", "units": 3, "price": 156351 },
+      { "floorRange": "12~14층", "units": 3, "price": 160888 }
+    ],
+    "156": [
+      { "floorRange": "15층", "units": 2, "price": 239169 }
+    ]
+  }
+}
