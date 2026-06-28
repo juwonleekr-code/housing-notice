@@ -297,18 +297,21 @@
       "moveIn": "2029-11",
       "avgPyeong": 7163,
       "kookmin84Ratio": 57.3,
-      "balcony": "전타입 유상",
       "loanType": "유이자(이자후불제)",
       "loanRatio": 40,
       "downPaymentGrade": "C",
-      "essentialOptionRatio": null,
-      "fullOptionRatio": null,
       "developer": "노량진2재정비촉진구역재개발정비사업조합",
       "trust": null,
       "constructor": "에스케이에코플랜트 주식회사",
       "regulated": true,
       "resaleRestriction": true,
-      "totalRevenueEok": 4342
+      "totalRevenueEok": 4342,
+      "balconyType": "유상",
+      "balconyPrice84": 2200,
+      "balconyByType": true,
+      "balconyNote": "유상",
+      "downPaymentRatio": 10,
+      "downPaymentStructure": "10% 분할 (1차 계약시 5,000만원 정액, 2차 잔여 2026.08.20.까지)"
     }
   ]
 }
