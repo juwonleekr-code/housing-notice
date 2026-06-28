@@ -1,0 +1,345 @@
+{
+  "id": "theshap-geomdan-lakepark-ab22bl",
+  "name": "더샵 검단레이크파크(AB22BL)",
+  "brand": "더샵",
+  "approvalNo": "인천광역시 서구 검단도시건축과 - 4717호(2026. 6. 12.)",
+  "noticeDate": "2026-06-12",
+  "regulated": false,
+  "priceCap": true,
+  "landType": "공공택지",
+  "transferRestriction": true,
+  "reselectionRestriction": true,
+  "residencyObligation": true,
+  "location": {
+    "sido": "인천광역시",
+    "sigungu": "서구",
+    "address": "인천광역시 서구 불로동 696번지 일원"
+  },
+  "building": {
+    "scale": "지하3층~지상29층 13개동 1,454세대",
+    "floors": {
+      "underground": 3,
+      "above": 29
+    },
+    "buildings": 13,
+    "units": 1454,
+    "moveIn": "2029-12"
+  },
+  "unitMix": [
+    {
+      "type": "59A",
+      "exclusive": 59.9497,
+      "supply": 80.756,
+      "units": 354,
+      "special": 228,
+      "general": 126,
+      "pyeong": 24.43,
+      "avgPrice": 47747.85,
+      "pyeongPrice": 1954,
+      "revenueEok": 1690.27
+    },
+    {
+      "type": "59B",
+      "exclusive": 59.8301,
+      "supply": 81.095,
+      "units": 326,
+      "special": 208,
+      "general": 118,
+      "pyeong": 24.53,
+      "avgPrice": 47015.77,
+      "pyeongPrice": 1917,
+      "revenueEok": 1532.71
+    },
+    {
+      "type": "84A",
+      "exclusive": 84.5181,
+      "supply": 111.7074,
+      "units": 441,
+      "special": 285,
+      "general": 156,
+      "pyeong": 33.79,
+      "avgPrice": 63619.75,
+      "pyeongPrice": 1883,
+      "revenueEok": 2805.63
+    },
+    {
+      "type": "84B",
+      "exclusive": 84.0342,
+      "supply": 112.2416,
+      "units": 177,
+      "special": 112,
+      "general": 65,
+      "pyeong": 33.95,
+      "avgPrice": 63042.32,
+      "pyeongPrice": 1857,
+      "revenueEok": 1115.85
+    },
+    {
+      "type": "84C",
+      "exclusive": 84.1796,
+      "supply": 111.1017,
+      "units": 156,
+      "special": 98,
+      "general": 58,
+      "pyeong": 33.61,
+      "avgPrice": 62143.08,
+      "pyeongPrice": 1849,
+      "revenueEok": 969.43
+    }
+  ],
+  "pricing": {
+    "avgPyeongPrice": 1896,
+    "totalRevenueEok": 8113.9,
+    "kookmin84Ratio": 100.0
+  },
+  "downPayment": {
+    "ratio": 10,
+    "initialCashManwon": 1000,
+    "loanType": "이자후불제",
+    "loanRatio": 60
+  },
+  "loan": {
+    "dates": [
+      "2026-12-15",
+      "2027-06-15",
+      "2027-12-15",
+      "2028-08-14",
+      "2029-01-15",
+      "2029-06-15"
+    ]
+  },
+  "remainder": {
+    "ratio": 30
+  },
+  "balcony": {
+    "59A": 435,
+    "59B": 412,
+    "84A": 546,
+    "84B": 367,
+    "84C": 492
+  },
+  "guarantee": {
+    "certNo": "제01282026-101-0005000호",
+    "amountEok": 5679.73
+  },
+  "parties": {
+    "developer": "인천검단스카이파크컨소시엄㈜",
+    "trust": "한국자산신탁㈜",
+    "constructor": "㈜포스코이앤씨"
+  },
+  "schedule": {
+    "special": "2026-06-24",
+    "general1": "2026-06-25",
+    "general2": "2026-06-26",
+    "winnerAnnounce": "2026-07-02",
+    "docSubmit": "2026-07-02",
+    "contract": "2026-07-14"
+  },
+  "floorPricing": {
+    "59A": [
+      {
+        "floorRange": "1층",
+        "units": 6,
+        "price": 45660
+      },
+      {
+        "floorRange": "2층",
+        "units": 14,
+        "price": 46160
+      },
+      {
+        "floorRange": "3~4층",
+        "units": 28,
+        "price": 46400
+      },
+      {
+        "floorRange": "5~6층",
+        "units": 28,
+        "price": 46640
+      },
+      {
+        "floorRange": "7~9층",
+        "units": 42,
+        "price": 47110
+      },
+      {
+        "floorRange": "10~15층",
+        "units": 84,
+        "price": 47590
+      },
+      {
+        "floorRange": "16~20층",
+        "units": 68,
+        "price": 48300
+      },
+      {
+        "floorRange": "21층이상",
+        "units": 84,
+        "price": 49010
+      }
+    ],
+    "59B": [
+      {
+        "floorRange": "1층",
+        "units": 2,
+        "price": 44930
+      },
+      {
+        "floorRange": "2층",
+        "units": 13,
+        "price": 45430
+      },
+      {
+        "floorRange": "3~4층",
+        "units": 26,
+        "price": 45660
+      },
+      {
+        "floorRange": "5~6층",
+        "units": 26,
+        "price": 45900
+      },
+      {
+        "floorRange": "7~9층",
+        "units": 39,
+        "price": 46360
+      },
+      {
+        "floorRange": "10~15층",
+        "units": 78,
+        "price": 46830
+      },
+      {
+        "floorRange": "16~20층",
+        "units": 63,
+        "price": 47530
+      },
+      {
+        "floorRange": "21층이상",
+        "units": 79,
+        "price": 48240
+      }
+    ],
+    "84A": [
+      {
+        "floorRange": "1층",
+        "units": 14,
+        "price": 60850
+      },
+      {
+        "floorRange": "2층",
+        "units": 17,
+        "price": 61520
+      },
+      {
+        "floorRange": "3~4층",
+        "units": 34,
+        "price": 61840
+      },
+      {
+        "floorRange": "5~6층",
+        "units": 34,
+        "price": 62160
+      },
+      {
+        "floorRange": "7~9층",
+        "units": 51,
+        "price": 62790
+      },
+      {
+        "floorRange": "10~15층",
+        "units": 102,
+        "price": 63430
+      },
+      {
+        "floorRange": "16~20층",
+        "units": 81,
+        "price": 64380
+      },
+      {
+        "floorRange": "21층이상",
+        "units": 108,
+        "price": 65330
+      }
+    ],
+    "84B": [
+      {
+        "floorRange": "1층",
+        "units": 1,
+        "price": 60230
+      },
+      {
+        "floorRange": "2층",
+        "units": 7,
+        "price": 60890
+      },
+      {
+        "floorRange": "3~4층",
+        "units": 14,
+        "price": 61200
+      },
+      {
+        "floorRange": "5~6층",
+        "units": 14,
+        "price": 61520
+      },
+      {
+        "floorRange": "7~9층",
+        "units": 21,
+        "price": 62150
+      },
+      {
+        "floorRange": "10~15층",
+        "units": 42,
+        "price": 62770
+      },
+      {
+        "floorRange": "16~20층",
+        "units": 33,
+        "price": 63720
+      },
+      {
+        "floorRange": "21층이상",
+        "units": 45,
+        "price": 64660
+      }
+    ],
+    "84C": [
+      {
+        "floorRange": "2층",
+        "units": 6,
+        "price": 59970
+      },
+      {
+        "floorRange": "3~4층",
+        "units": 12,
+        "price": 60280
+      },
+      {
+        "floorRange": "5~6층",
+        "units": 12,
+        "price": 60580
+      },
+      {
+        "floorRange": "7~9층",
+        "units": 18,
+        "price": 61200
+      },
+      {
+        "floorRange": "10~15층",
+        "units": 36,
+        "price": 61820
+      },
+      {
+        "floorRange": "16~20층",
+        "units": 30,
+        "price": 62750
+      },
+      {
+        "floorRange": "21층이상",
+        "units": 42,
+        "price": 63680
+      }
+    ]
+  }
+}

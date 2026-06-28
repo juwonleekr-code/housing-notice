@@ -572,6 +572,52 @@
         "address": "충청남도 천안시 서북구 백석동 92-7번지 일원"
       },
       "avgPyeongPrice": 1700
+    },
+    {
+      "id": "theshap-geomdan-lakepark-ab22bl",
+      "name": "더샵 검단레이크파크(AB22BL)",
+      "sido": "인천광역시",
+      "sigungu": "서구",
+      "district": null,
+      "units": null,
+      "moveIn": "2029-12",
+      "avgPyeong": 1896,
+      "kookmin84Ratio": 100.0,
+      "balcony": null,
+      "loanType": null,
+      "loanRatio": null,
+      "downPaymentGrade": null,
+      "essentialOptionRatio": null,
+      "fullOptionRatio": null,
+      "developer": "인천검단스카이파크컨소시엄㈜",
+      "trust": "한국자산신탁㈜",
+      "constructor": "㈜포스코이앤씨",
+      "regulated": false,
+      "resaleRestriction": false,
+      "totalRevenueEok": 8113.9
+    },
+    {
+      "id": "theshap-geomdan-lakepark-ab23bl",
+      "name": "더샵 검단레이크파크(AB23BL)",
+      "sido": "인천광역시",
+      "sigungu": "서구",
+      "district": null,
+      "units": null,
+      "moveIn": "2029-12",
+      "avgPyeong": 1911,
+      "kookmin84Ratio": 100.0,
+      "balcony": null,
+      "loanType": null,
+      "loanRatio": null,
+      "downPaymentGrade": null,
+      "essentialOptionRatio": null,
+      "fullOptionRatio": null,
+      "developer": "인천검단스카이파크컨소시엄㈜",
+      "trust": "한국자산신탁㈜",
+      "constructor": "㈜포스코이앤씨",
+      "regulated": false,
+      "resaleRestriction": false,
+      "totalRevenueEok": 7888.7
     }
   ]
 }
