@@ -286,6 +286,29 @@
       "balconyNote": "유상",
       "downPaymentRatio": null,
       "downPaymentStructure": "계약금 10%(계약시 고정액+30일내 잔여), 중도금 60% 6회 무이자, 잔금 30% 입주지정일"
+    },
+    {
+      "id": "dpain-artia-1",
+      "name": "드파인 아르티아",
+      "sido": "서울특별시",
+      "sigungu": "동작구",
+      "district": "노량진2재정비촉진구역 재개발정비사업구역",
+      "units": 404,
+      "moveIn": "2029-11",
+      "avgPyeong": 7163,
+      "kookmin84Ratio": 57.3,
+      "balcony": "전타입 유상",
+      "loanType": "유이자(이자후불제)",
+      "loanRatio": 40,
+      "downPaymentGrade": "C",
+      "essentialOptionRatio": null,
+      "fullOptionRatio": null,
+      "developer": "노량진2재정비촉진구역재개발정비사업조합",
+      "trust": null,
+      "constructor": "에스케이에코플랜트 주식회사",
+      "regulated": true,
+      "resaleRestriction": true,
+      "totalRevenueEok": 4342
     }
   ]
 }
