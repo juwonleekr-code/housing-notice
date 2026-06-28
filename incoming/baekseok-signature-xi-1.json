@@ -1,0 +1,207 @@
+{
+  "id": "baekseok-signature-xi-1",
+  "name": "백석시그니처자이 1단지",
+  "brand": "자이",
+  "approvalNo": "천안시 공동주택과-23663호(2026.06.02.)",
+  "noticeDate": "2026-06-05",
+  "regulated": false,
+  "priceCap": false,
+  "landType": "민간택지",
+  "transferRestriction": false,
+  "reselectionRestriction": false,
+  "residencyObligation": false,
+  "location": {
+    "sido": "충청남도",
+    "sigungu": "천안시",
+    "district": "서북구",
+    "address": "충청남도 천안시 서북구 백석동 92-7번지 일원"
+  },
+  "building": {
+    "scale": "지하2층~지상28층, 9개동",
+    "buildings": 9,
+    "totalUnits": 854,
+    "specialUnits": 420,
+    "generalUnits": 434,
+    "moveIn": "2029-09"
+  },
+  "unitMix": [
+    {
+      "type": "59",
+      "exclusive": 59.9914,
+      "supply": 78.9423,
+      "pyeong": 23.88,
+      "units": 50,
+      "ratio": 5.9,
+      "special": 26,
+      "general": 24,
+      "avgPrice": 40392,
+      "pyeongPrice": 1691,
+      "revenueEok": 201.96
+    },
+    {
+      "type": "63",
+      "exclusive": 63.9705,
+      "supply": 84.3515,
+      "pyeong": 25.52,
+      "units": 27,
+      "ratio": 3.2,
+      "special": 12,
+      "general": 15,
+      "avgPrice": 42961,
+      "pyeongPrice": 1684,
+      "revenueEok": 115.99
+    },
+    {
+      "type": "74",
+      "exclusive": 74.9682,
+      "supply": 97.9727,
+      "pyeong": 29.64,
+      "units": 196,
+      "ratio": 22.9,
+      "special": 105,
+      "general": 91,
+      "avgPrice": 47666,
+      "pyeongPrice": 1608,
+      "revenueEok": 934.26
+    },
+    {
+      "type": "84A",
+      "exclusive": 84.9915,
+      "supply": 110.2730,
+      "pyeong": 33.36,
+      "units": 211,
+      "ratio": 24.7,
+      "special": 114,
+      "general": 97,
+      "avgPrice": 57704,
+      "pyeongPrice": 1730,
+      "revenueEok": 1217.56
+    },
+    {
+      "type": "84B",
+      "exclusive": 84.9668,
+      "supply": 111.0677,
+      "pyeong": 33.60,
+      "units": 182,
+      "ratio": 21.3,
+      "special": 98,
+      "general": 84,
+      "avgPrice": 57767,
+      "pyeongPrice": 1719,
+      "revenueEok": 1051.37
+    },
+    {
+      "type": "84C",
+      "exclusive": 84.9918,
+      "supply": 110.1923,
+      "pyeong": 33.33,
+      "units": 106,
+      "ratio": 12.4,
+      "special": 56,
+      "general": 50,
+      "avgPrice": 57700,
+      "pyeongPrice": 1731,
+      "revenueEok": 611.62
+    },
+    {
+      "type": "99",
+      "exclusive": 99.3915,
+      "supply": 129.2619,
+      "pyeong": 39.10,
+      "units": 78,
+      "ratio": 9.1,
+      "special": 9,
+      "general": 69,
+      "avgPrice": 67100,
+      "pyeongPrice": 1716,
+      "revenueEok": 523.38,
+      "note": "VAT 포함"
+    },
+    {
+      "type": "115P",
+      "exclusive": 115.9599,
+      "supply": 151.9408,
+      "pyeong": 45.96,
+      "units": 4,
+      "ratio": 0.5,
+      "special": 0,
+      "general": 4,
+      "avgPrice": 94010,
+      "pyeongPrice": 2045,
+      "revenueEok": 37.60,
+      "note": "펜트하우스, VAT 포함"
+    }
+  ],
+  "pricing": {
+    "avgPyeongPrice": 1700,
+    "totalRevenueEok": 4694,
+    "kookmin84Ratio": 90.4,
+    "note": "99㎡·115P는 부가가치세 포함. 평당가는 공급면적 기준 가중평균."
+  },
+  "downPayment": {
+    "ratio": 10,
+    "structure": "계약금 10% (계약시 500만원 정액 + 1개월이내 잔여)",
+    "initialCashManwon": 500,
+    "initialCashRatio": 0.87
+  },
+  "loan": {
+    "ratio": 60,
+    "count": 6,
+    "type": "이자후불제",
+    "schedule": [
+      "2026-12-10",
+      "2027-05-10",
+      "2027-09-10",
+      "2028-09-10",
+      "2028-12-10",
+      "2029-03-10"
+    ]
+  },
+  "remainder": {
+    "ratio": 30
+  },
+  "balcony": {
+    "all": "유상",
+    "byType": {
+      "59": "1200만원",
+      "63": "1350만원",
+      "74": "1300만원",
+      "84A": "1470만원",
+      "84B": "1600만원",
+      "84C": "1600만원",
+      "99": "1930만원",
+      "115P": "2010만원"
+    }
+  },
+  "guarantee": {
+    "agency": "주택도시보증공사(HUG)",
+    "certNo": "제01292026-101-0002900호",
+    "amountEok": 3285.6
+  },
+  "parties": {
+    "developer": "주식회사 중앙홀딩스",
+    "trust": "㈜하나자산신탁",
+    "trustNote": "관리형토지신탁",
+    "constructor": "지에스건설㈜"
+  },
+  "schedule": {
+    "noticeDate": "2026-06-05",
+    "special": "2026-06-15",
+    "general1": "2026-06-16",
+    "general2": "2026-06-17",
+    "winnerAnnounce": "2026-06-23",
+    "docSubmit": "2026-06-27",
+    "contract": "2026-07-06",
+    "moveIn": "2029-09"
+  },
+  "floorPricing": {
+    "59": {"1층(1)": 36540, "2층(1)": 37540, "3층(2)": 38440, "4층(2)": 39340, "5~9층(10)": 40140, "10층이상(34)": 40840},
+    "63": {"1층(1)": 39120, "2층(1)": 40220, "3층(1)": 41120, "4층(1)": 42020, "5~9층(5)": 42820, "10층이상(18)": 43520},
+    "74": {"1층(2)": 43310, "2층(8)": 44510, "3층(8)": 45510, "4층(8)": 46510, "5~9층(40)": 47410, "10층이상(130)": 48210},
+    "84A": {"1층(5)": 52390, "2층(7)": 53890, "3층(8)": 55090, "4층(8)": 56290, "5~9층(40)": 57390, "10층이상(143)": 58390},
+    "84B": {"1층(3)": 52390, "2층(5)": 53890, "3층(7)": 55090, "4층(7)": 56290, "5~9층(35)": 57390, "10층이상(125)": 58390},
+    "84C": {"1층(3)": 52390, "2층(3)": 53890, "3층(4)": 55090, "4층(4)": 56290, "5~9층(20)": 57390, "10층이상(72)": 58390},
+    "99": {"3층(3)": 63700, "4층(3)": 65000, "5~9층(15)": 66300, "10층이상(57)": 67600},
+    "115P": {"28층(4)": 94010}
+  }
+}
