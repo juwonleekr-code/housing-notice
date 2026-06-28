@@ -138,6 +138,29 @@
       "regulated": false,
       "resaleRestriction": false,
       "totalRevenueEok": 2334
+    },
+    {
+      "id": "thesharp-sinmun-greenity-2",
+      "name": "더샵 신문그리니티 2차",
+      "sido": "경상남도",
+      "sigungu": "김해시",
+      "district": "신문1지구 A17-1블럭",
+      "units": 695,
+      "moveIn": "2028-07",
+      "avgPyeong": 1523,
+      "kookmin84Ratio": 95.7,
+      "balcony": "전타입 유상",
+      "loanType": "무이자",
+      "loanRatio": 60,
+      "downPaymentGrade": "C",
+      "essentialOptionRatio": 1.2,
+      "fullOptionRatio": 10.5,
+      "developer": "태우디엔씨",
+      "trust": "신영부동산신탁 주식회사",
+      "constructor": "㈜포스코이앤씨",
+      "regulated": false,
+      "resaleRestriction": false,
+      "totalRevenueEok": 3532
     }
   ]
 }
