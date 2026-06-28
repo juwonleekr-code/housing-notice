@@ -1,0 +1,172 @@
+{
+  "id": "thesharp-sinmun-greenity-2",
+  "name": "더샵 신문그리니티 2차",
+  "approvalNo": "김해시 공동주택과-30100호(2025.08.27)",
+  "noticeDate": "2025-08-28",
+  "location": {
+    "sido": "경상남도",
+    "sigungu": "김해시",
+    "address": "경상남도 김해시 신문동 신문1지구 A17-1블럭 일원",
+    "district": "신문1지구 A17-1블럭",
+    "showroom": "경상남도 김해시 대청동 71-3번지"
+  },
+  "building": {
+    "scale": "지하 2층, 지상 18~29층, 6개동",
+    "totalUnits": 695,
+    "specialUnits": 377,
+    "generalUnits": 318,
+    "moveIn": "2028-07",
+    "heating": "개별난방(가스보일러)",
+    "parking": null,
+    "seismic": "메르칼리 진도 등급 Ⅶ (최대지반가속도 0.239g)",
+    "schoolElem": null,
+    "regulated": false,
+    "resaleRestriction": false,
+    "reWinRestriction": false,
+    "obligationResidence": false,
+    "priceCap": false,
+    "landType": "민간택지 (분양가상한제 미적용)"
+  },
+  "unitMix": [
+    {
+      "type": "84A",
+      "exclusive": 84.9098,
+      "supply": 109.6601,
+      "pyeong": 33.17,
+      "units": 452,
+      "ratio": 65.0,
+      "special": 201,
+      "general": 251,
+      "avgPrice": 50812,
+      "pyeongPrice": 1532,
+      "revenueEok": 2296.7
+    },
+    {
+      "type": "84B",
+      "exclusive": 84.7922,
+      "supply": 110.4834,
+      "pyeong": 33.42,
+      "units": 139,
+      "ratio": 20.0,
+      "special": 78,
+      "general": 61,
+      "avgPrice": 51110,
+      "pyeongPrice": 1529,
+      "revenueEok": 710.4
+    },
+    {
+      "type": "84C",
+      "exclusive": 84.5851,
+      "supply": 109.9147,
+      "pyeong": 33.25,
+      "units": 74,
+      "ratio": 10.6,
+      "special": 44,
+      "general": 30,
+      "avgPrice": 50039,
+      "pyeongPrice": 1505,
+      "revenueEok": 370.3
+    },
+    {
+      "type": "93",
+      "exclusive": 93.9546,
+      "supply": 120.5208,
+      "pyeong": 36.46,
+      "units": 30,
+      "ratio": 4.3,
+      "special": 4,
+      "general": 26,
+      "avgPrice": 51669,
+      "pyeongPrice": 1417,
+      "revenueEok": 155.0,
+      "note": "3층(6세대) 외 나머지 층 가격 추정"
+    }
+  ],
+  "pricing": {
+    "avgPyeongPrice": 1523,
+    "totalRevenueEok": 3532,
+    "method": "전 세대 분양가 합산 ÷ 총 공급평수 (층별 세대수 가중, 93타입 일부 추정)",
+    "kookmin84Ratio": 95.7,
+    "verdict": "민간택지 비규제 비수도권 민영주택. 84㎡ 3개 타입이 95.7%를 차지하는 소형 집중 구성. 면적가중 평당가 약 1,523만원, GDV 약 3,532억원. 전매제한·재당첨제한·거주의무 없음. 발코니 전타입 유상, 중도금 60% 무이자. 신문1지구 도시개발사업 내 체비지 공동주택.",
+    "note": "93타입(30세대) 3층(6세대) 외 나머지 층 분양가는 공개 데이터 미비로 추정 포함"
+  },
+  "balcony": {
+    "all": "유상",
+    "byType": {
+      "84A": "14,720,000원",
+      "84B": "16,030,000원",
+      "84C": "15,080,000원",
+      "93": "14,720,000원"
+    },
+    "developerView": "전타입 유상 발코니. 평균 확장비 약 1,502만원 × 695세대 = 약 1,044억 추가 매출원."
+  },
+  "loan": {
+    "ratio": 60,
+    "type": "무이자",
+    "detail": "분양가의 60% 범위 내 무이자 융자 알선. 계약금(5%) 완납 후 중도금 대출 실행. 입주지정기간 개시 전일까지 이자 사업주체 대납.",
+    "benefitManwon84A": 1500,
+    "benefitBasis": "4-9층 기준가 49,503만원, 금리 3.8% 가정, 약 28~4개월 이자 대납",
+    "drawdownLimit": "계약금(5%) 완납 후 중도금 대출 가능",
+    "developerView": "무이자 60% 중도금 → 세대당 최대 약 1,500만원 이자 대납(금리·기간 추정). 중도금 납부일: 2026.02~2028.03."
+  },
+  "downPayment": {
+    "grade": "C",
+    "structure": "계약금 5% = 계약시 5,000,000원(정액) + 계약 후 30일 이내 잔여 계약금",
+    "initialCashManwon": 500,
+    "initialCashRatio": 1.01,
+    "gradeNote": "정액제 500만원 선납 (84A 4-9층 기준: 2,475만원 중 500만원)"
+  },
+  "options": {
+    "essentialManwon": 586,
+    "essentialRatio": 1.2,
+    "fullManwon": 5200,
+    "fullRatio": 10.5,
+    "systemAircon84A": 586,
+    "tiers": [
+      {
+        "tier": "사실상필수",
+        "desc": "시스템에어컨 기본 3대(거실+주방+안방)",
+        "manwon84A": 586,
+        "ratio": 1.2
+      },
+      {
+        "tier": "필수+준필수",
+        "desc": "시스템에어컨 3대 + 욕실복합환풍기 + 현관중문",
+        "manwon84A": 947,
+        "ratio": 1.9
+      },
+      {
+        "tier": "풀옵션",
+        "desc": "에어컨5대+청정환기프리미엄+중문+욕실환풍기+스타일링바스+주방평면특화+디자인월+SPC바닥+감성조명+침실수납+다이닝장식장+드레스룸+스마트홈",
+        "manwon84A": 5200,
+        "ratio": 10.5
+      }
+    ],
+    "estDeveloperOptionRevenueEok": 150,
+    "developerView": "발코니 확장 미선택 시 유상옵션 범위 제한. 에어컨(586~972만) 채택률 높을 것으로 추정. 풀옵션 약 5,200만원(10.5%) 수준."
+  },
+  "schedule": {
+    "noticeDate": "2025-08-28",
+    "special": "2025-09-08",
+    "general1": "2025-09-09",
+    "general2": "2025-09-10",
+    "winnerAnnounce": "2025-09-17",
+    "docSubmit": "2025-09-18 ~ 2025-09-26",
+    "contract": "2025-09-28 ~ 2025-09-30"
+  },
+  "parties": {
+    "developer": "태우디엔씨(주)",
+    "trust": "신영부동산신탁 주식회사",
+    "constructor": "㈜포스코이앤씨",
+    "trustNote": "분양대금 관리신탁 (모계좌: KB국민은행 131501-04-481687). 발코니 확장비 별도 수취."
+  },
+  "guarantee": {
+    "agency": "주택도시보증공사(HUG)",
+    "amountEok": null,
+    "certNo": null
+  },
+  "certifications": {
+    "energy": null,
+    "seismic": "내진능력 메르칼리 진도 등급 Ⅶ (최대지반가속도 0.239g)"
+  }
+}
