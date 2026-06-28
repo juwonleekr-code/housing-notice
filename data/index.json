@@ -35,7 +35,7 @@
         "district": "장유신문지구 도시개발사업구역 내 체비지",
         "showroom": "경상남도 김해시 대청동 305-3"
       },
-      "avgPyeongPrice": null
+      "avgPyeongPrice": 1567
     },
     {
       "id": "bukosan-xi-deforet",
@@ -71,7 +71,7 @@
         "district": "오산(내삼미2구역) 도시관리계획 지구단위계획구역 공동주택용지(A2블럭)",
         "showroom": "경기도 오산시 내삼미동 272-2"
       },
-      "avgPyeongPrice": null
+      "avgPyeongPrice": 2004
     },
     {
       "id": "kimhae-sinmun-lasiel",
@@ -107,7 +107,7 @@
         "district": "장유 신문4지구 지구단위계획구역",
         "showroom": "경상남도 김해시 신문동 781-1번지"
       },
-      "avgPyeongPrice": null
+      "avgPyeongPrice": 1470
     },
     {
       "id": "hoban-chumdan3-a7bl",
@@ -143,7 +143,7 @@
         "district": "광주연구개발특구 첨단3지구 A7블록",
         "showroom": "광주광역시 서구 마륵동 164-11"
       },
-      "avgPyeongPrice": null
+      "avgPyeongPrice": 1536
     },
     {
       "id": "incheon-geomam-xirene",
@@ -179,7 +179,7 @@
         "district": "인천검암역세권 공공주택지구 내 공동주택용지(B-2BL)",
         "showroom": "인천광역시 서구 경서동 998번지 (검암역자이르네 견본주택)"
       },
-      "avgPyeongPrice": null
+      "avgPyeongPrice": 1756
     },
     {
       "id": "kimhae-trivn",
@@ -215,7 +215,7 @@
         "district": "김해 내동 (도심 정비형 부지)",
         "showroom": "경상남도 김해시 부원동 1079 (트리븐 김해 견본주택)"
       },
-      "avgPyeongPrice": null
+      "avgPyeongPrice": 1593
     },
     {
       "id": "thesharp-sinmun-greenity-2",
@@ -251,7 +251,7 @@
         "district": "신문1지구 A17-1블럭",
         "showroom": "경상남도 김해시 대청동 71-3번지"
       },
-      "avgPyeongPrice": null
+      "avgPyeongPrice": 1523
     },
     {
       "id": "elif-changwon",
@@ -287,7 +287,7 @@
         "district": "창원명곡 공공주택지구 B-1BL",
         "showroom": "경상남도 창원시 의창구 사림동 168-1"
       },
-      "avgPyeongPrice": null
+      "avgPyeongPrice": 1160
     },
     {
       "id": "jangwi-prugio-markone",
@@ -323,7 +323,7 @@
         "district": "장위10구역 주택재개발정비사업",
         "showroom": "서울특별시 동대문구 왕산로 34"
       },
-      "avgPyeongPrice": null
+      "avgPyeongPrice": 5063
     },
     {
       "id": "changwon-xi-the-sky",
@@ -359,7 +359,7 @@
         "district": null,
         "showroom": "경상남도 창원시 성산구 중앙동 101-3"
       },
-      "avgPyeongPrice": null
+      "avgPyeongPrice": 2578
     },
     {
       "id": "pentahills-w-1",
@@ -395,7 +395,7 @@
         "district": null,
         "showroom": "대구광역시 수성구 만촌동 737-17"
       },
-      "avgPyeongPrice": null
+      "avgPyeongPrice": 2001
     },
     {
       "id": "dpain-artia-1",
@@ -431,7 +431,7 @@
         "district": "노량진2재정비촉진구역 재개발정비사업구역",
         "showroom": "서울특별시 동작구 노량진동 312-75번지 일대 (현장 모델하우스)"
       },
-      "avgPyeongPrice": null
+      "avgPyeongPrice": 7163
     },
     {
       "id": "hillstate-yangsan-sky-2",
@@ -466,7 +466,7 @@
         "district": "물금읍",
         "address": "경상남도 양산시 물금읍 범어리 940-2번지 일원"
       },
-      "avgPyeongPrice": null
+      "avgPyeongPrice": 1566
     },
     {
       "id": "hillstate-yangsan-sky-1",
@@ -501,7 +501,7 @@
         "district": "물금읍",
         "address": "경상남도 양산시 물금읍 가촌리 971번지 일원"
       },
-      "avgPyeongPrice": null
+      "avgPyeongPrice": 1582
     }
   ]
 }
