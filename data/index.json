@@ -207,6 +207,29 @@
       "regulated": true,
       "resaleRestriction": true,
       "totalRevenueEok": 15252
+    },
+    {
+      "id": "changwon-xi-the-sky",
+      "name": "창원자이 더 스카이",
+      "sido": "경상남도",
+      "sigungu": "창원시 성산구",
+      "district": null,
+      "units": 509,
+      "moveIn": "2030-04",
+      "avgPyeong": 2578,
+      "kookmin84Ratio": 91.2,
+      "balcony": "전타입 유상",
+      "loanType": "이자후불제",
+      "loanRatio": 60,
+      "downPaymentGrade": "C",
+      "essentialOptionRatio": 0.69,
+      "fullOptionRatio": 4.5,
+      "developer": "창원중앙피에프브이",
+      "trust": "㈜한국토지신탁",
+      "constructor": "지에스건설㈜",
+      "regulated": false,
+      "resaleRestriction": false,
+      "totalRevenueEok": 4582
     }
   ]
 }
