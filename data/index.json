@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-21",
+  "updated": "2026-06-28",
   "sites": [
     {
       "id": "kimhae-sinmun-central",
@@ -115,6 +115,29 @@
       "regulated": false,
       "resaleRestriction": true,
       "totalRevenueEok": 3510
+    },
+    {
+      "id": "kimhae-trivn",
+      "name": "트리븐 김해",
+      "sido": "경상남도",
+      "sigungu": "김해시",
+      "district": "내동 243-1 일원",
+      "units": 398,
+      "moveIn": "2029-08",
+      "avgPyeong": 1593,
+      "kookmin84Ratio": 71.4,
+      "balcony": "전타입 유상",
+      "loanType": "무이자",
+      "loanRatio": 60,
+      "downPaymentGrade": "C",
+      "essentialOptionRatio": 1.5,
+      "fullOptionRatio": 7.3,
+      "developer": "한일자동차학원·문세라",
+      "trust": "한국투자부동산신탁",
+      "constructor": "두산에너빌리티(트리븐)",
+      "regulated": false,
+      "resaleRestriction": false,
+      "totalRevenueEok": 2334
     }
   ]
 }
