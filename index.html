@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>입주자모집공고 분석 DB</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
   :root{
     --bg:#f6f3ec; --paper:#fffdf8; --ink:#1c1a17; --sub:#6b6358;
@@ -36,7 +35,7 @@
   /* 차트 */
   .chart-wrap{background:var(--paper);border:1px solid var(--line);border-radius:2px;padding:18px 20px;margin-bottom:24px}
   .chart-title{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:14px}
-  .chart-canvas-box{position:relative;height:220px}
+  .chart-svg-box{width:100%;overflow-x:auto}
 
   /* 컨트롤 */
   .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:20px}
@@ -83,7 +82,7 @@
 
   <div class="chart-wrap" id="chartWrap" style="display:none">
     <div class="chart-title" id="chartTitle">평당분양가 비교 (만원/평)</div>
-    <div class="chart-canvas-box"><canvas id="ppChart"></canvas></div>
+    <div class="chart-svg-box" id="chartSvgBox"></div>
   </div>
 
   <div class="controls">
@@ -112,7 +111,6 @@
 <script>
 const fmt = n => n==null?'-':n.toLocaleString('ko-KR');
 let ALL = [];
-let ppChartInst = null;
 
 function loanBadge(s){
   if(s.loanType==='무이자') return '<span class="badge b-green">중도금 무이자 '+s.loanRatio+'%</span>';
@@ -154,69 +152,89 @@ function renderChart(arr){
   const wrap=document.getElementById('chartWrap');
   if(arr.length<2){wrap.style.display='none';return;}
   wrap.style.display='';
+
   // 공고일 순 정렬
   const sorted=[...arr].sort((a,b)=>a.noticeDate.localeCompare(b.noticeDate));
-  const labels=sorted.map(s=>s.name.length>7?s.name.slice(0,7)+'…':s.name);
+  const labels=sorted.map(s=>s.name.length>8?s.name.slice(0,8)+'…':s.name);
   const values=sorted.map(s=>s.avgPyeong);
+  const n=values.length;
+
+  document.getElementById('chartTitle').textContent=
+    `평당분양가 비교 (만원/평) — 공고일 순 · ${n}개 현장`;
 
   // 선형회귀 추세선
-  const n=values.length, xi=values.map((_,i)=>i);
+  const xi=values.map((_,i)=>i);
   const mx=xi.reduce((a,v)=>a+v,0)/n, my=values.reduce((a,v)=>a+v,0)/n;
-  const slope=xi.reduce((a,v,i)=>a+(v-mx)*(values[i]-my),0)/xi.reduce((a,v)=>a+(v-mx)**2,0);
+  const denom=xi.reduce((a,v)=>a+(v-mx)**2,0);
+  const slope=denom?xi.reduce((a,v,i)=>a+(v-mx)*(values[i]-my),0)/denom:0;
   const intercept=my-slope*mx;
-  const trend=xi.map(v=>Math.round(slope*v+intercept));
+  const trend=xi.map(v=>slope*v+intercept);
 
-  const title=`평당분양가 비교 (만원/평) — 공고일 순 · ${arr.length}개 현장`;
-  document.getElementById('chartTitle').textContent=title;
+  // SVG 레이아웃
+  const PAD={top:16,right:20,bottom:64,left:56};
+  const barW=Math.max(28, Math.min(56, Math.floor(600/n)-8));
+  const svgW=Math.max(500, n*(barW+8)+PAD.left+PAD.right);
+  const svgH=240;
+  const plotW=svgW-PAD.left-PAD.right;
+  const plotH=svgH-PAD.top-PAD.bottom;
 
-  const ctx=document.getElementById('ppChart').getContext('2d');
-  if(ppChartInst) ppChartInst.destroy();
-  ppChartInst=new Chart(ctx,{
-    data:{
-      labels,
-      datasets:[
-        {
-          type:'bar',
-          label:'평균 평당가 (만원)',
-          data:values,
-          backgroundColor:'rgba(156,107,37,0.25)',
-          borderColor:'rgba(156,107,37,0.8)',
-          borderWidth:1.5,
-          borderRadius:2,
-          yAxisID:'y',
-        },
-        {
-          type:'line',
-          label:'추세선',
-          data:trend,
-          borderColor:'#c62828',
-          borderWidth:2,
-          borderDash:[5,4],
-          pointRadius:0,
-          tension:0,
-          yAxisID:'y',
-          fill:false,
-        }
-      ]
-    },
-    options:{
-      responsive:true,
-      maintainAspectRatio:false,
-      interaction:{mode:'index',intersect:false},
-      plugins:{
-        legend:{display:true,position:'top',labels:{font:{size:11},boxWidth:14,color:'#6b6358'}},
-        tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: ${fmt(ctx.parsed.y)}만`}}
-      },
-      scales:{
-        x:{ticks:{font:{size:10},color:'#6b6358',maxRotation:30},grid:{display:false}},
-        y:{
-          ticks:{font:{size:10},color:'#6b6358',callback:v=>fmt(v)+'만'},
-          grid:{color:'rgba(0,0,0,0.06)'},
-          title:{display:true,text:'만원/평',font:{size:10},color:'#6b6358'}
-        }
-      }
-    }
-  });
+  const vmin=Math.min(...values)*0.97, vmax=Math.max(...values)*1.03;
+  const yScale=v=>(1-(v-vmin)/(vmax-vmin))*plotH;
+  const xCenter=i=>PAD.left+i*(barW+8)+(barW/2)+4;
+
+  // Y축 눈금
+  const tickCount=4;
+  const tickStep=Math.ceil((vmax-vmin)/tickCount/100)*100;
+  const tickStart=Math.floor(vmin/100)*100;
+  const ticks=[];
+  for(let t=tickStart;t<=vmax+tickStep;t+=tickStep) if(t>=vmin&&t<=vmax+tickStep) ticks.push(t);
+
+  // 막대
+  const bars=values.map((v,i)=>{
+    const cy=yScale(v), bh=plotH-cy;
+    const x=PAD.left+i*(barW+8)+4;
+    return `<rect x="${x}" y="${PAD.top+cy}" width="${barW}" height="${bh}"
+      fill="rgba(156,107,37,0.22)" stroke="rgba(156,107,37,0.7)" stroke-width="1" rx="1"/>
+    <text x="${x+barW/2}" y="${PAD.top+cy-5}" text-anchor="middle"
+      font-size="9" fill="#9c6b25" font-family="IBM Plex Mono,monospace">${fmt(v)}</text>`;
+  }).join('');
+
+  // 추세선
+  const trendPts=trend.map((v,i)=>`${xCenter(i)},${PAD.top+yScale(v)}`).join(' ');
+  const trendLine=`<polyline points="${trendPts}" fill="none"
+    stroke="#c62828" stroke-width="1.8" stroke-dasharray="5,4" opacity="0.8"/>`;
+
+  // X축 레이블
+  const xlabels=labels.map((lb,i)=>{
+    const x=xCenter(i), y=PAD.top+plotH+14;
+    return `<text x="${x}" y="${y}" text-anchor="end" transform="rotate(-30,${x},${y})"
+      font-size="10" fill="#6b6358" font-family="Spectral,Georgia,serif">${lb}</text>`;
+  }).join('');
+
+  // Y축 눈금
+  const ymarks=ticks.map(t=>{
+    const y=PAD.top+yScale(t);
+    return `<line x1="${PAD.left}" x2="${PAD.left+plotW}" y1="${y}" y2="${y}"
+        stroke="#d9d2c5" stroke-width="0.7"/>
+      <text x="${PAD.left-6}" y="${y+4}" text-anchor="end"
+        font-size="9" fill="#6b6358" font-family="IBM Plex Mono,monospace">${fmt(t)}</text>`;
+  }).join('');
+
+  // 범례
+  const legend=`<rect x="${PAD.left}" y="4" width="10" height="10" rx="1"
+      fill="rgba(156,107,37,0.3)" stroke="rgba(156,107,37,0.7)" stroke-width="1"/>
+    <text x="${PAD.left+14}" y="13" font-size="10" fill="#6b6358" font-family="Spectral,Georgia,serif">평균 평당가</text>
+    <line x1="${PAD.left+80}" x2="${PAD.left+96}" y1="9" y2="9"
+      stroke="#c62828" stroke-width="1.8" stroke-dasharray="5,4"/>
+    <text x="${PAD.left+100}" y="13" font-size="10" fill="#6b6358" font-family="Spectral,Georgia,serif">추세선</text>`;
+
+  document.getElementById('chartSvgBox').innerHTML=`
+    <svg xmlns="http://www.w3.org/2000/svg" width="${svgW}" height="${svgH}" style="min-width:${svgW}px">
+      ${legend}
+      <line x1="${PAD.left}" x2="${PAD.left}" y1="${PAD.top}" y2="${PAD.top+plotH}" stroke="#6b6358" stroke-width="1"/>
+      <line x1="${PAD.left}" x2="${PAD.left+plotW}" y1="${PAD.top+plotH}" y2="${PAD.top+plotH}" stroke="#6b6358" stroke-width="1"/>
+      ${ymarks}${bars}${trendLine}${xlabels}
+    </svg>`;
 }
 
 function renderList(){
