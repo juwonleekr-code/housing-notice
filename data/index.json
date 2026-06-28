@@ -632,6 +632,52 @@
         "address": "인천광역시 서구 마전동 산175-7번지 일원"
       },
       "avgPyeongPrice": 1911
+    },
+    {
+      "id": "sinjeju-dongmun-dieast-signature-1",
+      "name": "신제주 동문디이스트 시그니처원Ⅰ",
+      "sido": "제주특별자치도",
+      "sigungu": "제주시",
+      "district": null,
+      "units": null,
+      "moveIn": "2027-03",
+      "avgPyeong": 3357,
+      "kookmin84Ratio": 76.92,
+      "balcony": null,
+      "loanType": null,
+      "loanRatio": null,
+      "downPaymentGrade": null,
+      "essentialOptionRatio": null,
+      "fullOptionRatio": null,
+      "developer": "주식회사 비앤비도시개발",
+      "trust": "코리아신탁 주식회사",
+      "constructor": "동문건설 주식회사",
+      "regulated": false,
+      "resaleRestriction": false,
+      "totalRevenueEok": 2114.28
+    },
+    {
+      "id": "sinjeju-dongmun-dieast-signature-2",
+      "name": "신제주 동문디이스트 시그니처원Ⅱ",
+      "sido": "제주특별자치도",
+      "sigungu": "제주시",
+      "district": null,
+      "units": null,
+      "moveIn": "2027-06",
+      "avgPyeong": 3376,
+      "kookmin84Ratio": 71.94,
+      "balcony": null,
+      "loanType": null,
+      "loanRatio": null,
+      "downPaymentGrade": null,
+      "essentialOptionRatio": null,
+      "fullOptionRatio": null,
+      "developer": "주식회사 비앤비개발산업",
+      "trust": "코리아신탁 주식회사",
+      "constructor": "동문건설 주식회사",
+      "regulated": false,
+      "resaleRestriction": false,
+      "totalRevenueEok": 2320.36
     }
   ]
 }
