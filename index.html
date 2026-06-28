@@ -204,10 +204,19 @@ function regBadge(s){
 
 /* ── 납부구조 블록 (계약금/중도금/잔금) ── */
 function paymentBlock(s){
-  const dp   = s.downPaymentRatio != null ? s.downPaymentRatio : '?';
-  const loan = s.loanRatio        != null ? s.loanRatio        : '?';
-  const rem  = (s.downPaymentRatio != null && s.loanRatio != null)
-               ? 100 - s.downPaymentRatio - s.loanRatio : '?';
+  // downPaymentRatio가 null이면 downPaymentStructure에서 직접 파싱 (fallback)
+  let dpRatio = s.downPaymentRatio;
+  if (dpRatio == null && s.downPaymentStructure) {
+    const st = s.downPaymentStructure;
+    let m = st.match(/^(\d+)%/);
+    if (!m) m = st.match(/계약금\s*(\d+)%/);
+    if (m) dpRatio = Number(m[1]);
+  }
+
+  const dp   = dpRatio  != null ? dpRatio      : '?';
+  const loan = s.loanRatio != null ? s.loanRatio : '?';
+  const rem  = (dpRatio != null && s.loanRatio != null)
+               ? 100 - dpRatio - s.loanRatio : '?';
 
   // 계약금 짧은 주석
   let dpNote = '';
