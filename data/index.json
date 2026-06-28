@@ -443,30 +443,18 @@
       "moveIn": "2029-04",
       "avgPyeong": 1566,
       "kookmin84Ratio": 99.7,
+      "balcony": "전타입 유상",
       "loanType": "무이자",
       "loanRatio": 60,
       "downPaymentGrade": null,
+      "essentialOptionRatio": null,
+      "fullOptionRatio": null,
       "developer": "㈜코윈",
       "trust": "㈜무궁화신탁",
       "constructor": "현대건설㈜",
       "regulated": false,
       "resaleRestriction": false,
-      "totalRevenueEok": 1556,
-      "balconyType": "유상",
-      "balconyPrice84": 2000,
-      "balconyByType": true,
-      "balconyNote": "유상",
-      "downPaymentRatio": 5,
-      "downPaymentStructure": "계약금 5% (계약시 5,000,000원 정액 + 15일 이내 잔여)",
-      "noticeDate": "2026-06-12",
-      "brand": "힐스테이트",
-      "location": {
-        "sido": "경상남도",
-        "sigungu": "양산시",
-        "district": "물금읍",
-        "address": "경상남도 양산시 물금읍 범어리 940-2번지 일원"
-      },
-      "avgPyeongPrice": null
+      "totalRevenueEok": 1556
     },
     {
       "id": "hillstate-yangsan-sky-1",
@@ -478,30 +466,18 @@
       "moveIn": "2029-04",
       "avgPyeong": 1582,
       "kookmin84Ratio": 99.7,
+      "balcony": "전타입 유상",
       "loanType": "무이자",
       "loanRatio": 60,
       "downPaymentGrade": null,
+      "essentialOptionRatio": null,
+      "fullOptionRatio": null,
       "developer": "㈜코윈",
       "trust": "㈜무궁화신탁",
       "constructor": "현대건설㈜",
       "regulated": false,
       "resaleRestriction": false,
-      "totalRevenueEok": 1509,
-      "balconyType": "유상",
-      "balconyPrice84": 2000,
-      "balconyByType": true,
-      "balconyNote": "유상",
-      "downPaymentRatio": 5,
-      "downPaymentStructure": "계약금 5% (계약시 5,000,000원 정액 + 15일 이내 잔여)",
-      "noticeDate": "2026-06-12",
-      "brand": "힐스테이트",
-      "location": {
-        "sido": "경상남도",
-        "sigungu": "양산시",
-        "district": "물금읍",
-        "address": "경상남도 양산시 물금읍 가촌리 971번지 일원"
-      },
-      "avgPyeongPrice": null
+      "totalRevenueEok": 1509
     }
   ]
 }
