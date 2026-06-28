@@ -643,18 +643,25 @@
       "moveIn": "2027-03",
       "avgPyeong": 3357,
       "kookmin84Ratio": 76.92,
-      "balcony": null,
       "loanType": null,
       "loanRatio": null,
       "downPaymentGrade": null,
-      "essentialOptionRatio": null,
-      "fullOptionRatio": null,
       "developer": "주식회사 비앤비도시개발",
       "trust": "코리아신탁 주식회사",
       "constructor": "동문건설 주식회사",
       "regulated": false,
       "resaleRestriction": false,
-      "totalRevenueEok": 2114.28
+      "totalRevenueEok": 2114.28,
+      "downPaymentRatio": 10,
+      "downPaymentStructure": null,
+      "noticeDate": "2026-06-23",
+      "brand": "동문디이스트",
+      "location": {
+        "sido": "제주특별자치도",
+        "sigungu": "제주시",
+        "address": "제주특별자치도 제주시 연동 274-12번지외 4필지"
+      },
+      "avgPyeongPrice": 3357
     },
     {
       "id": "sinjeju-dongmun-dieast-signature-2",
@@ -666,18 +673,25 @@
       "moveIn": "2027-06",
       "avgPyeong": 3376,
       "kookmin84Ratio": 71.94,
-      "balcony": null,
       "loanType": null,
       "loanRatio": null,
       "downPaymentGrade": null,
-      "essentialOptionRatio": null,
-      "fullOptionRatio": null,
       "developer": "주식회사 비앤비개발산업",
       "trust": "코리아신탁 주식회사",
       "constructor": "동문건설 주식회사",
       "regulated": false,
       "resaleRestriction": false,
-      "totalRevenueEok": 2320.36
+      "totalRevenueEok": 2320.36,
+      "downPaymentRatio": 10,
+      "downPaymentStructure": null,
+      "noticeDate": "2026-06-23",
+      "brand": "동문디이스트",
+      "location": {
+        "sido": "제주특별자치도",
+        "sigungu": "제주시",
+        "address": "제주특별자치도 제주시 연동 274-25번지외 5필지"
+      },
+      "avgPyeongPrice": 3376
     }
   ]
 }
