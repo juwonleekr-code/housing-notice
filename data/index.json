@@ -512,19 +512,31 @@
       "units": 320,
       "moveIn": "2029-09",
       "avgPyeong": 1700,
-      "kookmin84Ratio": 100.0,
-      "balcony": "전타입 유상",
+      "kookmin84Ratio": 100,
       "loanType": "이자후불제",
       "loanRatio": 60,
       "downPaymentGrade": null,
-      "essentialOptionRatio": null,
-      "fullOptionRatio": null,
       "developer": "주식회사 중앙홀딩스",
       "trust": "㈜하나자산신탁",
       "constructor": "지에스건설㈜",
       "regulated": false,
       "resaleRestriction": false,
-      "totalRevenueEok": 1842.24
+      "totalRevenueEok": 1842.24,
+      "balconyType": "유상",
+      "balconyPrice84": 1470,
+      "balconyByType": true,
+      "balconyNote": "유상",
+      "downPaymentRatio": 10,
+      "downPaymentStructure": "계약금 10% (계약시 500만원 정액 + 1개월이내 잔여)",
+      "noticeDate": "2026-06-05",
+      "brand": "자이",
+      "location": {
+        "sido": "충청남도",
+        "sigungu": "천안시",
+        "district": "서북구",
+        "address": "충청남도 천안시 서북구 백석동 94번지 일원"
+      },
+      "avgPyeongPrice": 1700
     },
     {
       "id": "baekseok-signature-xi-1",
@@ -536,18 +548,30 @@
       "moveIn": "2029-09",
       "avgPyeong": 1700,
       "kookmin84Ratio": 90.4,
-      "balcony": "전타입 유상",
       "loanType": "이자후불제",
       "loanRatio": 60,
       "downPaymentGrade": null,
-      "essentialOptionRatio": null,
-      "fullOptionRatio": null,
       "developer": "주식회사 중앙홀딩스",
       "trust": "㈜하나자산신탁",
       "constructor": "지에스건설㈜",
       "regulated": false,
       "resaleRestriction": false,
-      "totalRevenueEok": 4694
+      "totalRevenueEok": 4694,
+      "balconyType": "유상",
+      "balconyPrice84": 1470,
+      "balconyByType": true,
+      "balconyNote": "유상",
+      "downPaymentRatio": 10,
+      "downPaymentStructure": "계약금 10% (계약시 500만원 정액 + 1개월이내 잔여)",
+      "noticeDate": "2026-06-05",
+      "brand": "자이",
+      "location": {
+        "sido": "충청남도",
+        "sigungu": "천안시",
+        "district": "서북구",
+        "address": "충청남도 천안시 서북구 백석동 92-7번지 일원"
+      },
+      "avgPyeongPrice": 1700
     }
   ]
 }
