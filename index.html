@@ -181,19 +181,40 @@ const fmt = n => n == null ? '—' : Number(n).toLocaleString('ko-KR');
 let ALL = [], chartInst = null, activeSido = '';
 
 /* ── 뱃지 ── */
-function loanBadge(s){
-  return s.loanType==='무이자'
-    ?`<span class="badge b-green">중도금 무이자 ${s.loanRatio}%</span>`
-    :`<span class="badge b-warn">중도금 유이자 ${s.loanRatio}%</span>`;
-}
-function dpBadge(g){
-  const m={A:'b-green',B:'b-green',C:'b-warn',D:'b-danger'};
-  return `<span class="badge ${m[g]||'b-n'}">계약금 ${g}등급</span>`;
-}
 function regBadge(s){
   return s.regulated
-    ?`<span class="badge b-danger">규제지역</span>`
-    :`<span class="badge b-n">비규제</span>`;
+    ? `<span class="badge b-danger">규제지역</span>`
+    : `<span class="badge b-n">비규제</span>`;
+}
+function loanBadge(s){
+  if(!s.loanType) return '';
+  const cls = s.loanType==='무이자' ? 'b-green' : 'b-warn';
+  const label = s.loanType==='무이자' ? '무이자' : '유이자';
+  return `<span class="badge ${cls}">중도금 ${label} ${s.loanRatio??''}%</span>`;
+}
+function dpBadge(s){
+  const gc = {A:'b-green',B:'b-green',C:'b-warn',D:'b-danger'};
+  const g = s.downPaymentGrade || '';
+  const r = s.downPaymentRatio != null ? ` ${s.downPaymentRatio}%` : '';
+  const st = s.downPaymentStructure ? `<br><span style="font-weight:400;font-size:11px;opacity:.75">${s.downPaymentStructure}</span>` : '';
+  return `<span class="badge ${gc[g]||'b-n'}" style="line-height:1.5">계약금 ${g}등급${r}${st}</span>`;
+}
+function balconyBadge(s){
+  if(!s.balconyType && !s.balcony) return '';
+  const type = s.balconyType || (s.balcony&&s.balcony.includes('무상') ? '무상' : '유상');
+  if(type==='무상'){
+    return `<span class="badge b-blue">발코니 무상</span>`;
+  }
+  // 유상인 경우
+  let label = '발코니 유상';
+  if(s.balconyPrice84){
+    label += ` ${fmt(s.balconyPrice84)}만<span style="font-weight:400;font-size:11px;opacity:.75">(84㎡)</span>`;
+  } else if(s.balconyByType){
+    label += ' 평형별 별도';
+  } else if(s.balconyNote){
+    label += ` ${s.balconyNote}`;
+  }
+  return `<span class="badge b-warn">${label}</span>`;
 }
 
 /* ── KPI ── */
@@ -341,8 +362,7 @@ function renderCards(arr){
           <div class="cs-val" style="font-size:17px;letter-spacing:-.2px">${s.moveIn}</div></div>
       </div>
       <div class="c-chips">
-        ${regBadge(s)}${loanBadge(s)}${dpBadge(s.downPaymentGrade)}
-        <span class="badge b-n">풀옵션 ${s.fullOptionRatio}%</span>
+        ${regBadge(s)}${loanBadge(s)}${dpBadge(s)}${balconyBadge(s)}
       </div>
     </a>`).join('');
 }
