@@ -184,6 +184,29 @@
       "regulated": false,
       "resaleRestriction": true,
       "totalRevenueEok": 1939
+    },
+    {
+      "id": "jangwi-prugio-markone",
+      "name": "장위 푸르지오 마크원",
+      "sido": "서울특별시",
+      "sigungu": "성북구",
+      "district": "장위10구역 주택재개발정비사업",
+      "units": 1032,
+      "moveIn": "2030-09",
+      "avgPyeong": 5063,
+      "kookmin84Ratio": 99.3,
+      "balcony": "전타입 유상",
+      "loanType": "이자후불제",
+      "loanRatio": 40,
+      "downPaymentGrade": "C",
+      "essentialOptionRatio": 0.25,
+      "fullOptionRatio": 3.4,
+      "developer": "장위10구역 주택재개발정비사업조합",
+      "trust": null,
+      "constructor": "㈜대우건설",
+      "regulated": true,
+      "resaleRestriction": true,
+      "totalRevenueEok": 15252
     }
   ]
 }
