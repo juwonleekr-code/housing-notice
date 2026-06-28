@@ -258,12 +258,12 @@ function normalize(d){
   const pricing=d.pricing||{}, loan=d.loan||{}, dp=d.downPayment||{};
   const guar=d.guarantee||{};
 
-  d._units    = d.units    || bld.totalUnits;
+  d._units    = d.units    || bld.units || bld.totalUnits;
   d._moveIn   = d.moveIn   || bld.moveIn || (d.schedule&&(d.schedule.moveInDate||d.schedule.movein));
   d._regulated= d.regulated!=null ? d.regulated : bld.regulated;
   d._resale   = d.resaleRestriction!=null ? d.resaleRestriction : bld.resaleRestriction;
-  d._loanType = d.loanType || loan.type;
-  d._loanRatio= d.loanRatio!= null ? d.loanRatio : loan.ratio;
+  d._loanType = d.loanType || dp.loanType || loan.type;
+  d._loanRatio= d.loanRatio!= null ? d.loanRatio : (dp.loanRatio != null ? dp.loanRatio : loan.ratio);
   d._loanDetail= loan.detail || '';
   d._loanBenefit= loan.benefitManwon84A ? `84A 기준 중도금 이자절감 약 ${fmt(loan.benefitManwon84A)}만원 추정` : '';
   d._dpGrade  = d.downPaymentGrade || dp.grade;
@@ -517,7 +517,13 @@ function renderBalcony(d){
     return;
   }
 
-  const byType = bal.byType || {};
+  // 신형 스키마: balcony가 {type: 만원값} 플랫 구조인 경우 byType으로 변환
+  let byType = bal.byType || {};
+  if(!Object.keys(byType).length){
+    // flat 구조 여부 확인: bal 키가 타입명(숫자로 시작하거나 알파벳+숫자)인 경우
+    const flatKeys = Object.keys(bal).filter(k=>k!=='all'&&k!=='byType'&&k!=='developerView');
+    if(flatKeys.length) byType = Object.fromEntries(flatKeys.map(k=>[k, bal[k]]));
+  }
 
   // 가격 파싱: "28,800,000원" → 2880만 / "1,800만원" → 1800
   function parseManwon(v){
