@@ -1,0 +1,140 @@
+{
+  "id": "baekseok-signature-xi-2",
+  "name": "백석시그니처자이 2단지",
+  "brand": "자이",
+  "approvalNo": "천안시 공동주택과-23667호(2026.06.02.)",
+  "noticeDate": "2026-06-05",
+  "regulated": false,
+  "priceCap": false,
+  "landType": "민간택지",
+  "transferRestriction": false,
+  "reselectionRestriction": false,
+  "residencyObligation": false,
+  "location": {
+    "sido": "충청남도",
+    "sigungu": "천안시",
+    "district": "서북구",
+    "address": "충청남도 천안시 서북구 백석동 94번지 일원"
+  },
+  "building": {
+    "scale": "지하2층~지상28층, 4개동",
+    "buildings": 4,
+    "totalUnits": 320,
+    "specialUnits": 169,
+    "generalUnits": 151,
+    "moveIn": "2029-09"
+  },
+  "unitMix": [
+    {
+      "type": "84A",
+      "exclusive": 84.9915,
+      "supply": 111.7476,
+      "pyeong": 33.80,
+      "units": 249,
+      "ratio": 77.8,
+      "special": 135,
+      "general": 114,
+      "avgPrice": 57551,
+      "pyeongPrice": 1703,
+      "revenueEok": 1433.02
+    },
+    {
+      "type": "84D",
+      "exclusive": 84.9951,
+      "supply": 112.3794,
+      "pyeong": 33.99,
+      "units": 56,
+      "ratio": 17.5,
+      "special": 28,
+      "general": 28,
+      "avgPrice": 57644,
+      "pyeongPrice": 1696,
+      "revenueEok": 322.81
+    },
+    {
+      "type": "84E",
+      "exclusive": 84.9981,
+      "supply": 113.8388,
+      "pyeong": 34.44,
+      "units": 15,
+      "ratio": 4.7,
+      "special": 6,
+      "general": 9,
+      "avgPrice": 57607,
+      "pyeongPrice": 1673,
+      "revenueEok": 86.41
+    }
+  ],
+  "pricing": {
+    "avgPyeongPrice": 1700,
+    "totalRevenueEok": 1842.24,
+    "kookmin84Ratio": 100.0,
+    "note": "전 타입 전용면적 85㎡ 이하. 평당가는 공급면적 기준 가중평균."
+  },
+  "downPayment": {
+    "ratio": 10,
+    "structure": "계약금 10% (계약시 500만원 정액 + 1개월이내 잔여)",
+    "initialCashManwon": 500,
+    "initialCashRatio": 0.87
+  },
+  "loan": {
+    "ratio": 60,
+    "count": 6,
+    "type": "이자후불제",
+    "schedule": ["2026-12-10","2027-05-10","2027-09-10","2028-09-10","2028-12-10","2029-03-10"]
+  },
+  "remainder": {"ratio": 30},
+  "balcony": {
+    "all": "유상",
+    "byType": {
+      "84A": "1470만원",
+      "84D": "1600만원",
+      "84E": "1620만원"
+    }
+  },
+  "guarantee": {
+    "agency": "주택도시보증공사(HUG)",
+    "certNo": "제01292026-101-0003000호",
+    "amountEok": 1289.56
+  },
+  "parties": {
+    "developer": "주식회사 중앙홀딩스",
+    "trust": "㈜하나자산신탁",
+    "trustNote": "관리형토지신탁",
+    "constructor": "지에스건설㈜"
+  },
+  "schedule": {
+    "noticeDate": "2026-06-05",
+    "special": "2026-06-15",
+    "general1": "2026-06-16",
+    "general2": "2026-06-17",
+    "winnerAnnounce": "2026-06-24",
+    "docSubmit": "2026-06-27",
+    "contract": "2026-07-06",
+    "moveIn": "2029-09"
+  },
+  "floorPricing": {
+    "84A": {
+      "1층(9)": 52390,
+      "2층(9)": 53890,
+      "3층(11)": 55090,
+      "4층(11)": 56290,
+      "5~9층(55)": 57390,
+      "10층이상(154)": 58390
+    },
+    "84D": {
+      "1층(2)": 52390,
+      "2층(2)": 53890,
+      "3층(2)": 55090,
+      "4층(2)": 56290,
+      "5~9층(10)": 57390,
+      "10층이상(38)": 58390
+    },
+    "84E": {
+      "3층(1)": 55000,
+      "4층(1)": 56200,
+      "5~9층(5)": 57300,
+      "10층이상(8)": 58300
+    }
+  }
+}
