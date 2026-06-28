@@ -221,16 +221,100 @@ const fmt=(n,d=0)=>n==null?'—':Number(n).toLocaleString('ko-KR',{maximumFracti
 const pct=n=>n==null?'—':n+'%';
 const badge=(cls,t)=>`<span class="badge ${cls}">${t}</span>`;
 
+/* ── 스키마 정규화 ── 구형(kimhae 스타일)과 신형 모두 지원 */
+function normalize(d){
+  const bld=d.building||{}, loc=d.location||{}, p=d.parties||{};
+  const pricing=d.pricing||{}, loan=d.loan||{}, dp=d.downPayment||{};
+  const guar=d.guarantee||{};
+
+  // top-level 필드 보완
+  d._units    = d.units    || bld.totalUnits;
+  d._moveIn   = d.moveIn   || bld.moveIn   || (d.schedule&&d.schedule.moveInDate);
+  d._regulated= d.regulated!=null ? d.regulated : bld.regulated;
+  d._resale   = d.resaleRestriction!=null ? d.resaleRestriction : bld.resaleRestriction;
+  d._loanType = d.loanType || loan.type;
+  d._loanRatio= d.loanRatio|| loan.ratio;
+  d._dpGrade  = d.downPaymentGrade || dp.grade;
+  d._dpRatio  = d.downPaymentRatio || dp.initialCashRatio;
+  d._avgPP    = d.avgPyeong || pricing.avgPyeongPrice;
+  d._gdv      = (d.pl&&d.pl.totalRevenue) || pricing.totalRevenueEok;
+  d._hug      = (d.pl&&d.pl.hugGuarantee) || guar.amountEok;
+  d._k84r     = (d.pl&&d.pl.kookmin84Ratio) || pricing.kookmin84Ratio || d.kookmin84Ratio;
+  d._fullOpt  = (d.pl&&d.pl.fullOptionRatio!=null) ? d.pl.fullOptionRatio
+                : (d.options&&d.options.fullRatio);
+  d._plNote   = (d.pl&&d.pl.notes) || pricing.note || (d.options&&d.options.developerView) || '';
+
+  // 위치 보완
+  loc._block  = loc.block || loc.district;
+
+  // 건축개요 보완
+  bld._type   = bld.type || (bld.scale ? bld.scale.split(',')[0].trim() : null);
+  const bldMatch= bld.scale && bld.scale.match(/(\d+)개동/);
+  bld._bldCnt = bld.buildings || (bldMatch ? bldMatch[1]+'동' : null);
+  const flrMatch= bld.scale && bld.scale.match(/지상\s*(\d+)층/);
+  bld._maxFlr = bld.maxFloor || (flrMatch ? flrMatch[1] : null);
+
+  // 유닛 타입 정규화
+  const rawUnits = d.unitTypes || d.unitMix || [];
+  d._unitTypes = rawUnits.map(u=>({
+    type:       u.type,
+    exclusiveM2:u.exclusiveM2 || u.exclusive,
+    supplyM2:   u.supplyM2   || u.supply,
+    units:      u.units,
+    unitAvgPrice:u.unitAvgPrice|| u.avgPrice,
+    pyeongPrice: u.pyeongPrice,
+  }));
+
+  // 유상옵션 정규화
+  if(Array.isArray(d.options)){
+    d._opts = d.options;
+  } else if(d.options && Array.isArray(d.options.tiers)){
+    d._opts = d.options.tiers.map(t=>({
+      category: t.tier,
+      name: t.desc,
+      price: t.manwon84A,
+      note: '84A 기준',
+    }));
+  } else { d._opts = []; }
+
+  // 사업주체 정규화
+  d._developer  = d.developer  || p.developer;
+  d._constructor= d.constructor|| p.constructor;
+  d._trustee    = d.trustee    || p.trust;
+  d._salesAgent = d.salesAgent;
+  d._hugGuar    = d.hugGuarantor||(guar.amountEok?`HUG ${fmt(guar.amountEok)}억 (${guar.certNo||''})`:null);
+
+  // 일정 정규화
+  const sc = d.schedule||{};
+  d._schedDates=[
+    {k:'입주자모집공고',v:sc.noticeDate||d.noticeDate},
+    {k:'특별공급',      v:sc.special||sc.specialDate},
+    {k:'1순위 청약',    v:sc.general1||sc.applicationDate},
+    {k:'2순위 청약',    v:sc.general2},
+    {k:'당첨자발표',    v:sc.winnerAnnounce||sc.winnerAnnouncementDate},
+    {k:'서류제출',      v:sc.docSubmit},
+    {k:'계약체결',      v:sc.contract||sc.contractDate},
+    {k:'입주예정',      v:d._moveIn},
+  ].filter(i=>i.v);
+
+  return d;
+}
+
+/* ── 렌더 함수들 ── */
 function renderHero(d){
   const loc=d.location||{};
-  document.getElementById('heroLoc').textContent=[loc.sido,loc.sigungu,loc.dong,loc.block].filter(Boolean).join(' · ');
+  document.getElementById('heroLoc').textContent=
+    [loc.sido,loc.sigungu,loc.dong||loc._block].filter(Boolean).join(' · ');
   document.getElementById('heroName').textContent=d.name;
   const m=[];
-  if(d.regulated!=null)m.push(d.regulated?badge('b-danger','규제지역'):badge('b-n','비규제'));
-  if(d.resaleRestriction)m.push(badge('b-warn','전매제한 '+d.resaleRestriction));
-  if(d.loanType)m.push(d.loanType==='무이자'?badge('b-green','중도금 무이자 '+d.loanRatio+'%'):badge('b-warn','중도금 유이자 '+d.loanRatio+'%'));
-  if(d.downPaymentGrade){const cl={A:'b-green',B:'b-green',C:'b-warn',D:'b-danger'}[d.downPaymentGrade]||'b-n';m.push(badge(cl,'계약금 '+d.downPaymentGrade+'등급'));}
-  if(d.moveIn)m.push(badge('b-n','입주 '+d.moveIn));
+  if(d._regulated!=null)m.push(d._regulated?badge('b-danger','규제지역'):badge('b-n','비규제'));
+  if(d._resale)m.push(badge('b-warn','전매제한 '+(typeof d._resale==='string'?d._resale:'')));
+  if(d._loanType)m.push(d._loanType==='무이자'
+    ?badge('b-green','중도금 무이자 '+d._loanRatio+'%')
+    :badge('b-warn','중도금 유이자 '+d._loanRatio+'%'));
+  if(d._dpGrade){const cl={A:'b-green',B:'b-green',C:'b-warn',D:'b-danger'}[d._dpGrade]||'b-n';
+    m.push(badge(cl,'계약금 '+d._dpGrade+'등급'));}
+  if(d._moveIn)m.push(badge('b-n','입주 '+d._moveIn));
   document.getElementById('heroMeta').innerHTML=m.join('');
   document.getElementById('hero').style.display='';
 }
@@ -244,22 +328,29 @@ function renderVerdict(d){
 
 function renderLocGrid(d){
   const loc=d.location||{},bld=d.building||{};
+  const addr=[loc.sido,loc.sigungu,loc.dong].filter(Boolean).join(' ')
+    || loc.address || '—';
   const items=[
-    {label:'소재지',val:[loc.sido,loc.sigungu,loc.dong].filter(Boolean).join(' ')},
-    {label:'블럭',val:loc.block||'—'},
-    {label:'건축형태',val:bld.type||'—'},
-    {label:'최고층수',val:bld.maxFloor,unit:'층'},
-    {label:'동수',val:bld.buildings,unit:'동'},
-    {label:'총세대',val:fmt(d.units),unit:'세대'},
+    {label:'소재지', val:addr},
+    {label:'블럭·지구', val:loc._block||loc.district||'—'},
+    {label:'건축규모', val:bld._type||'—'},
+    {label:'최고층수', val:bld._maxFlr, unit:'층'},
+    {label:'동수', val:bld._bldCnt||bld.buildings, unit:bld._bldCnt?'':'동'},
+    {label:'총세대', val:fmt(d._units), unit:'세대'},
   ];
   document.getElementById('locGrid').innerHTML=items.map(i=>
-    `<div class="info-card"><div class="ic-label">${i.label}</div><div class="ic-val">${i.val!=null?i.val:'—'}<span class="ic-unit">${i.unit||''}</span></div></div>`
+    `<div class="info-card"><div class="ic-label">${i.label}</div>
+    <div class="ic-val">${i.val!=null&&i.val!==''?i.val:'—'}<span class="ic-unit">${i.unit||''}</span></div></div>`
   ).join('');
 }
 
 function renderUnitTable(d){
-  const units=d.unitTypes||[];
-  if(!units.length){document.getElementById('unitTbody').innerHTML='<tr><td colspan="8" style="text-align:center;color:var(--sub);padding:28px">단위타입 데이터 없음</td></tr>';return;}
+  const units=d._unitTypes;
+  if(!units.length){
+    document.getElementById('unitTbody').innerHTML=
+      '<tr><td colspan="8" style="text-align:center;color:var(--sub);padding:28px">단위타입 데이터 없음</td></tr>';
+    return;
+  }
   const tu=units.reduce((a,u)=>a+u.units,0);
   const tr=units.reduce((a,u)=>a+(u.unitAvgPrice*u.units),0);
   const tm=units.reduce((a,u)=>a+(u.supplyM2*u.units),0);
@@ -268,9 +359,12 @@ function renderUnitTable(d){
     const sp=(tu?(u.units/tu*100).toFixed(1):'—')+'%';
     const isK=u.type.startsWith('84');
     return `<tr class="${isK?'kookmin-row':''}">
-      <td>${u.type}</td><td class="num">${fmt(u.exclusiveM2,2)}</td>
-      <td class="num">${fmt(u.supplyM2,2)}</td><td class="num">${fmt(u.units)}</td>
-      <td>${sp}</td><td class="num">${fmt(u.unitAvgPrice)} 만</td>
+      <td>${u.type}</td>
+      <td class="num">${fmt(u.exclusiveM2,2)}</td>
+      <td class="num">${fmt(u.supplyM2,2)}</td>
+      <td class="num">${fmt(u.units)}</td>
+      <td>${sp}</td>
+      <td class="num">${fmt(u.unitAvgPrice)} 만</td>
       <td class="num hl">${fmt(u.pyeongPrice)} 만</td>
       <td class="num">${fmt(Math.round(u.unitAvgPrice*u.units/100000000))} 억</td>
     </tr>`;
@@ -281,28 +375,27 @@ function renderUnitTable(d){
 }
 
 function renderPL(d){
-  const pl=d.pl||d.economics||{};
   const items=[
-    {label:'분양수입 (GDV)',val:pl.totalRevenue,unit:'억',cls:'blue'},
-    {label:'가중 평당분양가',val:pl.avgPyeong||d.avgPyeong,unit:'만/평',cls:'blue'},
-    {label:'HUG 보증한도',val:pl.hugGuarantee,unit:'억'},
-    {label:'국민평형 비중',val:pct(pl.kookmin84Ratio||d.kookmin84Ratio),unit:''},
-    {label:'중도금 방식',val:(d.loanType||'—')+(d.loanRatio?' '+d.loanRatio+'%':''),unit:''},
-    {label:'풀옵션 비중',val:pl.fullOptionRatio!=null?pct(pl.fullOptionRatio):'—',unit:''},
+    {label:'분양수입 (GDV)',val:d._gdv,unit:'억',cls:'blue'},
+    {label:'가중 평당분양가',val:d._avgPP,unit:'만/평',cls:'blue'},
+    {label:'HUG 보증한도',val:d._hug?fmt(d._hug):null,unit:'억'},
+    {label:'국민평형 비중',val:pct(d._k84r),unit:''},
+    {label:'중도금 방식',val:(d._loanType||'—')+(d._loanRatio?' '+d._loanRatio+'%':''),unit:''},
+    {label:'풀옵션 비중',val:d._fullOpt!=null?pct(d._fullOpt):'—',unit:''},
   ];
   document.getElementById('plGrid').innerHTML=items.map(i=>
-    `<div class="info-card"><div class="ic-label">${i.label}</div><div class="ic-val ${i.cls||''}">${i.val!=null?i.val:'—'}<span class="ic-unit">${i.unit}</span></div></div>`
+    `<div class="info-card"><div class="ic-label">${i.label}</div>
+    <div class="ic-val ${i.cls||''}">${i.val!=null?i.val:'—'}<span class="ic-unit">${i.unit}</span></div></div>`
   ).join('');
-  if(pl.notes||d.plNote)document.getElementById('plNote').textContent=pl.notes||d.plNote;
+  if(d._plNote)document.getElementById('plNote').textContent=d._plNote;
 }
 
 function renderOptions(d){
-  const opts=d.options||[];
   const g=document.getElementById('optGrid');
-  if(!opts.length){g.innerHTML='<div style="color:var(--sub);font-size:14px">유상옵션 정보 없음</div>';return;}
-  g.innerHTML=opts.map(o=>`<div class="opt-card">
+  if(!d._opts.length){g.innerHTML='<div style="color:var(--sub);font-size:14px">유상옵션 정보 없음</div>';return;}
+  g.innerHTML=d._opts.map(o=>`<div class="opt-card">
     <div class="opt-type">${o.category||''}</div>
-    <div class="opt-name">${o.name}</div>
+    <div class="opt-name">${o.name||''}</div>
     <div class="opt-price">${fmt(o.price)}<span class="opt-price-unit">만원</span></div>
     ${o.note?`<div class="opt-note">${o.note}</div>`:''}
   </div>`).join('');
@@ -319,43 +412,34 @@ function renderContract(d){
     </div>`).join('');
   } else {
     const it=[];
-    if(d.downPaymentRatio)it.push({label:'계약금',p:d.downPaymentRatio});
-    if(d.loanRatio)it.push({label:'중도금('+d.loanType+')',p:d.loanRatio});
-    const b=100-(d.downPaymentRatio||0)-(d.loanRatio||0);
+    const dpRatio=d.downPaymentRatio||(d.downPayment&&d.downPayment.initialCashRatio)||5;
+    it.push({label:'계약금',p:dpRatio});
+    if(d._loanRatio)it.push({label:'중도금('+d._loanType+')',p:d._loanRatio});
+    const b=100-dpRatio-(d._loanRatio||0);
     if(b>0)it.push({label:'잔금',p:b});
     pills.innerHTML=it.map((s,i)=>`<div class="contract-pill">
       <span style="color:var(--sub);font-size:12px">${i+1}</span>
       <span>${s.label}</span><span class="pct">${s.p}%</span>
     </div>`).join('');
   }
-  const dates=[
-    {k:'입주자모집공고',v:sc.noticeDate||d.noticeDate},
-    {k:'청약접수',v:sc.applicationDate||sc.subscriptionDate},
-    {k:'당첨자발표',v:sc.winnerAnnouncementDate},
-    {k:'계약체결',v:sc.contractDate},
-    {k:'중도금납부',v:sc.loanDate||sc.midPaymentDate},
-    {k:'입주예정',v:sc.moveInDate||d.moveIn},
-  ].filter(i=>i.v);
-  document.getElementById('promoGrid').innerHTML=dates.map(i=>
+  document.getElementById('promoGrid').innerHTML=d._schedDates.map(i=>
     `<div class="kv-row"><div class="kv-k">${i.k}</div><div class="kv-v">${i.v}</div></div>`
   ).join('');
 }
 
 function renderEntities(d){
   const roles=[
-    {role:'시행사',name:d.developer},
-    {role:'시공사',name:d.constructor||(d.contractors&&d.contractors[0]&&d.contractors[0].name)},
-    {role:'신탁사',name:d.trustee||(d.trust&&d.trust.name)},
-    {role:'분양대행사',name:d.salesAgent},
-    {role:'HUG 보증',name:d.hugGuarantor||((d.pl||{}).hugGuarantee?'HUG '+ fmt((d.pl||{}).hugGuarantee)+'억':'')},
-    {role:'분양보증',name:d.salesGuarantor},
+    {role:'시행사',  name:d._developer},
+    {role:'시공사',  name:d._constructor},
+    {role:'신탁사',  name:d._trustee},
+    {role:'분양대행',name:d._salesAgent},
+    {role:'HUG 보증',name:d._hugGuar},
   ].filter(e=>e.name);
   const g=document.getElementById('entityGrid');
   if(!roles.length){g.innerHTML='<div style="color:var(--sub);font-size:14px">사업주체 정보 없음</div>';return;}
   g.innerHTML=roles.map(e=>`<div class="entity-card">
     <div class="entity-role">${e.role}</div>
     <div class="entity-name">${e.name}</div>
-    ${e.note?`<div class="entity-note">${e.note}</div>`:''}
   </div>`).join('');
 }
 
@@ -370,7 +454,8 @@ else{
   fetch(`data/sites/${id}.json`).then(r=>{
     if(!r.ok)throw new Error('HTTP '+r.status);
     return r.json();
-  }).then(d=>{
+  }).then(raw=>{
+    const d=normalize(raw);
     document.title=d.name+' — PF 심사 DB';
     renderHero(d);renderVerdict(d);renderLocGrid(d);
     renderUnitTable(d);renderPL(d);renderOptions(d);
