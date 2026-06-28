@@ -16,14 +16,12 @@
   "transferRestriction": "없음",
   "reselectionRestriction": "없음",
   "residencyObligation": "없음",
-
   "building": {
     "floors": "지하3층~지상20층",
     "buildings": 4,
     "totalUnits": 299,
     "moveIn": "2029-04"
   },
-
   "unitMix": [
     {
       "type": "84A",
@@ -33,7 +31,7 @@
       "specialUnits": 144,
       "generalUnits": 117,
       "avgPrice": 52145,
-      "revenueEok": 136.10
+      "revenueEok": 136.1
     },
     {
       "type": "84B",
@@ -48,12 +46,12 @@
     {
       "type": "84C",
       "exclusiveM2": 84.9729,
-      "supplyM2": 107.8470,
+      "supplyM2": 107.847,
       "units": 19,
       "specialUnits": 11,
       "generalUnits": 8,
       "avgPrice": 49452,
-      "revenueEok": 9.40
+      "revenueEok": 9.4
     },
     {
       "type": "159P",
@@ -63,22 +61,19 @@
       "specialUnits": 0,
       "generalUnits": 1,
       "avgPrice": 109800,
-      "revenueEok": 1.10,
+      "revenueEok": 1.1,
       "note": "펜트하우스, VAT포함"
     }
   ],
-
   "avgPyeongPrice": 2028,
   "gdvEok": 1556,
   "kookmin84Ratio": 99.7,
-
   "downPayment": {
     "ratio": 5,
     "structure": "계약금 5% (계약시 5,000,000원 정액 + 15일 이내 잔여)",
     "firstPayment": 500
   },
   "downPaymentRatio": 5,
-
   "loan": {
     "ratio": 60,
     "count": 6,
@@ -94,12 +89,10 @@
   },
   "loanRatio": 60,
   "loanType": "무이자",
-
   "remainder": {
     "ratio": 35,
     "timing": "입주지정일"
   },
-
   "balcony": {
     "all": "유상",
     "byType": {
@@ -109,19 +102,16 @@
       "159P": "4000만원"
     }
   },
-
   "guarantee": {
     "agency": "HUG",
     "no": "제01292026-101-0003200호",
     "amount": 1011.1
   },
-
   "entities": {
     "developer": "㈜코윈",
     "trustee": "㈜무궁화신탁",
     "constructor": "현대건설㈜"
   },
-
   "schedule": {
     "noticeDate": "2026-06-12",
     "specialSubscription": "2026-06-22",
@@ -132,55 +122,131 @@
     "contractPeriod": "2026-07-13 ~ 2026-07-15",
     "moveInDate": "2029-04"
   },
-
   "floorPricing": {
     "84A_그룹1": {
       "hoLines": "201동5호 / 203동1~3,5호 / 202동1~2호",
       "tiers": [
-        { "floors": "1층", "units": 1, "price": 51140 },
-        { "floors": "2~4층", "units": 18, "price": 51670 },
-        { "floors": "5~9층", "units": 35, "price": 52200 },
-        { "floors": "10층이상", "units": 74, "price": 52720 }
+        {
+          "floors": "1층",
+          "units": 1,
+          "price": 51140
+        },
+        {
+          "floors": "2~4층",
+          "units": 18,
+          "price": 51670
+        },
+        {
+          "floors": "5~9층",
+          "units": 35,
+          "price": 52200
+        },
+        {
+          "floors": "10층이상",
+          "units": 74,
+          "price": 52720
+        }
       ]
     },
     "84A_그룹2": {
       "hoLines": "201동1~3호",
       "tiers": [
-        { "floors": "1층", "units": 2, "price": 50630 },
-        { "floors": "2~4층", "units": 8, "price": 51150 },
-        { "floors": "5~9층", "units": 15, "price": 51680 },
-        { "floors": "10층이상", "units": 33, "price": 52200 }
+        {
+          "floors": "1층",
+          "units": 2,
+          "price": 50630
+        },
+        {
+          "floors": "2~4층",
+          "units": 8,
+          "price": 51150
+        },
+        {
+          "floors": "5~9층",
+          "units": 15,
+          "price": 51680
+        },
+        {
+          "floors": "10층이상",
+          "units": 33,
+          "price": 52200
+        }
       ]
     },
     "84A_그룹3": {
       "hoLines": "204동1~4호",
       "tiers": [
-        { "floors": "2~4층", "units": 12, "price": 51150 },
-        { "floors": "5~9층", "units": 20, "price": 51680 },
-        { "floors": "10층이상", "units": 43, "price": 52200 }
+        {
+          "floors": "2~4층",
+          "units": 12,
+          "price": 51150
+        },
+        {
+          "floors": "5~9층",
+          "units": 20,
+          "price": 51680
+        },
+        {
+          "floors": "10층이상",
+          "units": 43,
+          "price": 52200
+        }
       ]
     },
     "84B": {
       "hoLines": "203동4호",
       "tiers": [
-        { "floors": "2~4층", "units": 3, "price": 49100 },
-        { "floors": "5~9층", "units": 5, "price": 49600 },
-        { "floors": "10층이상", "units": 10, "price": 50100 }
+        {
+          "floors": "2~4층",
+          "units": 3,
+          "price": 49100
+        },
+        {
+          "floors": "5~9층",
+          "units": 5,
+          "price": 49600
+        },
+        {
+          "floors": "10층이상",
+          "units": 10,
+          "price": 50100
+        }
       ]
     },
     "84C": {
       "hoLines": "201동4호",
       "tiers": [
-        { "floors": "1층", "units": 1, "price": 48320 },
-        { "floors": "2~4층", "units": 3, "price": 48820 },
-        { "floors": "5~9층", "units": 5, "price": 49320 },
-        { "floors": "10층이상", "units": 10, "price": 49820 }
+        {
+          "floors": "1층",
+          "units": 1,
+          "price": 48320
+        },
+        {
+          "floors": "2~4층",
+          "units": 3,
+          "price": 48820
+        },
+        {
+          "floors": "5~9층",
+          "units": 5,
+          "price": 49320
+        },
+        {
+          "floors": "10층이상",
+          "units": 10,
+          "price": 49820
+        }
       ]
     },
     "159P": {
       "hoLines": "203동4호",
       "tiers": [
-        { "floors": "20층", "units": 1, "price": 109800, "note": "VAT포함" }
+        {
+          "floors": "20층",
+          "units": 1,
+          "price": 109800,
+          "note": "VAT포함"
+        }
       ]
     }
   }
