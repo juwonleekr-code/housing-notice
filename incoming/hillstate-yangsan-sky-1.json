@@ -1,0 +1,135 @@
+{
+  "id": "hillstate-yangsan-sky-1",
+  "name": "힐스테이트 양산더스카이 1단지",
+  "brand": "힐스테이트",
+  "approvalNo": "양산시 공동주택과-23976호(2026.6.11.)",
+  "noticeDate": "2026-06-12",
+  "regulated": false,
+  "priceCap": false,
+  "landType": "민간택지",
+  "transferRestriction": false,
+  "reselectionRestriction": false,
+  "residencyObligation": false,
+  "location": {
+    "sido": "경상남도",
+    "sigungu": "양산시",
+    "district": "물금읍",
+    "address": "경상남도 양산시 물금읍 가촌리 971번지 일원"
+  },
+  "building": {
+    "scale": "지하4층~지상20층, 4개동",
+    "buildings": 4,
+    "totalUnits": 299,
+    "specialUnits": 166,
+    "generalUnits": 133,
+    "moveIn": "2029-04"
+  },
+  "unitMix": [
+    {
+      "type": "68A",
+      "exclusive": 68.9608,
+      "supply": 92.8367,
+      "pyeong": 28.08,
+      "units": 72,
+      "ratio": 24.1,
+      "special": 40,
+      "general": 32,
+      "avgPrice": 44322,
+      "pyeongPrice": 1578,
+      "revenueEok": 319.12
+    },
+    {
+      "type": "84A",
+      "exclusive": 84.9836,
+      "supply": 109.0446,
+      "pyeong": 32.99,
+      "units": 187,
+      "ratio": 62.5,
+      "special": 104,
+      "general": 83,
+      "avgPrice": 52567,
+      "pyeongPrice": 1594,
+      "revenueEok": 983.0
+    },
+    {
+      "type": "84B",
+      "exclusive": 84.9478,
+      "supply": 109.0032,
+      "pyeong": 32.97,
+      "units": 39,
+      "ratio": 13.0,
+      "special": 22,
+      "general": 17,
+      "avgPrice": 50235,
+      "pyeongPrice": 1524,
+      "revenueEok": 195.92
+    },
+    {
+      "type": "159P",
+      "exclusive": 159.9969,
+      "supply": 206.9135,
+      "pyeong": 62.59,
+      "units": 1,
+      "ratio": 0.3,
+      "special": 0,
+      "general": 1,
+      "avgPrice": 113300,
+      "pyeongPrice": 1810,
+      "revenueEok": 11.33,
+      "note": "펜트하우스, VAT 포함"
+    }
+  ],
+  "pricing": {
+    "avgPyeongPrice": 1582,
+    "totalRevenueEok": 1509,
+    "kookmin84Ratio": 99.7,
+    "note": "국민평형(68A·84A·84B) 비중 99.7%. 평당가는 공급면적 기준."
+  },
+  "downPayment": {
+    "ratio": 5,
+    "structure": "계약금 5% (계약시 5,000,000원 정액 + 15일 이내 잔여)",
+    "initialCashManwon": 500,
+    "initialCashRatio": 0.95
+  },
+  "loan": {
+    "ratio": 60,
+    "count": 6,
+    "type": "무이자",
+    "schedule": ["2026-12-21","2027-05-21","2027-10-21","2028-03-21","2028-07-21","2028-11-21"]
+  },
+  "remainder": {"ratio": 35},
+  "balcony": {
+    "all": "유상",
+    "byType": {"68A": "1700만원","84A": "2000만원","84B": "2000만원","159P": "4000만원"}
+  },
+  "guarantee": {
+    "agency": "주택도시보증공사(HUG)",
+    "certNo": "제01292026-101-0003100호",
+    "amountEok": 981.1
+  },
+  "parties": {
+    "developer": "㈜코윈",
+    "trust": "㈜무궁화신탁",
+    "trustNote": "관리형토지신탁",
+    "constructor": "현대건설㈜"
+  },
+  "schedule": {
+    "noticeDate": "2026-06-12",
+    "special": "2026-06-22",
+    "general1": "2026-06-23",
+    "general2": "2026-06-24",
+    "winnerAnnounce": "2026-06-30",
+    "docSubmit": "2026-07-02",
+    "contract": "2026-07-13",
+    "moveIn": "2029-04"
+  },
+  "floorPricing": {
+    "68A": {
+      "1층(4)": 43330,
+      "2~4층(12)": 43780,
+      "5~9층(20)": 44220,
+      "10층이상(36)": 44670
+    },
+    "159P": {"20층(1)": 113300}
+  }
+}
