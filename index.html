@@ -96,6 +96,21 @@ header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.88);backdr
 .empty{grid-column:1/-1;text-align:center;padding:72px 0;color:var(--sub);font-size:17px}
 
 footer{border-top:1px solid var(--divider);padding:40px 0;font-size:13px;color:var(--sub);line-height:1.8}
+
+/* Payment flow */
+.c-bottom{border-top:1px solid var(--divider);padding-top:14px;display:flex;flex-direction:column;gap:10px}
+.pf-block{display:grid;grid-template-columns:42px 30px 1fr;gap:4px 7px;align-items:baseline}
+.pf-lbl{color:var(--sub);font-size:11px;font-weight:600;letter-spacing:.03em}
+.pf-pct{font-size:15px;font-weight:700;color:var(--ink)}
+.pf-desc{font-size:11px;color:var(--sub);line-height:1.4}
+.pf-free{color:#248a3d;font-weight:600}
+.pf-paid{color:#b86200;font-weight:600}
+/* Balcony row */
+.c-bln{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;font-size:12px}
+.bln-lbl{font-size:12px;font-weight:700}
+.bln-free{color:var(--blue)}
+.bln-paid{color:#b86200}
+.bln-d{color:var(--sub);font-size:11px}
 </style>
 </head>
 <body>
@@ -186,35 +201,58 @@ function regBadge(s){
     ? `<span class="badge b-danger">규제지역</span>`
     : `<span class="badge b-n">비규제</span>`;
 }
-function loanBadge(s){
-  if(!s.loanType) return '';
-  const cls = s.loanType==='무이자' ? 'b-green' : 'b-warn';
-  const label = s.loanType==='무이자' ? '무이자' : '유이자';
-  return `<span class="badge ${cls}">중도금 ${label} ${s.loanRatio??''}%</span>`;
+
+/* ── 납부구조 블록 (계약금/중도금/잔금) ── */
+function paymentBlock(s){
+  const dp   = s.downPaymentRatio != null ? s.downPaymentRatio : '?';
+  const loan = s.loanRatio        != null ? s.loanRatio        : '?';
+  const rem  = (s.downPaymentRatio != null && s.loanRatio != null)
+               ? 100 - s.downPaymentRatio - s.loanRatio : '?';
+
+  // 계약금 짧은 주석
+  let dpNote = '';
+  const st = s.downPaymentStructure || '';
+  if(st){
+    const m = st.match(/1차[^,]*?(\d[\d,]+)만/);
+    if(m) dpNote = `1차 ${m[1]}만 정액`;
+    else if(st.includes('분할')) dpNote = '분할납부';
+  }
+
+  const loanCls   = s.loanType==='무이자' ? 'pf-free' : s.loanType ? 'pf-paid' : '';
+  const loanLabel = s.loanType || '';
+
+  return `<div class="pf-block">
+    <span class="pf-lbl">계약금</span><span class="pf-pct">${dp}%</span><span class="pf-desc">${dpNote}</span>
+    <span class="pf-lbl">중도금</span><span class="pf-pct">${loan}%</span><span class="pf-desc ${loanCls}">${loanLabel}</span>
+    <span class="pf-lbl">잔금</span><span class="pf-pct">${rem}%</span><span class="pf-desc"></span>
+  </div>`;
 }
-function dpBadge(s){
-  const gc = {A:'b-green',B:'b-green',C:'b-warn',D:'b-danger'};
-  const g = s.downPaymentGrade || '';
-  const r = s.downPaymentRatio != null ? ` ${s.downPaymentRatio}%` : '';
-  const st = s.downPaymentStructure ? `<br><span style="font-weight:400;font-size:11px;opacity:.75">${s.downPaymentStructure}</span>` : '';
-  return `<span class="badge ${gc[g]||'b-n'}" style="line-height:1.5">계약금 ${g}등급${r}${st}</span>`;
-}
-function balconyBadge(s){
-  if(!s.balconyType && !s.balcony) return '';
-  const type = s.balconyType || (s.balcony&&s.balcony.includes('무상') ? '무상' : '유상');
+
+/* ── 발코니 행 (단위: 만원 통일) ── */
+function balconyRow(s){
+  const type = s.balconyType
+    || (s.balcony && s.balcony.includes('무상') ? '무상' : s.balcony ? '유상' : null);
+  if(!type) return '';
+
   if(type==='무상'){
-    return `<span class="badge b-blue">발코니 무상</span>`;
+    return `<div class="c-bln"><span class="bln-lbl bln-free">발코니 무상</span></div>`;
   }
-  // 유상인 경우
-  let label = '발코니 유상';
+
+  let detail = '';
   if(s.balconyPrice84){
-    label += ` ${fmt(s.balconyPrice84)}만<span style="font-weight:400;font-size:11px;opacity:.75">(84㎡)</span>`;
+    // 원 단위(>=100,000)면 만원으로 변환
+    const manwon = s.balconyPrice84 >= 100000
+      ? Math.round(s.balconyPrice84 / 10000) : s.balconyPrice84;
+    detail = `<span class="bln-d">84㎡ ${fmt(manwon)}만`;
+    if(s.balconyByType) detail += ' · 타입별 상이';
+    detail += '</span>';
   } else if(s.balconyByType){
-    label += ' 평형별 별도';
+    detail = `<span class="bln-d">타입별 별도</span>`;
   } else if(s.balconyNote){
-    label += ` ${s.balconyNote}`;
+    detail = `<span class="bln-d">${s.balconyNote}</span>`;
   }
-  return `<span class="badge b-warn">${label}</span>`;
+
+  return `<div class="c-bln"><span class="bln-lbl bln-paid">발코니 유상</span>${detail}</div>`;
 }
 
 /* ── KPI ── */
@@ -244,7 +282,12 @@ function renderChart(arr){
   document.getElementById('chartSub').textContent=
     `공고일 순 · ${activeSido||'전체'} · ${sorted.length}개 현장`;
 
-  const labels=sorted.map(s=>s.name.length>8?s.name.slice(0,8)+'…':s.name);
+  // 단지명 + 공고일(연도/월) 2행 레이블
+  const labels=sorted.map(s=>{
+    const nm=s.name.length>8?s.name.slice(0,8)+'…':s.name;
+    const dt=s.noticeDate?s.noticeDate.slice(0,7).replace('-','/'):'';
+    return dt?[nm,dt]:nm;
+  });
   const vals=sorted.map(s=>s.avgPyeong);
   const n=vals.length;
   const xi=vals.map((_,i)=>i);
@@ -284,7 +327,12 @@ function renderChart(arr){
         }
       },
       scales:{
-        x:{ticks:{font:{family:'Pretendard',size:11},color:'#6e6e73',maxRotation:30},
+        x:{ticks:{font:{family:'Pretendard',size:10},color:'#6e6e73',maxRotation:0,
+             callback:function(val,i){
+               const lb=this.getLabelForValue(val);
+               if(Array.isArray(lb)) return lb;
+               return lb;
+             }},
            grid:{display:false},border:{display:false}},
         y:{ticks:{font:{family:'Pretendard',size:11},color:'#6e6e73',
              callback:v=>fmt(v)+'만'},
@@ -311,10 +359,12 @@ function renderChartSVG(sorted,labels,vals,trend){
         font-size="9" fill="#0071e3" font-family="Pretendard,sans-serif">${fmt(v)}</text>`;
   }).join('');
   const tpts=trend.map((v,i)=>`${xc(i)},${PAD.top+ys(v)}`).join(' ');
-  const xl=labels.map((lb,i)=>{
+  const xl=sorted.map((s,i)=>{
+    const nm=s.name.length>8?s.name.slice(0,8)+'…':s.name;
+    const dt=s.noticeDate?s.noticeDate.slice(0,7).replace('-','/'):'';
     const x=xc(i),y=PAD.top+ph+14;
-    return `<text x="${x}" y="${y}" text-anchor="end" transform="rotate(-30,${x},${y})"
-      font-size="10" fill="#6e6e73" font-family="Pretendard,sans-serif">${lb}</text>`;
+    return `<text x="${x}" y="${y}" text-anchor="middle" font-size="10" fill="#1d1d1f" font-family="Pretendard,sans-serif">${nm}</text>`+
+      (dt?`<text x="${x}" y="${y+13}" text-anchor="middle" font-size="9" fill="#6e6e73" font-family="Pretendard,sans-serif">${dt}</text>`:'');
   }).join('');
   document.getElementById('chartBox').innerHTML=
     `<div style="overflow-x:auto"><svg xmlns="http://www.w3.org/2000/svg"
@@ -361,8 +411,10 @@ function renderCards(arr){
         <div><div class="cs-label">입주 예정</div>
           <div class="cs-val" style="font-size:17px;letter-spacing:-.2px">${s.moveIn}</div></div>
       </div>
-      <div class="c-chips">
-        ${regBadge(s)}${loanBadge(s)}${dpBadge(s)}${balconyBadge(s)}
+      <div class="c-bottom">
+        ${regBadge(s)}
+        ${paymentBlock(s)}
+        ${balconyRow(s)}
       </div>
     </a>`).join('');
 }
