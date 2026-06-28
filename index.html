@@ -293,10 +293,9 @@ function renderChart(arr){
   if(arr.length<2){sec.style.display='none';return;}
   sec.style.display='';
 
+  // 입주자모집공고일 기준 오름차순 (왼쪽=오래된 공고)
   const sorted=[...arr].sort((a,b)=>{
-    const da=a.noticeDate||a.moveIn||'';
-    const db=b.noticeDate||b.moveIn||'';
-    return da.localeCompare(db);
+    return (a.noticeDate||'').localeCompare(b.noticeDate||'');
   });
   document.getElementById('chartSub').textContent=
     `공고일 순 · ${activeSido||'전체'} · ${sorted.length}개 현장`;
