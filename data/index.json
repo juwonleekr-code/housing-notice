@@ -161,6 +161,29 @@
       "regulated": false,
       "resaleRestriction": false,
       "totalRevenueEok": 3532
+    },
+    {
+      "id": "elif-changwon",
+      "name": "엘리프 창원",
+      "sido": "경상남도",
+      "sigungu": "창원시 의창구",
+      "district": "창원명곡 공공주택지구 B-1BL",
+      "units": 349,
+      "moveIn": "2028-07",
+      "avgPyeong": 1160,
+      "kookmin84Ratio": 100.0,
+      "balcony": "전타입 유상",
+      "loanType": "이자후불제",
+      "loanRatio": 60,
+      "downPaymentGrade": "C",
+      "essentialOptionRatio": 1.2,
+      "fullOptionRatio": 9.9,
+      "developer": "㈜케이알산업",
+      "trust": null,
+      "constructor": "㈜케이알산업",
+      "regulated": false,
+      "resaleRestriction": true,
+      "totalRevenueEok": 1939
     }
   ]
 }
