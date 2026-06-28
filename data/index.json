@@ -230,6 +230,29 @@
       "regulated": false,
       "resaleRestriction": false,
       "totalRevenueEok": 4582
+    },
+    {
+      "id": "pentahills-w-1",
+      "name": "펜타힐즈 더블유 1단지",
+      "sido": "경상북도",
+      "sigungu": "경산시",
+      "district": null,
+      "units": 1712,
+      "moveIn": "2030-11",
+      "avgPyeong": 2001,
+      "kookmin84Ratio": 27.4,
+      "balcony": "전타입 유상",
+      "loanType": "중도금무이자",
+      "loanRatio": 60,
+      "downPaymentGrade": "C",
+      "essentialOptionRatio": 0.76,
+      "fullOptionRatio": 5.9,
+      "developer": "아이에스동서 주식회사",
+      "trust": "케이비부동산신탁",
+      "constructor": "아이에스동서 주식회사",
+      "regulated": false,
+      "resaleRestriction": false,
+      "totalRevenueEok": 15815
     }
   ]
 }

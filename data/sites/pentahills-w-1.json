@@ -34,7 +34,7 @@
     {
       "type": "84A",
       "exclusive": 84.8315,
-      "supply": 113.9000,
+      "supply": 113.9,
       "pyeong": 34.45,
       "units": 235,
       "ratio": 13.7,
@@ -138,7 +138,7 @@
     },
     {
       "type": "137B",
-      "exclusive": 137.5630,
+      "exclusive": 137.563,
       "supply": 181.0645,
       "pyeong": 54.77,
       "units": 90,
