@@ -26,7 +26,16 @@
       "balconyNote": "전타입 무상",
       "downPaymentRatio": 5,
       "downPaymentStructure": "5% 분할 (1차 계약시 정액 500만 + 2차 계약 후 30일내 잔여)",
-      "noticeDate": "2026-06-19"
+      "noticeDate": "2026-06-19",
+      "brand": null,
+      "location": {
+        "sido": "경상남도",
+        "sigungu": "김해시",
+        "address": "경상남도 김해시 신문동 장유신문지구 A34-1블럭 일원",
+        "district": "장유신문지구 도시개발사업구역 내 체비지",
+        "showroom": "경상남도 김해시 대청동 305-3"
+      },
+      "avgPyeongPrice": null
     },
     {
       "id": "bukosan-xi-deforet",
@@ -53,7 +62,16 @@
       "balconyNote": "유상",
       "downPaymentRatio": 10,
       "downPaymentStructure": "10% 분할 (1차 계약시 정액 1,000만 + 2차 계약 후 30일내 잔여)",
-      "noticeDate": "2026-06-12"
+      "noticeDate": "2026-06-12",
+      "brand": null,
+      "location": {
+        "sido": "경기도",
+        "sigungu": "오산시",
+        "address": "경기도 오산시 내삼미동 288번지 일원",
+        "district": "오산(내삼미2구역) 도시관리계획 지구단위계획구역 공동주택용지(A2블럭)",
+        "showroom": "경기도 오산시 내삼미동 272-2"
+      },
+      "avgPyeongPrice": null
     },
     {
       "id": "kimhae-sinmun-lasiel",
@@ -80,7 +98,16 @@
       "balconyNote": "유상",
       "downPaymentRatio": 5,
       "downPaymentStructure": "5% 분할 (1차 계약시 정액 500만 + 2차 계약 후 30일내 잔여)",
-      "noticeDate": "2026-06-19"
+      "noticeDate": "2026-06-19",
+      "brand": null,
+      "location": {
+        "sido": "경상남도",
+        "sigungu": "김해시",
+        "address": "경상남도 김해시 신문동 1087-1번지 일원",
+        "district": "장유 신문4지구 지구단위계획구역",
+        "showroom": "경상남도 김해시 신문동 781-1번지"
+      },
+      "avgPyeongPrice": null
     },
     {
       "id": "hoban-chumdan3-a7bl",
@@ -107,7 +134,16 @@
       "balconyNote": "유상",
       "downPaymentRatio": 5,
       "downPaymentStructure": "5% (1차 계약시 정액 1,000만 + 2차 계약 후 30일 이내 잔여)",
-      "noticeDate": "2026-06-05"
+      "noticeDate": "2026-06-05",
+      "brand": null,
+      "location": {
+        "sido": "광주광역시",
+        "sigungu": "북구",
+        "address": "광주광역시 북구 월출동 (광주연구개발특구 첨단3지구 A7블록)",
+        "district": "광주연구개발특구 첨단3지구 A7블록",
+        "showroom": "광주광역시 서구 마륵동 164-11"
+      },
+      "avgPyeongPrice": null
     },
     {
       "id": "incheon-geomam-xirene",
@@ -134,7 +170,16 @@
       "balconyNote": "유상",
       "downPaymentRatio": 10,
       "downPaymentStructure": "계약금 10% = 1차 5%(계약시) + 2차 5%(계약 후 30일 이내), 정률제",
-      "noticeDate": "2026-05-15"
+      "noticeDate": "2026-05-15",
+      "brand": null,
+      "location": {
+        "sido": "인천광역시",
+        "sigungu": "서구",
+        "address": "인천광역시 서구 경서동 4-8번지 일원 (검암역세권 B-2블록)",
+        "district": "인천검암역세권 공공주택지구 내 공동주택용지(B-2BL)",
+        "showroom": "인천광역시 서구 경서동 998번지 (검암역자이르네 견본주택)"
+      },
+      "avgPyeongPrice": null
     },
     {
       "id": "kimhae-trivn",
@@ -161,7 +206,16 @@
       "balconyNote": "유상",
       "downPaymentRatio": 5,
       "downPaymentStructure": "계약금 5% = 계약시 정액 1,000만 + 계약 후 14일 이내 차액(나머지 5%까지)",
-      "noticeDate": "2026-06-26"
+      "noticeDate": "2026-06-26",
+      "brand": null,
+      "location": {
+        "sido": "경상남도",
+        "sigungu": "김해시",
+        "address": "경상남도 김해시 내동 243-1번지 일원",
+        "district": "김해 내동 (도심 정비형 부지)",
+        "showroom": "경상남도 김해시 부원동 1079 (트리븐 김해 견본주택)"
+      },
+      "avgPyeongPrice": null
     },
     {
       "id": "thesharp-sinmun-greenity-2",
@@ -188,7 +242,16 @@
       "balconyNote": "유상",
       "downPaymentRatio": 5,
       "downPaymentStructure": "계약금 5% = 계약시 5,000,000원(정액) + 계약 후 30일 이내 잔여 계약금",
-      "noticeDate": "2025-08-28"
+      "noticeDate": "2025-08-28",
+      "brand": null,
+      "location": {
+        "sido": "경상남도",
+        "sigungu": "김해시",
+        "address": "경상남도 김해시 신문동 신문1지구 A17-1블럭 일원",
+        "district": "신문1지구 A17-1블럭",
+        "showroom": "경상남도 김해시 대청동 71-3번지"
+      },
+      "avgPyeongPrice": null
     },
     {
       "id": "elif-changwon",
@@ -215,7 +278,16 @@
       "balconyNote": "유상",
       "downPaymentRatio": 10,
       "downPaymentStructure": "계약금 10% (계약시), 중도금 60% (6회 무이자), 잔금 30% (입주지정일)",
-      "noticeDate": "2026-04-10"
+      "noticeDate": "2026-04-10",
+      "brand": null,
+      "location": {
+        "sido": "경상남도",
+        "sigungu": "창원시 의창구",
+        "address": "경상남도 창원시 의창구 창원명곡 공공주택지구 B-1BL",
+        "district": "창원명곡 공공주택지구 B-1BL",
+        "showroom": "경상남도 창원시 의창구 사림동 168-1"
+      },
+      "avgPyeongPrice": null
     },
     {
       "id": "jangwi-prugio-markone",
@@ -242,7 +314,16 @@
       "balconyNote": "유상",
       "downPaymentRatio": 10,
       "downPaymentStructure": "계약금 10% (1차 1,000만원 계약일, 2차 잔여 9% 30일이내), 중도금 60% 6회 이자후불제, 잔금 30% 입주지정일",
-      "noticeDate": "2026-06-19"
+      "noticeDate": "2026-06-19",
+      "brand": null,
+      "location": {
+        "sido": "서울특별시",
+        "sigungu": "성북구",
+        "address": "서울특별시 성북구 장위동 68-37 일대",
+        "district": "장위10구역 주택재개발정비사업",
+        "showroom": "서울특별시 동대문구 왕산로 34"
+      },
+      "avgPyeongPrice": null
     },
     {
       "id": "changwon-xi-the-sky",
@@ -269,7 +350,16 @@
       "balconyNote": "유상",
       "downPaymentRatio": 10,
       "downPaymentStructure": "계약금 10% (1차 계약시 5%, 2차 30일이내 5%), 중도금 60% 6회, 잔금 30% 입주지정일",
-      "noticeDate": "2026-03-20"
+      "noticeDate": "2026-03-20",
+      "brand": null,
+      "location": {
+        "sido": "경상남도",
+        "sigungu": "창원시 성산구",
+        "address": "경상남도 창원시 성산구 중앙동 99-4,5,6",
+        "district": null,
+        "showroom": "경상남도 창원시 성산구 중앙동 101-3"
+      },
+      "avgPyeongPrice": null
     },
     {
       "id": "pentahills-w-1",
@@ -296,7 +386,16 @@
       "balconyNote": "유상",
       "downPaymentRatio": 10,
       "downPaymentStructure": "계약금 10%(계약시 고정액+30일내 잔여), 중도금 60% 6회 무이자, 잔금 30% 입주지정일",
-      "noticeDate": "2026-06-19"
+      "noticeDate": "2026-06-19",
+      "brand": null,
+      "location": {
+        "sido": "경상북도",
+        "sigungu": "경산시",
+        "address": "경상북도 경산시 중산동 일원 A2-1블럭",
+        "district": null,
+        "showroom": "대구광역시 수성구 만촌동 737-17"
+      },
+      "avgPyeongPrice": null
     },
     {
       "id": "dpain-artia-1",
@@ -323,7 +422,16 @@
       "balconyNote": "유상",
       "downPaymentRatio": 10,
       "downPaymentStructure": "10% 분할 (1차 계약시 5,000만원 정액, 2차 잔여 2026.08.20.까지)",
-      "noticeDate": "2026-06-19"
+      "noticeDate": "2026-06-19",
+      "brand": null,
+      "location": {
+        "sido": "서울특별시",
+        "sigungu": "동작구",
+        "address": "서울특별시 동작구 노량진동 312-75번지 일대",
+        "district": "노량진2재정비촉진구역 재개발정비사업구역",
+        "showroom": "서울특별시 동작구 노량진동 312-75번지 일대 (현장 모델하우스)"
+      },
+      "avgPyeongPrice": null
     },
     {
       "id": "hillstate-yangsan-sky-2",
@@ -334,19 +442,31 @@
       "units": 299,
       "moveIn": "2029-04",
       "avgPyeong": null,
-      "kookmin84Ratio": null,
-      "balcony": "전타입 유상",
+      "kookmin84Ratio": 99.7,
       "loanType": "무이자",
       "loanRatio": 60,
       "downPaymentGrade": null,
-      "essentialOptionRatio": null,
-      "fullOptionRatio": null,
       "developer": "",
       "trust": "",
       "constructor": "",
       "regulated": false,
       "resaleRestriction": false,
-      "totalRevenueEok": null
+      "totalRevenueEok": null,
+      "balconyType": "유상",
+      "balconyPrice84": 2000,
+      "balconyByType": true,
+      "balconyNote": "유상",
+      "downPaymentRatio": 5,
+      "downPaymentStructure": "계약금 5% (계약시 5,000,000원 정액 + 15일 이내 잔여)",
+      "noticeDate": "2026-06-12",
+      "brand": "힐스테이트",
+      "location": {
+        "address": "경상남도 양산시 물금읍 범어리 940-2번지 일원",
+        "city": "경상남도 양산시",
+        "district": "물금읍",
+        "region": "경남"
+      },
+      "avgPyeongPrice": 2028
     },
     {
       "id": "hillstate-yangsan-sky-1",
@@ -357,19 +477,31 @@
       "units": 299,
       "moveIn": "2029-04",
       "avgPyeong": null,
-      "kookmin84Ratio": null,
-      "balcony": "전타입 유상",
+      "kookmin84Ratio": 99.7,
       "loanType": "무이자",
       "loanRatio": 60,
       "downPaymentGrade": null,
-      "essentialOptionRatio": null,
-      "fullOptionRatio": null,
       "developer": "",
       "trust": "",
       "constructor": "",
       "regulated": false,
       "resaleRestriction": false,
-      "totalRevenueEok": null
+      "totalRevenueEok": null,
+      "balconyType": "유상",
+      "balconyPrice84": 2000,
+      "balconyByType": true,
+      "balconyNote": "유상",
+      "downPaymentRatio": 5,
+      "downPaymentStructure": "계약금 5% (계약시 5,000,000원 정액 + 15일 이내 잔여)",
+      "noticeDate": "2026-06-12",
+      "brand": "힐스테이트",
+      "location": {
+        "address": "경상남도 양산시 물금읍 가촌리 971번지 일원",
+        "city": "경상남도 양산시",
+        "district": "물금읍",
+        "region": "경남"
+      },
+      "avgPyeongPrice": 2045
     }
   ]
 }
