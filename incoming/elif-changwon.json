@@ -4,28 +4,31 @@
   "approvalNo": "창원시청 주택정책과-12815호(2026.04.09.)",
   "noticeDate": "2026-04-10",
   "correctionDate": "2026-04-16",
-  "location": "경상남도 창원시 의창구 창원명곡 공공주택지구 B-1BL",
-  "showroom": "경상남도 창원시 의창구 사림동 168-1",
-  "phone": "055-606-1177",
-  "developer": "㈜케이알산업",
-  "constructor": "㈜케이알산업",
-  "guarantee": "주택도시보증공사(HUG)",
-  "guaranteeNo": "제07812026-101-0000300호",
-  "guaranteeAmount": 135735600000,
-  "building": {
-    "floors": "지하 2층, 지상 15~25층",
-    "units": 349,
-    "buildings": 4,
-    "parking": 523
+  "location": {
+    "sido": "경상남도",
+    "sigungu": "창원시 의창구",
+    "address": "경상남도 창원시 의창구 창원명곡 공공주택지구 B-1BL",
+    "district": "창원명곡 공공주택지구 B-1BL",
+    "showroom": "경상남도 창원시 의창구 사림동 168-1"
   },
-  "moveIn": "2028-07",
-  "heating": "지역난방",
-  "landType": "공공택지",
-  "priceControl": true,
-  "regulated": false,
-  "resaleRestriction": "1년",
-  "reWinRestriction": "10년",
-  "obligationResidence": false,
+  "building": {
+    "scale": "지하 2층, 지상 15~25층, 4개동",
+    "totalUnits": 349,
+    "specialUnits": 224,
+    "generalUnits": 125,
+    "moveIn": "2028-07",
+    "heating": "지역난방",
+    "parking": 523,
+    "seismic": "내진Ⅰ등급",
+    "regulated": false,
+    "resaleRestriction": true,
+    "resaleRestrictionPeriod": "1년",
+    "reWinRestriction": true,
+    "reWinRestrictionPeriod": "10년",
+    "obligationResidence": false,
+    "priceCap": true,
+    "landType": "공공택지 (분양가상한제 적용)"
+  },
   "unitMix": [
     {
       "type": "76A",
@@ -33,21 +36,13 @@
       "supply": 149.8714,
       "pyeong": 45.34,
       "units": 174,
+      "ratio": 49.9,
       "special": 112,
       "general": 62,
-      "prices": {
-        "floor1": 498800000,
-        "floor2": 504100000,
-        "floor3": 509400000,
-        "floor4": 514700000,
-        "floor5": 520000000,
-        "floor6": 525300000,
-        "floor7to20": 530700000,
-        "floor21to25": 536000000
-      },
-      "avgPrice": 526531000,
-      "avgPyeongPriceMan": 1161,
-      "balcony": 6220000
+      "avgPrice": 52653,
+      "pyeongPrice": 1161,
+      "revenueEok": 916.2,
+      "balconyWon": 6220000
     },
     {
       "type": "84A",
@@ -55,21 +50,13 @@
       "supply": 166.6619,
       "pyeong": 50.41,
       "units": 136,
+      "ratio": 39.0,
       "special": 87,
       "general": 49,
-      "prices": {
-        "floor1": 554100000,
-        "floor2": 560000000,
-        "floor3": 565900000,
-        "floor4": 571800000,
-        "floor5": 577700000,
-        "floor6": 583600000,
-        "floor7to20": 589500000,
-        "floor21to25": 595400000
-      },
-      "avgPrice": 586160000,
-      "avgPyeongPriceMan": 1163,
-      "balcony": 7090000
+      "avgPrice": 58616,
+      "pyeongPrice": 1163,
+      "revenueEok": 797.2,
+      "balconyWon": 7090000
     },
     {
       "type": "84B",
@@ -77,38 +64,73 @@
       "supply": 166.6056,
       "pyeong": 50.40,
       "units": 39,
+      "ratio": 11.2,
       "special": 25,
       "general": 14,
-      "prices": {
-        "floor1": 544600000,
-        "floor2": 554100000,
-        "floor3": 560000000,
-        "floor4": 565900000,
-        "floor5": 571800000,
-        "floor6": 577700000,
-        "floor7to20": 583600000,
-        "floor21to25": 589500000
-      },
-      "avgPrice": 579121000,
-      "avgPyeongPriceMan": 1149,
-      "balcony": 6500000
+      "avgPrice": 57912,
+      "pyeongPrice": 1149,
+      "revenueEok": 225.9,
+      "balconyWon": 6500000,
+      "note": "6층 이상 가격은 84A와의 차이 패턴(-5,900,000) 적용 추정"
     }
   ],
-  "specialSupply": {
-    "institution": 34,
-    "multiChild": 34,
-    "newlywed": 80,
-    "elderParent": 10,
-    "firstHome": 66,
-    "total": 224
+  "pricing": {
+    "avgPyeongPrice": 1160,
+    "totalRevenueEok": 1939,
+    "method": "층별 세대수 가중평균 합산. 84B 6층 이상 일부 추정 포함.",
+    "kookmin84Ratio": 100.0,
+    "verdict": "공공택지 분양가상한제 적용. 비규제지역. 76A~84B 3개 타입, 전타입 85㎡ 이하. 평당 약 1,160만원, GDV 약 1,939억원. 전매제한 1년, 재당첨제한 10년, 거주의무 없음. 중도금 60% 이자후불제."
   },
-  "generalSupply": 125,
-  "payment": {
-    "contract": "10%",
-    "interim": "60% (6회)",
-    "balance": "30%",
-    "interimLoan": "이자후불제",
-    "interimSchedule": {
+  "balcony": {
+    "all": "유상",
+    "byType": {
+      "76A": "6,220,000원",
+      "84A": "7,090,000원",
+      "84B": "6,500,000원"
+    }
+  },
+  "loan": {
+    "ratio": 60,
+    "type": "이자후불제",
+    "detail": "중도금 총 분양가의 60% 이내, 이자후불제. 입주지정기간 개시일 전일까지 사업주체 대납. 중도금 6회(2026.07~2028.02).",
+    "drawdownLimit": "사업주체 알선 금융기관 이용 시 이자후불제 적용"
+  },
+  "downPayment": {
+    "grade": "C",
+    "structure": "계약금 10% (계약시), 중도금 60% (6회), 잔금 30% (입주지정일)",
+    "initialCashRatio": 10.0
+  },
+  "options": {
+    "essentialManwon": 610,
+    "essentialRatio": 1.2,
+    "fullManwon": 5200,
+    "fullRatio": 9.9,
+    "systemAircon76A": 610,
+    "tiers": [
+      {
+        "tier": "사실상필수",
+        "desc": "시스템에어컨 기본 3대(76A 기준)",
+        "manwon": 610,
+        "ratio": 1.2
+      },
+      {
+        "tier": "풀옵션",
+        "desc": "에어컨5대+발코니확장+주방특화+거실아트월+드레스룸+욕실스타일업+각종 선택품목",
+        "manwon": 5200,
+        "ratio": 9.9
+      }
+    ]
+  },
+  "schedule": {
+    "noticeDate": "2026-04-10",
+    "correctionDate": "2026-04-16",
+    "special": "2026-04-20",
+    "general1": "2026-04-21",
+    "general2": "2026-04-22",
+    "winnerAnnounce": "2026-04-29",
+    "docSubmit": "2026-04-30 ~ 2026-05-03",
+    "contract": "2026-05-11 ~ 2026-05-13",
+    "interim": {
       "1회": "2026-07-15",
       "2회": "2026-11-15",
       "3회": "2027-03-15",
@@ -117,22 +139,29 @@
       "6회": "2028-02-15"
     }
   },
-  "schedule": {
-    "special": "2026-04-20",
-    "general1": "2026-04-21",
-    "general2": "2026-04-22",
-    "winnerAnnounce": "2026-04-29",
-    "docSubmit": "2026-04-30 ~ 2026-05-03",
-    "contract": "2026-05-11 ~ 2026-05-13"
+  "parties": {
+    "developer": "㈜케이알산업",
+    "trust": null,
+    "constructor": "㈜케이알산업",
+    "note": "시행·시공 동일법인(㈜케이알산업, 경기도 이천시)"
   },
-  "totalRevenueEok": 1939,
-  "avgPyeongPriceMan": 1160,
-  "kookmin85Ratio": 100,
+  "guarantee": {
+    "agency": "주택도시보증공사(HUG)",
+    "amountEok": 1357,
+    "certNo": "제07812026-101-0000300호"
+  },
+  "specialSupply": {
+    "institution": 34,
+    "multiChild": 34,
+    "newlywed": 80,
+    "elderParent": 10,
+    "firstHome": 66,
+    "total": 224
+  },
   "supervisors": {
     "architecture": "㈜중원종합건축사사무소",
     "electrical": "㈜갑인엔지니어링",
     "fire": "㈜선한이엔지",
     "ict": "㈜한빛안전기술단"
-  },
-  "remarks": "정정공고(2026.04.16.) - 협의양도인 1세대 특별공급 포함. 시행·시공 동일법인(㈜케이알산업). 84B 6층 이상 가격은 패턴 추정값."
+  }
 }
