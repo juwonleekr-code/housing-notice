@@ -116,6 +116,17 @@ tbody tr:hover{background:rgba(0,0,0,.016)}
 .entity-name{font-size:16px;font-weight:700;margin-bottom:3px}
 .entity-note{font-size:13px;color:var(--sub);line-height:1.5}
 
+/* Balcony section */
+.bln-summary{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;align-items:center}
+.bln-tbl-wrap{overflow-x:auto;border:1px solid var(--divider);border-radius:var(--rc);margin-bottom:14px}
+.bln-tbl-wrap table{min-width:380px}
+.bln-kookmin td{background:rgba(0,113,227,.032)}
+.bln-stat{background:var(--bg);border:1px solid var(--divider);border-radius:14px;padding:16px 20px;min-width:140px}
+.bln-stat-lbl{font-size:11px;font-weight:600;color:var(--sub);margin-bottom:4px}
+.bln-stat-val{font-size:20px;font-weight:700;letter-spacing:-.4px;color:var(--blue)}
+.bln-stat-unit{font-size:12px;font-weight:400;color:var(--sub);margin-left:3px}
+.bln-note{font-size:13px;color:var(--sub);line-height:1.65;margin-top:12px}
+
 footer{border-top:1px solid var(--divider);padding:32px 0;font-size:12px;color:var(--sub);line-height:1.7}
 
 #errBox{display:none;padding:80px 24px;text-align:center;color:var(--sub)}
@@ -193,14 +204,21 @@ footer{border-top:1px solid var(--divider);padding:32px 0;font-size:12px;color:v
 
 <section class="sec alt">
   <div class="wrap">
-    <div class="sec-title"><span class="sec-num">04</span> 유상옵션</div>
-    <div class="opt-grid" id="optGrid"></div>
+    <div class="sec-title"><span class="sec-num">04</span> 발코니 확장비</div>
+    <div id="balconyGrid"></div>
   </div>
 </section>
 
 <section class="sec">
   <div class="wrap">
-    <div class="sec-title"><span class="sec-num">05</span> 판촉 · 계약금 구조</div>
+    <div class="sec-title"><span class="sec-num">05</span> 유상옵션</div>
+    <div class="opt-grid" id="optGrid"></div>
+  </div>
+</section>
+
+<section class="sec alt">
+  <div class="wrap">
+    <div class="sec-title"><span class="sec-num">06</span> 판촉 · 계약금 구조</div>
     <div class="contract-pills" id="contractPills"></div>
     <div class="kv-grid" id="dpDetail" style="margin-bottom:16px"></div>
     <div class="sec-title" style="font-size:15px;margin-top:8px;margin-bottom:14px;color:var(--sub)">청약 일정</div>
@@ -208,9 +226,9 @@ footer{border-top:1px solid var(--divider);padding:32px 0;font-size:12px;color:v
   </div>
 </section>
 
-<section class="sec alt">
+<section class="sec">
   <div class="wrap">
-    <div class="sec-title"><span class="sec-num">06</span> 사업주체 · 보증</div>
+    <div class="sec-title"><span class="sec-num">07</span> 사업주체 · 보증</div>
     <div class="entity-grid" id="entityGrid"></div>
   </div>
 </section>
@@ -481,6 +499,103 @@ function renderContract(d){
   ).join('');
 }
 
+/* ── 발코니 확장비 섹션 ── */
+function renderBalcony(d){
+  const el = document.getElementById('balconyGrid');
+  const bal = d.balcony || {};
+
+  // 발코니 유형 판별
+  const allVal = bal.all;
+  const isFree = typeof allVal==='string' && allVal.includes('무상');
+
+  if(isFree){
+    el.innerHTML=`
+      <div class="bln-summary">
+        <span class="badge b-blue" style="font-size:14px;padding:6px 16px">발코니 무상 확장 (전 타입)</span>
+      </div>
+      ${bal.developerView?`<p class="bln-note">${bal.developerView}</p>`:''}`;
+    return;
+  }
+
+  const byType = bal.byType || {};
+
+  // 가격 파싱: "28,800,000원" → 2880만 / "1,800만원" → 1800
+  function parseManwon(v){
+    if(!v) return null;
+    const s=String(v);
+    if(s.includes('원')){
+      const n=Number(s.replace(/[^\d]/g,''));
+      return n>=100000 ? Math.round(n/10000) : n;
+    }
+    const m=s.match(/(\d[\d,]+)\s*만/);
+    if(m) return Number(m[1].replace(/,/g,''));
+    const n2=Number(s.replace(/[^\d]/g,''));
+    return n2||null;
+  }
+
+  // unitMix와 byType 매칭 (정확일치 → 타입명 prefix 부분일치)
+  const units = d._unitTypes;
+  const rows = units.map(u=>{
+    let raw = byType[u.type];
+    if(!raw){
+      // prefix match: "84A1" → "84A" → "84"
+      const keys = Object.keys(byType);
+      raw = keys.find(k=>u.type.startsWith(k)) && byType[keys.find(k=>u.type.startsWith(k))];
+      if(!raw) raw = keys.find(k=>k.startsWith(u.type.replace(/[0-9]+$/,''))) && byType[keys.find(k=>k.startsWith(u.type.replace(/[0-9]+$/,'')))];
+    }
+    const manwon = raw ? parseManwon(raw) : null;
+    const isKookmin = u.exclusiveM2!=null && u.exclusiveM2 <= 85;
+    const subtotalEok = (manwon!=null && u.units) ? +(manwon*u.units/10000).toFixed(1) : null;
+    return {type:u.type, excl:u.exclusiveM2, units:u.units, manwon, isKookmin, subtotalEok};
+  });
+
+  const totalUnits = rows.reduce((a,r)=>a+(r.units||0),0);
+  const totalEok   = +rows.reduce((a,r)=>a+(r.subtotalEok||0),0).toFixed(1);
+  const kookminEok = +rows.filter(r=>r.isKookmin).reduce((a,r)=>a+(r.subtotalEok||0),0).toFixed(1);
+  const kookminPct = totalEok>0 ? Math.round(kookminEok/totalEok*100) : null;
+
+  const tbody = rows.map(r=>`
+    <tr class="${r.isKookmin?'bln-kookmin':''}">
+      <td>${r.type}${r.isKookmin?' <span style="color:var(--blue);font-size:10px">●</span>':''}</td>
+      <td class="num">${r.excl!=null?r.excl.toFixed(2)+'㎡':'—'}</td>
+      <td class="num">${r.manwon!=null?'<strong>'+fmt(r.manwon)+'</strong>만':'—'}</td>
+      <td class="num">${fmt(r.units)}</td>
+      <td class="num">${r.subtotalEok!=null?r.subtotalEok.toFixed(1)+'억':'—'}</td>
+    </tr>`).join('');
+
+  el.innerHTML=`
+    <div class="bln-summary">
+      <span class="badge b-warn" style="font-size:13px;padding:5px 14px">발코니 유상 확장</span>
+      ${Object.keys(byType).length>1?'<span style="font-size:13px;color:var(--sub)">타입별 상이 · ● 국민평형(85㎡이하)</span>':''}
+    </div>
+    <div class="bln-tbl-wrap">
+      <table>
+        <colgroup><col style="width:72px"><col style="width:92px"><col style="width:108px"><col style="width:64px"><col style="width:80px"></colgroup>
+        <thead><tr>
+          <th style="text-align:left">타입</th><th>전용</th><th>확장비(만원)</th><th>세대수</th><th>소계(억)</th>
+        </tr></thead>
+        <tbody>${tbody}</tbody>
+        <tfoot><tr class="tfoot">
+          <td colspan="3">합계</td>
+          <td class="num">${fmt(totalUnits)}</td>
+          <td class="num">${totalEok.toFixed(1)}억</td>
+        </tr></tfoot>
+      </table>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <div class="bln-stat">
+        <div class="bln-stat-lbl">발코니 총 수입 추정</div>
+        <div class="bln-stat-val">${totalEok.toFixed(1)}<span class="bln-stat-unit">억</span></div>
+      </div>
+      <div class="bln-stat">
+        <div class="bln-stat-lbl">국민평형(●) 발코니 수입</div>
+        <div class="bln-stat-val">${kookminEok.toFixed(1)}<span class="bln-stat-unit">억${kookminPct!=null?' ('+kookminPct+'%)':''}</span></div>
+      </div>
+    </div>
+    ${bal.developerView?`<p class="bln-note">${bal.developerView}</p>`:''}
+    ${bal.vatNote?`<p class="bln-note" style="margin-top:4px">※ ${bal.vatNote}</p>`:''}`;
+}
+
 function renderEntities(d){
   const roles=[
     {role:'시행사',  name:d._developer},
@@ -512,8 +627,8 @@ else{
     const d=normalize(raw);
     document.title=d.name+' — PF 심사 DB';
     renderHero(d);renderVerdict(d);renderLocGrid(d);
-    renderUnitTable(d);renderPL(d);renderOptions(d);
-    renderContract(d);renderEntities(d);
+    renderUnitTable(d);renderPL(d);renderBalcony(d);
+    renderOptions(d);renderContract(d);renderEntities(d);
     document.getElementById('main').style.display='';
   }).catch(e=>showErr(`데이터 로드 실패: ${e.message} (data/sites/${id}.json)`));
 }
