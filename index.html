@@ -28,22 +28,22 @@ header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.88);backdr
 .hd-meta{font-size:13px;color:var(--sub)}
 
 /* Hero */
-.hero{padding:88px 0 72px;text-align:center}
-.hero-eye{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:16px}
-.hero-title{font-size:clamp(34px,5vw,56px);font-weight:700;letter-spacing:-1.5px;line-height:1.1;margin-bottom:20px}
-.hero-sub{font-size:18px;color:var(--sub);max-width:520px;margin:0 auto;line-height:1.65}
+.hero{padding:52px 0 40px;text-align:center}
+.hero-eye{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+.hero-title{font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-1px;line-height:1.15;margin-bottom:12px}
+.hero-sub{font-size:15px;color:var(--sub);max-width:480px;margin:0 auto;line-height:1.6}
 
 /* KPI */
-.kpi-sec{background:var(--section);padding:56px 0}
+.kpi-sec{background:var(--section);padding:28px 0}
 .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--divider);border:1px solid var(--divider);border-radius:var(--rc);overflow:hidden}
 @media(max-width:768px){.kpi-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.kpi-grid{grid-template-columns:1fr}}
-.kpi-card{background:var(--bg);padding:36px 28px;transition:background .2s}
+.kpi-card{background:var(--bg);padding:20px 22px;transition:background .2s}
 .kpi-card:hover{background:#fafafa}
-.kpi-label{font-size:13px;font-weight:600;color:var(--sub);margin-bottom:10px}
-.kpi-val{font-size:clamp(36px,4vw,52px);font-weight:700;letter-spacing:-2px;line-height:1;color:var(--ink)}
+.kpi-label{font-size:12px;font-weight:600;color:var(--sub);margin-bottom:8px}
+.kpi-val{font-size:clamp(26px,3vw,36px);font-weight:700;letter-spacing:-1.5px;line-height:1;color:var(--ink)}
 .kpi-val.blue{color:var(--blue)}
-.kpi-unit{font-size:16px;font-weight:400;color:var(--sub);margin-left:3px;letter-spacing:0}
+.kpi-unit{font-size:13px;font-weight:400;color:var(--sub);margin-left:3px;letter-spacing:0}
 
 /* Chart */
 .chart-sec{padding:72px 0 56px}
@@ -151,6 +151,7 @@ footer{border-top:1px solid var(--divider);padding:40px 0;font-size:13px;color:v
     <div class="search-row">
       <input class="s-input" type="text" id="fSearch" placeholder="현장명 검색…" autocomplete="off">
       <select class="s-select" id="fSort">
+        <option value="notice-asc">공고일 순 (시계열)</option>
         <option value="pp-asc">평당가 낮은 순</option>
         <option value="pp-desc">평당가 높은 순</option>
         <option value="units-desc">세대수 많은 순</option>
@@ -207,11 +208,11 @@ function renderKPI(arr){
   document.getElementById('kK').innerHTML=`${fmt(ak)}<span class="kpi-unit">%</span>`;
 }
 
-/* ── Chart (지역 선택 시에만) ── */
+/* ── Chart (2개 이상 현장이면 표시) ── */
 function renderChart(arr){
   const sec=document.getElementById('chartSec');
-  // 전체 선택 시 차트 숨김
-  if(!activeSido || arr.length<2){sec.style.display='none';return;}
+  // 2개 미만이면 숨김
+  if(arr.length<2){sec.style.display='none';return;}
   sec.style.display='';
 
   const sorted=[...arr].sort((a,b)=>{
@@ -220,7 +221,7 @@ function renderChart(arr){
     return da.localeCompare(db);
   });
   document.getElementById('chartSub').textContent=
-    `공고일 순 · ${activeSido} · ${sorted.length}개 현장`;
+    `공고일 순 · ${activeSido||'전체'} · ${sorted.length}개 현장`;
 
   const labels=sorted.map(s=>s.name.length>8?s.name.slice(0,8)+'…':s.name);
   const vals=sorted.map(s=>s.avgPyeong);
@@ -349,13 +350,14 @@ function renderCards(arr){
 /* ── Sort ── */
 function getSorted(arr,sort){
   const m={
-    'pp-asc':(a,b)=>a.avgPyeong-b.avgPyeong,
-    'pp-desc':(a,b)=>b.avgPyeong-a.avgPyeong,
-    'units-desc':(a,b)=>b.units-a.units,
+    'notice-asc':  (a,b)=>(a.noticeDate||'').localeCompare(b.noticeDate||''),
+    'pp-asc':      (a,b)=>a.avgPyeong-b.avgPyeong,
+    'pp-desc':     (a,b)=>b.avgPyeong-a.avgPyeong,
+    'units-desc':  (a,b)=>b.units-a.units,
     'kookmin-desc':(a,b)=>b.kookmin84Ratio-a.kookmin84Ratio,
-    'movein-asc':(a,b)=>(a.moveIn||'').localeCompare(b.moveIn||''),
+    'movein-asc':  (a,b)=>(a.moveIn||'').localeCompare(b.moveIn||''),
   };
-  return [...arr].sort(m[sort]||m['pp-asc']);
+  return [...arr].sort(m[sort]||m['notice-asc']);
 }
 
 /* ── Main ── */
