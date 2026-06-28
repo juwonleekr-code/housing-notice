@@ -20,6 +20,7 @@
     "heating": "지역난방",
     "parking": 523,
     "seismic": "내진Ⅰ등급",
+    "schoolElem": null,
     "regulated": false,
     "resaleRestriction": true,
     "resaleRestrictionPeriod": "1년",
@@ -78,8 +79,9 @@
     "avgPyeongPrice": 1160,
     "totalRevenueEok": 1939,
     "method": "층별 세대수 가중평균 합산. 84B 6층 이상 일부 추정 포함.",
+    "note": "84B 6층 이상 24세대 분양가는 84A 대비 차이 패턴(-5,900,000) 적용 추정값 포함.",
     "kookmin84Ratio": 100.0,
-    "verdict": "공공택지 분양가상한제 적용. 비규제지역. 76A~84B 3개 타입, 전타입 85㎡ 이하. 평당 약 1,160만원, GDV 약 1,939억원. 전매제한 1년, 재당첨제한 10년, 거주의무 없음. 중도금 60% 이자후불제."
+    "verdict": "공공택지 분양가상한제 적용 비규제 비수도권 민영주택. 76A~84B 전타입 85㎡ 이하로 국민평형 비중 100%. 면적가중 평당가 약 1,160만원, GDV 약 1,939억원. 전매제한 1년·재당첨제한 10년·거주의무 없음. 계약금 10%(C등급), 중도금 60% 이자후불제. 시행·시공 동일법인(㈜케이알산업)."
   },
   "balcony": {
     "all": "유상",
@@ -87,18 +89,24 @@
       "76A": "6,220,000원",
       "84A": "7,090,000원",
       "84B": "6,500,000원"
-    }
+    },
+    "developerView": "전타입 유상 발코니. 평균 확장비 약 666만원 × 349세대 = 약 232억 추가 매출원(채택률 100% 가정)."
   },
   "loan": {
     "ratio": 60,
     "type": "이자후불제",
-    "detail": "중도금 총 분양가의 60% 이내, 이자후불제. 입주지정기간 개시일 전일까지 사업주체 대납. 중도금 6회(2026.07~2028.02).",
-    "drawdownLimit": "사업주체 알선 금융기관 이용 시 이자후불제 적용"
+    "detail": "중도금 총 분양가의 60% 이내, 이자후불제. 사업주체 알선 금융기관 이용 시 적용.",
+    "benefitManwon84A": null,
+    "benefitBasis": "입주지정기간 개시일 전일까지 이자 사업주체 대납. 금리·기간에 따라 상이.",
+    "drawdownLimit": "사업주체 알선 금융기관 이용 시 이자후불제 적용",
+    "developerView": "이자후불제 60% 중도금 → 수분양자 초기 부담 완화. 계약금 10% + 중도금 6회(2026.07~2028.02) 구조."
   },
   "downPayment": {
     "grade": "C",
     "structure": "계약금 10% (계약시), 중도금 60% (6회), 잔금 30% (입주지정일)",
-    "initialCashRatio": 10.0
+    "initialCashManwon": null,
+    "initialCashRatio": 10.0,
+    "gradeNote": "계약금 10% 정률제. 84A 7~20층 기준 약 5,895만원 계약시 납부."
   },
   "options": {
     "essentialManwon": 610,
@@ -106,17 +114,19 @@
     "fullManwon": 5200,
     "fullRatio": 9.9,
     "systemAircon76A": 610,
+    "estDeveloperOptionRevenueEok": null,
+    "developerView": "발코니 확장 미선택 시 유상옵션 범위 제한. 시스템에어컨(76A 기준 610~1,070만), 주방특화, 욕실스타일업 등 다양한 선택품목 제공.",
     "tiers": [
       {
         "tier": "사실상필수",
-        "desc": "시스템에어컨 기본 3대(76A 기준)",
-        "manwon": 610,
+        "desc": "시스템에어컨 기본 3대(거실+주방+침실1, 76A 기준)",
+        "manwon84A": 610,
         "ratio": 1.2
       },
       {
         "tier": "풀옵션",
-        "desc": "에어컨5대+발코니확장+주방특화+거실아트월+드레스룸+욕실스타일업+각종 선택품목",
-        "manwon": 5200,
+        "desc": "에어컨5대+발코니확장+주방특화+거실아트월+드레스룸+욕실스타일업+바닥특화+조명+각종 선택품목",
+        "manwon84A": 5200,
         "ratio": 9.9
       }
     ]
@@ -141,14 +151,20 @@
   },
   "parties": {
     "developer": "㈜케이알산업",
-    "trust": null,
+    "trust": "-",
     "constructor": "㈜케이알산업",
+    "trustNote": "신탁 없음. 분양대금 관리계좌: 새마을금고(주택도시보증공사 남부피에프 금융지사 명의). 시행·시공 동일법인.",
     "note": "시행·시공 동일법인(㈜케이알산업, 경기도 이천시)"
   },
   "guarantee": {
     "agency": "주택도시보증공사(HUG)",
     "amountEok": 1357,
     "certNo": "제07812026-101-0000300호"
+  },
+  "certifications": {
+    "energy": "건축물 에너지효율등급 예비인증",
+    "greenBuilding": "녹색건축 예비인증",
+    "seismic": "내진Ⅰ등급"
   },
   "specialSupply": {
     "institution": 34,
