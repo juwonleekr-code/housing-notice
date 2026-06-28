@@ -502,6 +502,52 @@
         "address": "경상남도 양산시 물금읍 가촌리 971번지 일원"
       },
       "avgPyeongPrice": 1582
+    },
+    {
+      "id": "baekseok-signature-xi-2",
+      "name": "백석시그니처자이 2단지",
+      "sido": "충청남도",
+      "sigungu": "천안시",
+      "district": "서북구",
+      "units": 320,
+      "moveIn": "2029-09",
+      "avgPyeong": 1700,
+      "kookmin84Ratio": 100.0,
+      "balcony": "전타입 유상",
+      "loanType": "이자후불제",
+      "loanRatio": 60,
+      "downPaymentGrade": null,
+      "essentialOptionRatio": null,
+      "fullOptionRatio": null,
+      "developer": "주식회사 중앙홀딩스",
+      "trust": "㈜하나자산신탁",
+      "constructor": "지에스건설㈜",
+      "regulated": false,
+      "resaleRestriction": false,
+      "totalRevenueEok": 1842.24
+    },
+    {
+      "id": "baekseok-signature-xi-1",
+      "name": "백석시그니처자이 1단지",
+      "sido": "충청남도",
+      "sigungu": "천안시",
+      "district": "서북구",
+      "units": 854,
+      "moveIn": "2029-09",
+      "avgPyeong": 1700,
+      "kookmin84Ratio": 90.4,
+      "balcony": "전타입 유상",
+      "loanType": "이자후불제",
+      "loanRatio": 60,
+      "downPaymentGrade": null,
+      "essentialOptionRatio": null,
+      "fullOptionRatio": null,
+      "developer": "주식회사 중앙홀딩스",
+      "trust": "㈜하나자산신탁",
+      "constructor": "지에스건설㈜",
+      "regulated": false,
+      "resaleRestriction": false,
+      "totalRevenueEok": 4694
     }
   ]
 }
