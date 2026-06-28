@@ -582,19 +582,26 @@
       "units": null,
       "moveIn": "2029-12",
       "avgPyeong": 1896,
-      "kookmin84Ratio": 100.0,
-      "balcony": null,
+      "kookmin84Ratio": 100,
       "loanType": null,
       "loanRatio": null,
       "downPaymentGrade": null,
-      "essentialOptionRatio": null,
-      "fullOptionRatio": null,
       "developer": "인천검단스카이파크컨소시엄㈜",
       "trust": "한국자산신탁㈜",
       "constructor": "㈜포스코이앤씨",
       "regulated": false,
       "resaleRestriction": false,
-      "totalRevenueEok": 8113.9
+      "totalRevenueEok": 8113.9,
+      "downPaymentRatio": 10,
+      "downPaymentStructure": null,
+      "noticeDate": "2026-06-12",
+      "brand": "더샵",
+      "location": {
+        "sido": "인천광역시",
+        "sigungu": "서구",
+        "address": "인천광역시 서구 불로동 696번지 일원"
+      },
+      "avgPyeongPrice": 1896
     },
     {
       "id": "theshap-geomdan-lakepark-ab23bl",
@@ -605,19 +612,26 @@
       "units": null,
       "moveIn": "2029-12",
       "avgPyeong": 1911,
-      "kookmin84Ratio": 100.0,
-      "balcony": null,
+      "kookmin84Ratio": 100,
       "loanType": null,
       "loanRatio": null,
       "downPaymentGrade": null,
-      "essentialOptionRatio": null,
-      "fullOptionRatio": null,
       "developer": "인천검단스카이파크컨소시엄㈜",
       "trust": "한국자산신탁㈜",
       "constructor": "㈜포스코이앤씨",
       "regulated": false,
       "resaleRestriction": false,
-      "totalRevenueEok": 7888.7
+      "totalRevenueEok": 7888.7,
+      "downPaymentRatio": 10,
+      "downPaymentStructure": null,
+      "noticeDate": "2026-06-12",
+      "brand": "더샵",
+      "location": {
+        "sido": "인천광역시",
+        "sigungu": "서구",
+        "address": "인천광역시 서구 마전동 산175-7번지 일원"
+      },
+      "avgPyeongPrice": 1911
     }
   ]
 }
