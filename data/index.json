@@ -583,8 +583,8 @@
       "moveIn": "2029-12",
       "avgPyeong": 1896,
       "kookmin84Ratio": 100,
-      "loanType": null,
-      "loanRatio": null,
+      "loanType": "이자후불제",
+      "loanRatio": 60,
       "downPaymentGrade": null,
       "developer": "인천검단스카이파크컨소시엄㈜",
       "trust": "한국자산신탁㈜",
@@ -601,7 +601,11 @@
         "sigungu": "서구",
         "address": "인천광역시 서구 불로동 696번지 일원"
       },
-      "avgPyeongPrice": 1896
+      "avgPyeongPrice": 1896,
+      "balconyType": "유상",
+      "balconyPrice84": 546,
+      "balconyByType": true,
+      "balconyNote": "타입별"
     },
     {
       "id": "theshap-geomdan-lakepark-ab23bl",
@@ -613,8 +617,8 @@
       "moveIn": "2029-12",
       "avgPyeong": 1911,
       "kookmin84Ratio": 100,
-      "loanType": null,
-      "loanRatio": null,
+      "loanType": "이자후불제",
+      "loanRatio": 60,
       "downPaymentGrade": null,
       "developer": "인천검단스카이파크컨소시엄㈜",
       "trust": "한국자산신탁㈜",
@@ -631,7 +635,11 @@
         "sigungu": "서구",
         "address": "인천광역시 서구 마전동 산175-7번지 일원"
       },
-      "avgPyeongPrice": 1911
+      "avgPyeongPrice": 1911,
+      "balconyType": "유상",
+      "balconyPrice84": 546,
+      "balconyByType": true,
+      "balconyNote": "타입별"
     },
     {
       "id": "sinjeju-dongmun-dieast-signature-1",
@@ -643,8 +651,8 @@
       "moveIn": "2027-03",
       "avgPyeong": 3357,
       "kookmin84Ratio": 76.92,
-      "loanType": null,
-      "loanRatio": null,
+      "loanType": "이자후불제",
+      "loanRatio": 60,
       "downPaymentGrade": null,
       "developer": "주식회사 비앤비도시개발",
       "trust": "코리아신탁 주식회사",
@@ -661,7 +669,11 @@
         "sigungu": "제주시",
         "address": "제주특별자치도 제주시 연동 274-12번지외 4필지"
       },
-      "avgPyeongPrice": 3357
+      "avgPyeongPrice": 3357,
+      "balconyType": "유상",
+      "balconyPrice84": 7260,
+      "balconyByType": true,
+      "balconyNote": "타입별"
     },
     {
       "id": "sinjeju-dongmun-dieast-signature-2",
@@ -673,8 +685,8 @@
       "moveIn": "2027-06",
       "avgPyeong": 3376,
       "kookmin84Ratio": 71.94,
-      "loanType": null,
-      "loanRatio": null,
+      "loanType": "이자후불제",
+      "loanRatio": 60,
       "downPaymentGrade": null,
       "developer": "주식회사 비앤비개발산업",
       "trust": "코리아신탁 주식회사",
@@ -691,7 +703,11 @@
         "sigungu": "제주시",
         "address": "제주특별자치도 제주시 연동 274-25번지외 5필지"
       },
-      "avgPyeongPrice": 3376
+      "avgPyeongPrice": 3376,
+      "balconyType": "유상",
+      "balconyPrice84": 7249,
+      "balconyByType": true,
+      "balconyNote": "타입별"
     }
   ]
 }
