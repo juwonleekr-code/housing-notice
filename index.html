@@ -213,13 +213,23 @@ function paymentBlock(s){
   let dpNote = '';
   const st = s.downPaymentStructure || '';
   if(st){
-    const m = st.match(/1차[^,]*?(\d[\d,]+)만/);
-    if(m) dpNote = `1차 ${m[1]}만 정액`;
-    else if(st.includes('분할')) dpNote = '분할납부';
+    const m1 = st.match(/1차[^,)]*?(\d[\d,]+)만/);
+    const m2 = st.match(/계약시[^,)]*?(\d[\d,]+)원/);
+    if(m1)      dpNote = `1차 ${m1[1]}만 정액`;
+    else if(m2) dpNote = `계약시 ${fmt(Math.round(Number(m2[1].replace(/,/g,''))/10000))}만`;
+    else if(st.match(/1차[^,)]*?(\d+)%.*2차[^,)]*?(\d+)%/)) {
+      const [,a,b]=st.match(/1차[^,)]*?(\d+)%.*?2차[^,)]*?(\d+)%/)||[];
+      if(a&&b) dpNote=`${a}%+${b}% 분할`;
+    }
+    else if(st.includes('분할') || st.includes('잔여')) dpNote = '분할납부';
   }
 
-  const loanCls   = s.loanType==='무이자' ? 'pf-free' : s.loanType ? 'pf-paid' : '';
-  const loanLabel = s.loanType || '';
+  // loanType 정규화 (raw값이 "중도금무이자", "유이자(이자후불제)" 등 혼재)
+  const rawType = s.loanType || '';
+  const loanLabel = rawType.includes('무이자') ? '무이자'
+    : (rawType.includes('이자후불') || rawType.includes('유이자')) ? '이자후불제'
+    : rawType;
+  const loanCls = loanLabel==='무이자' ? 'pf-free' : loanLabel ? 'pf-paid' : '';
 
   return `<div class="pf-block">
     <span class="pf-lbl">계약금</span><span class="pf-pct">${dp}%</span><span class="pf-desc">${dpNote}</span>
