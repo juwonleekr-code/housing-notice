@@ -1,0 +1,138 @@
+{
+  "id": "elif-changwon",
+  "name": "엘리프 창원",
+  "approvalNo": "창원시청 주택정책과-12815호(2026.04.09.)",
+  "noticeDate": "2026-04-10",
+  "correctionDate": "2026-04-16",
+  "location": "경상남도 창원시 의창구 창원명곡 공공주택지구 B-1BL",
+  "showroom": "경상남도 창원시 의창구 사림동 168-1",
+  "phone": "055-606-1177",
+  "developer": "㈜케이알산업",
+  "constructor": "㈜케이알산업",
+  "guarantee": "주택도시보증공사(HUG)",
+  "guaranteeNo": "제07812026-101-0000300호",
+  "guaranteeAmount": 135735600000,
+  "building": {
+    "floors": "지하 2층, 지상 15~25층",
+    "units": 349,
+    "buildings": 4,
+    "parking": 523
+  },
+  "moveIn": "2028-07",
+  "heating": "지역난방",
+  "landType": "공공택지",
+  "priceControl": true,
+  "regulated": false,
+  "resaleRestriction": "1년",
+  "reWinRestriction": "10년",
+  "obligationResidence": false,
+  "unitMix": [
+    {
+      "type": "76A",
+      "exclusive": 76.2548,
+      "supply": 149.8714,
+      "pyeong": 45.34,
+      "units": 174,
+      "special": 112,
+      "general": 62,
+      "prices": {
+        "floor1": 498800000,
+        "floor2": 504100000,
+        "floor3": 509400000,
+        "floor4": 514700000,
+        "floor5": 520000000,
+        "floor6": 525300000,
+        "floor7to20": 530700000,
+        "floor21to25": 536000000
+      },
+      "avgPrice": 526531000,
+      "avgPyeongPriceMan": 1161,
+      "balcony": 6220000
+    },
+    {
+      "type": "84A",
+      "exclusive": 84.9621,
+      "supply": 166.6619,
+      "pyeong": 50.41,
+      "units": 136,
+      "special": 87,
+      "general": 49,
+      "prices": {
+        "floor1": 554100000,
+        "floor2": 560000000,
+        "floor3": 565900000,
+        "floor4": 571800000,
+        "floor5": 577700000,
+        "floor6": 583600000,
+        "floor7to20": 589500000,
+        "floor21to25": 595400000
+      },
+      "avgPrice": 586160000,
+      "avgPyeongPriceMan": 1163,
+      "balcony": 7090000
+    },
+    {
+      "type": "84B",
+      "exclusive": 84.8884,
+      "supply": 166.6056,
+      "pyeong": 50.40,
+      "units": 39,
+      "special": 25,
+      "general": 14,
+      "prices": {
+        "floor1": 544600000,
+        "floor2": 554100000,
+        "floor3": 560000000,
+        "floor4": 565900000,
+        "floor5": 571800000,
+        "floor6": 577700000,
+        "floor7to20": 583600000,
+        "floor21to25": 589500000
+      },
+      "avgPrice": 579121000,
+      "avgPyeongPriceMan": 1149,
+      "balcony": 6500000
+    }
+  ],
+  "specialSupply": {
+    "institution": 34,
+    "multiChild": 34,
+    "newlywed": 80,
+    "elderParent": 10,
+    "firstHome": 66,
+    "total": 224
+  },
+  "generalSupply": 125,
+  "payment": {
+    "contract": "10%",
+    "interim": "60% (6회)",
+    "balance": "30%",
+    "interimLoan": "이자후불제",
+    "interimSchedule": {
+      "1회": "2026-07-15",
+      "2회": "2026-11-15",
+      "3회": "2027-03-15",
+      "4회": "2027-07-15",
+      "5회": "2027-11-15",
+      "6회": "2028-02-15"
+    }
+  },
+  "schedule": {
+    "special": "2026-04-20",
+    "general1": "2026-04-21",
+    "general2": "2026-04-22",
+    "winnerAnnounce": "2026-04-29",
+    "docSubmit": "2026-04-30 ~ 2026-05-03",
+    "contract": "2026-05-11 ~ 2026-05-13"
+  },
+  "totalRevenueEok": 1939,
+  "avgPyeongPriceMan": 1160,
+  "kookmin85Ratio": 100,
+  "supervisors": {
+    "architecture": "㈜중원종합건축사사무소",
+    "electrical": "㈜갑인엔지니어링",
+    "fire": "㈜선한이엔지",
+    "ict": "㈜한빛안전기술단"
+  },
+  "remarks": "정정공고(2026.04.16.) - 협의양도인 1세대 특별공급 포함. 시행·시공 동일법인(㈜케이알산업). 84B 6층 이상 가격은 패턴 추정값."
+}
