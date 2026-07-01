@@ -1,0 +1,128 @@
+{
+  "id": "hillstate-siheung-the-class",
+  "name": "힐스테이트 시흥더클래스",
+  "brand": "힐스테이트",
+  "approvalNo": "2026000138",
+  "noticeDate": "2026-05-15",
+  "regulated": false,
+  "priceCap": false,
+  "landType": "민간택지",
+  "transferRestriction": true,
+  "reselectionRestriction": false,
+  "residencyObligation": false,
+  "location": {
+    "sido": "경기도",
+    "sigungu": "시흥시",
+    "dong": "대야동",
+    "address": "경기도 시흥시 대야동 140-5번지 일원"
+  },
+  "building": {
+    "scale": "지하2층~지상27층 5개동 430세대",
+    "buildings": 5,
+    "units": 430,
+    "moveIn": "2029-03"
+  },
+  "unitMix": [
+    {
+      "type": "74A",
+      "exclusiveM2": 74.6595,
+      "supplyM2": 99.3357,
+      "units": 24,
+      "special": 14,
+      "general": 10,
+      "avgPrice": 77020,
+      "pyeongPrice": 2563
+    },
+    {
+      "type": "84A",
+      "exclusiveM2": 84.7599,
+      "supplyM2": 109.3976,
+      "units": 377,
+      "special": 205,
+      "general": 172,
+      "avgPrice": 87292,
+      "pyeongPrice": 2637
+    },
+    {
+      "type": "84B",
+      "exclusiveM2": 84.9615,
+      "supplyM2": 110.5592,
+      "units": 29,
+      "special": 17,
+      "general": 12,
+      "avgPrice": 86262,
+      "pyeongPrice": 2580
+    }
+  ],
+  "pricing": {
+    "avgPyeongPrice": 2630,
+    "totalRevenueEok": 3725.93,
+    "kookmin84Ratio": 100.0
+  },
+  "downPayment": {
+    "ratio": 5,
+    "structure": "5% 분할 (1차 정액 1,000만원·계약시, 2차 잔여·30일 이내)",
+    "loanType": "이자후불제",
+    "loanRatio": 60
+  },
+  "loan": {
+    "dates": [
+      "2026-12-10",
+      "2027-04-12",
+      "2027-08-10",
+      "2028-02-10",
+      "2028-06-12",
+      "2028-10-10"
+    ]
+  },
+  "remainder": {
+    "ratio": 35
+  },
+  "balcony": {
+    "74A": 2590,
+    "84A": 2760,
+    "84B": 2760
+  },
+  "guarantee": {
+    "certNo": "제01282026-101-0004600호",
+    "amountEok": 2421.86
+  },
+  "parties": {
+    "developer": "주식회사 베가",
+    "trust": "신한자산신탁 주식회사",
+    "constructor": "현대엔지니어링 주식회사"
+  },
+  "schedule": {
+    "special": "2026-05-27",
+    "general1": "2026-05-28",
+    "general2": "2026-05-29",
+    "winnerAnnounce": "2026-06-08",
+    "docSubmit": "2026-06-12",
+    "contract": "2026-06-22"
+  },
+  "floorPricing": {
+    "74A": [
+      {"floors": "2층", "units": 1, "price": 73110},
+      {"floors": "3층", "units": 1, "price": 74690},
+      {"floors": "4층", "units": 1, "price": 76270},
+      {"floors": "5~9층", "units": 5, "price": 76980},
+      {"floors": "10층 이상", "units": 16, "price": 77470}
+    ],
+    "84A": [
+      {"floors": "1층", "units": 3, "price": 81300},
+      {"floors": "2층", "units": 16, "price": 83040},
+      {"floors": "3층", "units": 16, "price": 84780},
+      {"floors": "4층", "units": 16, "price": 86520},
+      {"floors": "5~9층", "units": 80, "price": 87310},
+      {"floors": "10층 이상", "units": 246, "price": 87850}
+    ],
+    "84B": [
+      {"floors": "1층", "units": 2, "price": 80930},
+      {"floors": "2층", "units": 2, "price": 82690},
+      {"floors": "3층", "units": 2, "price": 84450},
+      {"floors": "4층", "units": 2, "price": 86210},
+      {"floors": "5~9층", "units": 10, "price": 87000},
+      {"floors": "10층 이상", "units": 11, "price": 87550}
+    ]
+  }
+}
