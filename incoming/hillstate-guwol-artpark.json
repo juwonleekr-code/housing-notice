@@ -1,0 +1,295 @@
+{
+  "id": "hillstate-guwol-artpark",
+  "name": "힐스테이트 구월아트파크",
+  "brand": "힐스테이트",
+  "approvalNo": "2026000147",
+  "noticeDate": "2026-05-06",
+  "regulated": false,
+  "priceCap": false,
+  "landType": "민간택지",
+  "transferRestriction": true,
+  "reselectionRestriction": false,
+  "residencyObligation": false,
+  "location": {
+    "sido": "인천광역시",
+    "sigungu": "남동구",
+    "dong": "구월동",
+    "address": "인천광역시 남동구 구월동 1455번지"
+  },
+  "building": {
+    "scale": "지하6층~지상최고39층 4개동 496세대",
+    "buildings": 4,
+    "units": 496,
+    "moveIn": "2030-10"
+  },
+  "unitMix": [
+    {
+      "type": "84A",
+      "exclusiveM2": 84.9907,
+      "supplyM2": 120.5018,
+      "units": 248,
+      "special": 136,
+      "general": 112,
+      "avgPrice": 84577,
+      "pyeong": 36.45,
+      "pyeongPrice": 2321
+    },
+    {
+      "type": "84B",
+      "exclusiveM2": 84.9971,
+      "supplyM2": 120.7436,
+      "units": 124,
+      "special": 67,
+      "general": 57,
+      "avgPrice": 86519,
+      "pyeong": 36.52,
+      "pyeongPrice": 2369
+    },
+    {
+      "type": "101",
+      "exclusiveM2": 101.9965,
+      "supplyM2": 143.6164,
+      "units": 124,
+      "special": 14,
+      "general": 110,
+      "avgPrice": 107990,
+      "pyeong": 43.44,
+      "pyeongPrice": 2487,
+      "vat": true
+    }
+  ],
+  "pricing": {
+    "avgPyeongPrice": 2379,
+    "totalRevenueEok": 4509.4,
+    "kookmin84Ratio": 70.3
+  },
+  "downPayment": {
+    "ratio": 5,
+    "structure": "5% 분할 (1차 정액 1,000만원·계약시, 2차 잔여·30일 이내)",
+    "loanType": "이자후불제",
+    "loanRatio": 60
+  },
+  "loan": {
+    "dates": [
+      "2027-02-26",
+      "2027-10-28",
+      "2028-06-28",
+      "2029-02-28",
+      "2029-10-29",
+      "2030-04-29"
+    ]
+  },
+  "remainder": {
+    "ratio": 35
+  },
+  "balcony": {
+    "84A": 2000,
+    "84B": 2000,
+    "101": 2200
+  },
+  "guarantee": {
+    "certNo": "제01292026-101-0002000호",
+    "amountEok": 2931.11
+  },
+  "parties": {
+    "developer": "예술회관역복합개발프로젝트 주식회사",
+    "trust": "주식회사 하나자산신탁",
+    "constructor": "현대엔지니어링 주식회사"
+  },
+  "schedule": {
+    "special": "2026-05-18",
+    "general1": "2026-05-19",
+    "general2": "2026-05-20",
+    "winnerAnnounce": "2026-05-28",
+    "docSubmit": "2026-05-29",
+    "contract": "2026-06-09"
+  },
+  "floorPricing": {
+    "84A": [
+      {
+        "floors": "5층",
+        "units": 8,
+        "price": 75900
+      },
+      {
+        "floors": "6층",
+        "units": 8,
+        "price": 76725
+      },
+      {
+        "floors": "7층",
+        "units": 8,
+        "price": 78400
+      },
+      {
+        "floors": "8층",
+        "units": 8,
+        "price": 80075
+      },
+      {
+        "floors": "9층",
+        "units": 8,
+        "price": 81700
+      },
+      {
+        "floors": "10-12층",
+        "units": 24,
+        "price": 83375
+      },
+      {
+        "floors": "13-15층",
+        "units": 24,
+        "price": 84200
+      },
+      {
+        "floors": "16-21층",
+        "units": 40,
+        "price": 85075
+      },
+      {
+        "floors": "22-27층",
+        "units": 48,
+        "price": 85875
+      },
+      {
+        "floors": "28-33층",
+        "units": 48,
+        "price": 86750
+      },
+      {
+        "floors": "34-36층",
+        "units": 12,
+        "price": 88000
+      },
+      {
+        "floors": "37-39층",
+        "units": 12,
+        "price": 88800
+      }
+    ],
+    "84B": [
+      {
+        "floors": "5층",
+        "units": 4,
+        "price": 77600
+      },
+      {
+        "floors": "6층",
+        "units": 4,
+        "price": 78450
+      },
+      {
+        "floors": "7층",
+        "units": 4,
+        "price": 80150
+      },
+      {
+        "floors": "8층",
+        "units": 4,
+        "price": 81850
+      },
+      {
+        "floors": "9층",
+        "units": 4,
+        "price": 83550
+      },
+      {
+        "floors": "10-12층",
+        "units": 12,
+        "price": 85250
+      },
+      {
+        "floors": "13-15층",
+        "units": 12,
+        "price": 86150
+      },
+      {
+        "floors": "16-21층",
+        "units": 20,
+        "price": 86950
+      },
+      {
+        "floors": "22-27층",
+        "units": 24,
+        "price": 87800
+      },
+      {
+        "floors": "28-33층",
+        "units": 24,
+        "price": 88700
+      },
+      {
+        "floors": "34-36층",
+        "units": 6,
+        "price": 90400
+      },
+      {
+        "floors": "37-39층",
+        "units": 6,
+        "price": 91300
+      }
+    ],
+    "101": [
+      {
+        "floors": "5층",
+        "units": 4,
+        "price": 96900
+      },
+      {
+        "floors": "6층",
+        "units": 4,
+        "price": 98000
+      },
+      {
+        "floors": "7층",
+        "units": 4,
+        "price": 100100
+      },
+      {
+        "floors": "8층",
+        "units": 4,
+        "price": 102300
+      },
+      {
+        "floors": "9층",
+        "units": 4,
+        "price": 104400
+      },
+      {
+        "floors": "10-12층",
+        "units": 12,
+        "price": 106500
+      },
+      {
+        "floors": "13-15층",
+        "units": 12,
+        "price": 107600
+      },
+      {
+        "floors": "16-21층",
+        "units": 20,
+        "price": 108700
+      },
+      {
+        "floors": "22-27층",
+        "units": 24,
+        "price": 109700
+      },
+      {
+        "floors": "28-33층",
+        "units": 24,
+        "price": 110800
+      },
+      {
+        "floors": "34-36층",
+        "units": 6,
+        "price": 111900
+      },
+      {
+        "floors": "37-39층",
+        "units": 6,
+        "price": 112900
+      }
+    ]
+  }
+}
