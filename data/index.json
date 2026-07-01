@@ -742,6 +742,29 @@
         "dong": "대야동",
         "address": "경기도 시흥시 대야동 140-5번지 일원"
       }
+    },
+    {
+      "id": "hillstate-guwol-artpark",
+      "name": "힐스테이트 구월아트파크",
+      "sido": "인천광역시",
+      "sigungu": "남동구",
+      "district": null,
+      "units": null,
+      "moveIn": "2030-10",
+      "avgPyeong": 2379,
+      "kookmin84Ratio": 70.3,
+      "balcony": null,
+      "loanType": null,
+      "loanRatio": null,
+      "downPaymentGrade": null,
+      "essentialOptionRatio": null,
+      "fullOptionRatio": null,
+      "developer": "예술회관역복합개발프로젝트 주식회사",
+      "trust": "주식회사 하나자산신탁",
+      "constructor": "현대엔지니어링 주식회사",
+      "regulated": false,
+      "resaleRestriction": false,
+      "totalRevenueEok": 4509.4
     }
   ]
 }
