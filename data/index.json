@@ -783,22 +783,33 @@
       "sido": "경기도",
       "sigungu": "오산시",
       "district": null,
-      "units": null,
+      "units": 1069,
       "moveIn": "2029-09",
       "avgPyeong": 2331,
       "kookmin84Ratio": 86.4,
-      "balcony": null,
-      "loanType": null,
-      "loanRatio": null,
+      "loanType": "이자후불제",
+      "loanRatio": 60,
       "downPaymentGrade": null,
-      "essentialOptionRatio": null,
-      "fullOptionRatio": null,
       "developer": "주식회사 양산사지구에스피씨",
       "trust": "주식회사 하나자산신탁",
       "constructor": "지에스건설㈜",
       "regulated": false,
       "resaleRestriction": false,
-      "totalRevenueEok": 8616.7
+      "totalRevenueEok": 8616.7,
+      "balconyType": "유상",
+      "balconyPrice84": 1990,
+      "balconyByType": true,
+      "balconyNote": "타입별",
+      "downPaymentRatio": 10,
+      "downPaymentStructure": "10% 분할 (1차 정액 1,000만원·계약시, 2차 잔여·30일 이내)",
+      "noticeDate": "2026-07-10",
+      "brand": "자이",
+      "location": {
+        "sido": "경기도",
+        "sigungu": "오산시",
+        "dong": "양산동",
+        "address": "경기도 오산시 양산동 223번지 일원"
+      }
     }
   ]
 }
