@@ -1,0 +1,136 @@
+{
+  "id": "osan-heritage-xi-1",
+  "name": "오산헤리티지자이 1단지",
+  "brand": "자이",
+  "approvalNo": "2026000315",
+  "noticeDate": "2026-07-10",
+  "regulated": false,
+  "priceCap": false,
+  "landType": "민간택지",
+  "transferRestriction": true,
+  "reselectionRestriction": false,
+  "residencyObligation": false,
+  "location": {
+    "sido": "경기도",
+    "sigungu": "오산시",
+    "dong": "양산동",
+    "address": "경기도 오산시 양산동 223번지 일원"
+  },
+  "building": {
+    "scale": "지하2층~지상 11~27층 13개동 1,069세대",
+    "buildings": 13,
+    "units": 1069,
+    "moveIn": "2029-09"
+  },
+  "unitMix": [
+    {"type":"75","exclusiveM2":75.4736,"supplyM2":99.1264,"units":44,"special":23,"general":21,"avgPrice":72787,"pyeong":29.99,"pyeongPrice":2427},
+    {"type":"84A","exclusiveM2":84.9796,"supplyM2":110.8249,"units":270,"special":148,"general":122,"avgPrice":77717,"pyeong":33.52,"pyeongPrice":2318},
+    {"type":"84B","exclusiveM2":84.9665,"supplyM2":111.4029,"units":260,"special":143,"general":117,"avgPrice":78222,"pyeong":33.7,"pyeongPrice":2321},
+    {"type":"84C","exclusiveM2":84.8237,"supplyM2":110.4619,"units":262,"special":143,"general":119,"avgPrice":78781,"pyeong":33.41,"pyeongPrice":2358},
+    {"type":"84D","exclusiveM2":84.9708,"supplyM2":110.7265,"units":88,"special":48,"general":40,"avgPrice":78695,"pyeong":33.49,"pyeongPrice":2349},
+    {"type":"102","exclusiveM2":102.6201,"supplyM2":130.3482,"units":97,"special":12,"general":85,"avgPrice":89777,"pyeong":39.43,"pyeongPrice":2277,"vat":true},
+    {"type":"124","exclusiveM2":124.8692,"supplyM2":155.872,"units":45,"special":5,"general":40,"avgPrice":105456,"pyeong":47.15,"pyeongPrice":2237,"vat":true},
+    {"type":"166P","exclusiveM2":166.2309,"supplyM2":210.1771,"units":3,"special":0,"general":3,"avgPrice":207730,"pyeong":63.58,"pyeongPrice":3267,"vat":true}
+  ],
+  "pricing": {
+    "avgPyeongPrice": 2331,
+    "totalRevenueEok": 8616.7,
+    "kookmin84Ratio": 86.4
+  },
+  "downPayment": {
+    "ratio": 10,
+    "structure": "10% 분할 (1차 정액 1,000만원·계약시, 2차 잔여·30일 이내)",
+    "loanType": "이자후불제",
+    "loanRatio": 60
+  },
+  "loan": {
+    "dates": ["2027-03-10","2027-08-10","2028-02-10","2028-09-11","2029-01-10","2029-05-10"]
+  },
+  "remainder": {"ratio": 30},
+  "balcony": {
+    "75": 1770,
+    "84A": 1990,
+    "84B": 2040,
+    "84C": 2500,
+    "84D": 2470,
+    "102": 2690,
+    "124": 3100,
+    "166P": 4090
+  },
+  "guarantee": {
+    "certNo": "제01292026-101-0003600호",
+    "amountEok": 6031.7
+  },
+  "parties": {
+    "developer": "주식회사 양산사지구에스피씨",
+    "trust": "주식회사 하나자산신탁",
+    "constructor": "지에스건설㈜"
+  },
+  "schedule": {
+    "special": "2026-07-20",
+    "general1": "2026-07-21",
+    "general2": "2026-07-22",
+    "winnerAnnounce": "2026-07-28",
+    "docSubmit": "2026-07-31",
+    "contract": "2026-08-10"
+  },
+  "floorPricing": {
+    "75": [
+      {"floors":"1층","units":1,"price":66980},
+      {"floors":"2층","units":1,"price":69080},
+      {"floors":"3층","units":2,"price":70580},
+      {"floors":"4층","units":2,"price":71980},
+      {"floors":"5~9층","units":10,"price":72680},
+      {"floors":"10층이상","units":28,"price":73380}
+    ],
+    "84A": [
+      {"floors":"1층","units":1,"price":71200},
+      {"floors":"2층","units":10,"price":73600},
+      {"floors":"3층","units":12,"price":75200},
+      {"floors":"4층","units":12,"price":76800},
+      {"floors":"5~9층","units":60,"price":77500},
+      {"floors":"10층이상","units":175,"price":78300}
+    ],
+    "84B": [
+      {"floors":"1층","units":3,"price":71800},
+      {"floors":"2층","units":11,"price":74200},
+      {"floors":"3층","units":12,"price":75800},
+      {"floors":"4층","units":12,"price":77400},
+      {"floors":"5~9층","units":60,"price":78100},
+      {"floors":"10층이상","units":162,"price":78900}
+    ],
+    "84C": [
+      {"floors":"1층","units":3,"price":72300},
+      {"floors":"2층","units":8,"price":74700},
+      {"floors":"3층","units":12,"price":76300},
+      {"floors":"4층","units":12,"price":77900},
+      {"floors":"5~9층","units":60,"price":78600},
+      {"floors":"10층이상","units":167,"price":79400}
+    ],
+    "84D": [
+      {"floors":"2층","units":4,"price":74600},
+      {"floors":"3층","units":4,"price":76200},
+      {"floors":"4층","units":4,"price":77800},
+      {"floors":"5~9층","units":20,"price":78500},
+      {"floors":"10층이상","units":56,"price":79300}
+    ],
+    "102": [
+      {"floors":"1층","units":1,"price":82210},
+      {"floors":"2층","units":5,"price":85010},
+      {"floors":"3층","units":5,"price":86910},
+      {"floors":"4층","units":5,"price":88810},
+      {"floors":"5~9층","units":25,"price":89710},
+      {"floors":"10층이상","units":56,"price":90710}
+    ],
+    "124": [
+      {"floors":"2층","units":2,"price":99600},
+      {"floors":"3층","units":2,"price":101800},
+      {"floors":"4층","units":2,"price":104000},
+      {"floors":"5~9층","units":10,"price":105200},
+      {"floors":"10층이상","units":29,"price":106300}
+    ],
+    "166P": [
+      {"floors":"15·17·18층","units":3,"price":207730}
+    ]
+  }
+}
